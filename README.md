@@ -2,6 +2,9 @@ Welcome, fellow members of the Turtle Pond.
 
 This repo is going to hold all my spreadsheets (santized) for the financials around the VMW->AVGO acquisition.
 
+By insistent recommendation of colleagues/friends, I am going to see if I can enable Sponsor for the repo. Don't feel obligated in any way to do so though - my goal is to provide as much support as possible for everyone else with the same set of concerns... and to get peer reviewed in turn to improve _my_ filing correctness!
+For testing I'm going to sponsor myself $38 - an ironic echo of what we've paid eTrade with the expectation of correct data out of the other side.
+
 # Contents
 
 The spreadsheet is exported from Google Sheets. I've tried opening it in Excel but it's not happy. If there are easy tweaks to make it comptiable that'll be my first change. Until then, import into Google Docs.
@@ -15,6 +18,7 @@ The spreadsheet is exported from Google Sheets. I've tried opening it in Excel b
 I'm opening issues to track questions and feature requests. Feel free to do the same.
 
 If it's also applicable to me, I'll get to them (no latency guarantees).  If not it'll be best effort.
+
 
 # References
 
