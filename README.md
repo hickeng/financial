@@ -1,6 +1,6 @@
 Welcome, fellow members of the Turtle Pond.
 
-This rep is going to hold all my spreadsheets (santized) for the financials around the VMW->AVGO acquisition.
+This repo is going to hold all my spreadsheets (santized) for the financials around the VMW->AVGO acquisition.
 
 I'm also planning on using the README.md to collate links to the various references I've used that informed the contents so people can double check, cross-reference, check citations,provide counter-examples, etc.... aka community.
 
