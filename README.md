@@ -24,7 +24,7 @@ If it's also applicable to me, I'll get to them (no latency guarantees).  If not
 
 
 ## Form 8937
-These forms detail tax handling for an event. This includes qualified/unqualified amounts, how to adjust cost-bases, how to calculate gain that must be realized, etc. These are pulled from the [Broadcom Invester Relations](https://investors.broadcom.com/financial-information/tax-information) site.
+These forms detail tax handling for an event. This includes qualified/unqualified amounts from dividends, how to adjust cost-basis, how to calculate gain that must be realized, etc. These are pulled from the [Broadcom Invester Relations](https://investors.broadcom.com/financial-information/tax-information) site.
 
 The acquisition form mostly uses non-imperative language, which leaves a lot of optionality for other treatments. My personal plan is to use the "generally ..." guidence absent a strong endorsement from a CPA for a different treatment being valid.
 
@@ -44,11 +44,7 @@ Links to the relevant Form 8937's:
 
 Per my reading, this explicitly states that we have the option to chose _not_ to use a pro-rata approach to calculating the cash/stock split. I've an [issue](https://github.com/hickeng/financial/issues/13) to collect data on _when_ we're allowed to make this choice.
 
-The first quote is referencing the FMV of a VMW share at the time of acquisition. This should be fixed at $192.48 (?) based on knowledge at time of execution. I've an [issue](https://github.com/hickeng/financial/issues/14) to follow up on this:
-* ratio of share/cash election
-* VMW price ($142.50 from Merger agreement)
-* AVGO FMV as of execution (2023-11-22 - [but when: after close? during trading?](https://github.com/hickeng/financial/issues/11))
-
+The first quote is referencing the FMV of a VMW share at the time of acquisition. This should be fixed at $192.48 (?) based on knowledge at time of execution. I've an [issue](https://github.com/hickeng/financial/issues/14) to follow up on this.
 
 ### Realized gain calculation
 
@@ -56,7 +52,7 @@ The first quote is referencing the FMV of a VMW share at the time of acquisition
 > (1) the sum of the amount of the cash ... and the fair market value of the Broadcom Common Stock received in exchange ..., minus the holder’s adjusted tax basis in ... VMware Common Stock surrendered..., and
 > (2) the amount of cash received for such share of VMware Common Stock.
 
-We recognize gain, per lot, on the lessor of:
+We recognize gain, per lot, on the lesser of:
 * `cash portion`
 * `cash portion + FMV AVGO - VMW basis`
 
