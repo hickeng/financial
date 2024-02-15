@@ -26,6 +26,23 @@ If it's also applicable to me, I'll get to them (no latency guarantees).  If not
 
 # References
 
+## ESPP
+
+The ESPP discount is considered ordinary income and _should_ be reported on your W2 when you sell the shares. In the past it has shown up on VMW W2's in `Box 14 Other`, labelled as ESPP. However, the proportion of the discount treated as ordinary income vs long term capital gain depends on whether the ESPP shares are qualified or disqualified.
+
+Terms:
+* disqualified - sold within either 1 year from purchase date (when you got the shares aka exercise) or 2 years from grant date (when the ESPP period started aka offering).
+* qualified - held for 2 years past grant _and_ 1 year past purchase
+* market price - the Fair Market Value of the stock on the date of purchase
+* offer price (my term) - the lesser of the market price and the grant date price
+* purchase price - the amount you actually paid for it
+* bargain element - the ESPP discount, `market price - purchase price`
+
+Qualified vs disqualified proportion of discount considered ordinary income and reported on W2:
+* disqualified - `market price - purchase price` - the entire discount, 15% plus any increase in share price over the offering period, is treated as income.
+* qualified - `offer price - purchase price` - just the 15% reduction on offer price is treated as income. Any `market price - offer price` delta due to share price change over the offering period is treated as captial gain (long term because you've inherently held for a year).
+
+[Reference](https://turbotax.intuit.com/tax-tips/investments-and-taxes/employee-stock-purchase-plans/L8NgMFpFX)
 
 ## Form 8937
 These forms detail tax handling for an event. This includes qualified/unqualified amounts from dividends, how to adjust cost-basis, how to calculate gain that must be realized, etc. These are pulled from the [Broadcom Invester Relations](https://investors.broadcom.com/financial-information/tax-information) site.
