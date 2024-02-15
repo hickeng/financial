@@ -2,9 +2,13 @@ Welcome, fellow members of the Turtle Pond.
 
 This repo is going to hold all my spreadsheets (santized) for the financials around the VMW->AVGO acquisition.
 
-By insistent recommendation of colleagues/friends that _they_ want to be able to pay something, I am going to see if I can enable Sponsor for the repo.
-Don't feel obligated in any way to do so though - my goal is to provide as much support as possible for everyone else with the same set of concerns... and to get peer reviewed in turn to improve _my_ filing correctness!
-For people that have insisted, I'm suggesting $3.80, $38, ... as an ironic echo of the _voluntary reorganization_ fee by eTrade, with the expectation of correct data out of the other side.
+By insistent recommendation of colleagues/friends that _they_ want to be able to pay something, I haved enabled Sponsor for the repo ([:heart:](https://github.com/sponsors/hickeng)).
+
+Don't feel obligated in any way to do so - my goal is to provide as much support as feasible for everyone with the same set of concerns... and to get peer reviewed in turn to improve _my_ filing correctness! Basically standard Open Source motive.
+For people that have insisted, I'm suggesting $3.80, $38, ... as an ironic echo of the _voluntary reorganization_ fee by eTrade, for which we had the expectation of correct data. Whatever it's worth to you, but _please not more than noise to you!_.
+
+
+
 
 # Contents
 
