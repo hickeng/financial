@@ -15,6 +15,15 @@ For people that have insisted, I'm suggesting $3.80, $38, ... as an ironic echo 
 The spreadsheet is exported from Google Sheets. I've tried opening it in Excel but it's not happy. If there are easy tweaks to make it comptiable that'll be my first change. Until then, import into Google Docs.
 
 * [spreadsheet for ESPP & RSU basis and realized gain cacluations](https://github.com/hickeng/financial/raw/main/VMW%20to%20AVGO%20-%20ESPP%20&%20RSU%20worksheet.xlsx)
+  * I **STRONGLY** recommend that if you need to add rows to RSUs you append at the bottom of the data grid instead of preserving date ordering. This is so that it's easy to copy/paste into the reference sheet when it's updated, then reappend your custom rows at the end.
+
+## On "Upgrades"
+
+I've inserted missing RSU rows in date order once, but I'm not doing it again unless I come up with some magic way of loading/copy/pasting RSU inputs that factors in the additional rows. It's just too much of a pain to do the transcription of inputs from old version to new version.
+
+For now I've coloured the `Release Date` for the added rows in a slightly darker prepopulated colour to indicate which are new. It helps.
+
+See #9 for tracking a more general solution.
 
 
 # On use of Issues
