@@ -16,6 +16,7 @@ The spreadsheet is exported from Google Sheets. I've tried opening it in Excel b
 
 * [spreadsheet for ESPP & RSU basis and realized gain cacluations](https://github.com/hickeng/financial/raw/main/VMW%20to%20AVGO%20-%20ESPP%20&%20RSU%20worksheet.xlsx)
   * I **STRONGLY** recommend that if you need to add rows to RSUs you append at the bottom of the data grid instead of preserving date ordering. This is so that it's easy to copy/paste into the reference sheet when it's updated, then reappend your custom rows at the end.
+* [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf) - this is what we need to file with taxes. See #1 for generation of values.
 
 ## On "Upgrades"
 
@@ -33,6 +34,75 @@ I'm opening issues to track questions and feature requests. Feel free to do the 
 If it's also applicable to me, I'll get to them (no latency guarantees).  If not it'll be best effort.
 
 
+# Form 8949 (to be filed with taxes)
+
+This is the form used to report "Sales and Other Dispositions of Captial Assets". It's split into Short Term and Long Term gain sections, with a radio button (well, checkbox but radio button is the required behaviour) to record how it intersects with the 1099-B. If you need to use multiple radio buttons, then you must submit additional instances of the form (attaching the one with code `Z` in column (f) first). I'm working through the details of this in #1.
+
+![example image from the top of form 8949](image.png)
+
+I used costbasis.com to get a comparison, and it gave me one that I agree with, but it didn't explain _how_ that value was reached or provide reference links. I've not been able to find absolute references but I've worked through it from first principles and have the same values. The following reasoning is promoted from [my working](https://github.com/hickeng/financial/issues/1#issuecomment-1950283122) in #1.
+
+This isn't added into the spreadsheet yet - I want to have human readable diffs for commits before that - but here for visible reference.
+I strongly suspect that the value of basis from eTrade 1099-B, which goes in column (e), will be incorrect. That means the values I calculate will need to go into column(f) along with appropriate code into column(e) which I've not yet extracted from the separate instructions.
+
+I've derived the following from first principles with the following axioms:
+
+* realized gain and adjusted avgo basis are inflexible values dictated by f8937
+* f8949 proceeds is inflexible as an actual dollar value credited & fmv of shares received
+* must pay tax on realized gain
+* must pay tax on deferred gain
+* difference between proceeds and basis reported on f8949 must equal realized gain
+
+The only flexible value we can adjust to reconcile the above is the reported f8949 basis.
+
+This logic is written agnostic of per-lot or per-vmw. I prefer normalized per-vmw, but we just need to use matching values for vmw_basis, avgo_fmv, and cash_recieved:
+
+```python
+# known without calculation
+f8949_proceeds = cash_received + avgo_fmv
+
+# the alternate gain calculation from f8937
+# translating it, this is also the real economic value received: total consideration - true basis
+alternate_gain_calc = cash_received + fmv_avgo - vmw_basis
+
+# the approximate threshold for per-share vmw basis (adjusted for dividends) where we switch clauses is
+# 0.2520 * 0.521 * 979.50 = 128.601
+if cash_received < alternate_gain_calc {
+
+  # composite vmw basis was lower than avgo fmv, ie. we've got a capital gain (avgo_fmv-vmw_basis) from the share consideration that is deferred.
+  # gain mandated by f8937 does not include deferred gain.
+  f8937_gain = cash_received
+
+  # the deferred gain from vmw->avgo conversion must still be realized in the future. Adjustment
+  # to avgo_basis is the way this is accomplished. This is rolled into the mandated f8937 basis adjustment.
+
+  # we need the 2023 f8949 to reconcile correctly in the future against the deferred gain resulting from the
+  # inflexible avgo_basis.
+  # we must realize the cash_received as gain therefore, with f8949_proceeds fixed as cash_received:
+  #    f8949_basis = 0
+  # but we're deferring avgo_fmv - vmw_basis gain to the future, so we must not pay tax on it now, therefore
+  #   f8949_basis += avgo_fmv - vmw_basis
+  f8949_basis = avgo_fmv - vmw_basis
+
+} else {
+
+  # composite vmw basis was higher than avgo fmv - no deferral
+  # gain mandated by f8937
+  f8937_gain = alternate_gain_calc
+
+  # that's our true gain, so we should be ok with an avgo_basis of avgo_fmv... but f8937 says the adjust avgo basis must be:
+  # avgo_basis = vmw_basis - cash_received + f8937_gain
+  #
+  # This is still okay, as that simplifies
+  # avgo_basis = vmw_basis - cash_received + cash_received + fmv_avgo - vmw_basis
+  # avgo_basis = fmv_avgo
+  f8949_basis = vmw_basis
+}
+
+# adjusted avgo basis for future sale - this is mandated by f8937
+avgo_basis = vmw_basis - cash_received + f8937_gain
+```
+
 # References
 
 ## ESPP
@@ -40,6 +110,7 @@ If it's also applicable to me, I'll get to them (no latency guarantees).  If not
 The ESPP discount is considered ordinary income and _should_ be reported on your W2 when you sell the shares. In the past it has shown up on VMW W2's in `Box 14 Other`, labelled as ESPP. However, the proportion of the discount treated as ordinary income vs long term capital gain depends on whether the ESPP shares are qualified or disqualified.
 
 Terms:
+
 * disqualified - sold within either 1 year from purchase date (when you got the shares aka exercise) or 2 years from grant date (when the ESPP period started aka offering).
 * qualified - held for 2 years past grant _and_ 1 year past purchase
 * market price - the Fair Market Value of the stock on the date of purchase
@@ -48,6 +119,7 @@ Terms:
 * bargain element - the ESPP discount, `market price - purchase price`
 
 Qualified vs disqualified proportion of discount considered ordinary income and reported on W2:
+
 * disqualified - `market price - purchase price` - the entire discount, 15% plus any increase in share price over the offering period, is treated as income.
 * qualified - `offer price - purchase price` - just the 15% reduction on offer price is treated as income. Any `market price - offer price` delta due to share price change over the offering period is treated as captial gain (long term because you've inherently held for a year).
 
@@ -59,6 +131,7 @@ These forms detail tax handling for an event. This includes qualified/unqualifie
 The acquisition form mostly uses non-imperative language, which leaves a lot of optionality for other treatments. My personal plan is to use the "generally ..." guidence absent a strong endorsement from a CPA for a different treatment being valid.
 
 Links to the relevant Form 8937's:
+
 * [Broadcom Acquisition](https://investors.broadcom.com/static-files/7720c4c1-c940-4d9d-800c-66819bfdc7a0) ([from repo](documents/Broadcom%20-%20Form%208937%20Acquistion%20of%20VMware%20Inc..pdf))
 * [Dell recapitalization 2021](https://investors.broadcom.com/static-files/7ba40d05-a5b8-454d-8140-7f9782069523) - ([from repo](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Recapitalization.pdf))applies if you received VMWs by virtue of owning Dell shares during the spin out.
 * [Dell distribution 2021](https://investors.broadcom.com/static-files/c03396b2-538b-42c3-910c-dce218d5d9f1) ([from repo](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Distribution.pdf))
@@ -83,6 +156,7 @@ The first quote is referencing the FMV of a VMW share at the time of acquisition
 > (2) the amount of cash received for such share of VMware Common Stock.
 
 We recognize gain, per lot, on the lesser of:
+
 * `cash portion`
 * `cash portion + FMV AVGO - VMW basis`
 
@@ -93,13 +167,16 @@ You'll recognize the cash unless your VMW basis was higher than the FMV of the A
 ### Basis calculation - post-acquisition sale of AVGO
 
 The concise version of future tax basis of RSUs, calculated per lot, is:
+
 * basis prior to merger - cash received + gain recognized
 
 Gain recognized is the lesser of (per Form 8937):
+
 * cash received
 * cash received + FMV AVGO received - basis prior to merger
 
 That simplifies to the lesser of:
+
 * basis prior to merger
 * FMV AVGO received
 
@@ -111,7 +188,7 @@ That simplifies to the lesser of:
 
 > Fair market value generally is the price at which property would change hands between a willing buyer and a willing seller, neither being under any compulsion to buy or sell and both having reasonable knowledge of the facts.
 
->  ... tax law does not specifically prescribe ... the fair market value ... for purposes of calculating any gain recognized ....
+> ... tax law does not specifically prescribe ... the fair market value ... for purposes of calculating any gain recognized ....
 > One reasonable approach is ... the mean ... trading price on November 22, 2023, which is $979.50 .... Other approaches ... may be appropriate. _You should consult your tax advisor to determine what measure of fair market value is appropriate._
 
 I have an [issue](https://github.com/hickeng/financial/issues/11) open to determine the knwoledge available to our hypothetical buyer/seller pair and add other FMV options to the dropdown in the spreadsheet.
@@ -123,6 +200,7 @@ I have an [issue](https://github.com/hickeng/financial/issues/11) open to determ
 > Gain or loss generally will be recognized based on the difference between the amount of cash in lieu of the fractional share and the tax basis allocated to such fractional share.
 
 This details sequential steps of:
+
 1. receive fractional share
 2. sell fractional share
 
