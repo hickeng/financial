@@ -198,9 +198,9 @@ function processSheet(workbook, sheet) {
         var _ = "debugger breakpoint line"
       }
 
-      // getCell is 1 indexed... For! Some! Reason!
+      // getCell is 1 indexed... For! Some! Reason! as is sheet.getIndex()
       var cell = activeRange.getCell(row+1, col+1)
-      var processedCell = processCell(workbook, sheet.getIndex(), cell, dataValidation[row][col])
+      var processedCell = processCell(workbook, sheet.getIndex()-1, cell, dataValidation[row][col])
       processedSheet[row][col] = processedCell
 
 
