@@ -132,7 +132,7 @@
 {"sheet":2,"id":"U26","data":"=SUM(U3:U24)","type":"formula","format":"financial","dataclass":"info"},
 {"sheet":2,"id":"V2","format":"financial"},
 {"sheet":2,"id":"V4","data":"Fractional share"},
-{"sheet":2,"id":"V5","data":"=IF(N5,Summary!$C$39/ ($N$26+RSU!J$84), 0)","type":"formula","format":"int_4dp","propagate":{"end":"V24"},"dataclass":"info"},
+{"sheet":2,"id":"V5","data":"=IF(N5,Summary!$C$41/ ($N$26+RSU!J$84), 0)","type":"formula","format":"int_4dp","propagate":{"end":"V24"},"dataclass":"info"},
 {"sheet":2,"id":"V26","data":"=SUM(V3:V24)","type":"formula","dataclass":"out_now"},
 {"sheet":2,"id":"W2","data":"Now","format":"financial"},
 {"sheet":2,"id":"W3","data":"Gain"},

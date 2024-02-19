@@ -180,7 +180,7 @@
 {"sheet":3,"id":"R5","data":"=MAX(SWITCH(Summary!$K$27,\"Derived from calculated values\",K5,\"Derived from manual entries\",L5)+(Q5*Reference!$B$18)-(D5*O5),0)","type":"formula","format":"financial","propagate":{"end":"R82"},"dataclass":"info"},
 {"sheet":3,"id":"R84","data":"=SUM(R5:R82)","type":"formula","format":"financial","dataclass":"info"},
 {"sheet":3,"id":"S4","data":"Fractional share","note":"Fraction attributed to the lot"},
-{"sheet":3,"id":"S5","data":"=IF(J5,Summary!$C$39/ (J$84+ESPP!$N$26), 0)","type":"formula","format":"int_4dp","propagate":{"end":"S82"},"dataclass":"info"},
+{"sheet":3,"id":"S5","data":"=IF(J5,Summary!$C$41/ (J$84+ESPP!$N$26), 0)","type":"formula","format":"int_4dp","propagate":{"end":"S82"},"dataclass":"info"},
 {"sheet":3,"id":"S84","data":"=SUM(S5:S82)","type":"formula","format":"int_4dp","dataclass":"out_now"},
 {"sheet":3,"id":"T2","data":"Now","format":"financial"},
 {"sheet":3,"id":"T3","data":"Gain"},
