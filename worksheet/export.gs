@@ -346,7 +346,7 @@ function processCell(workbook, sheetIndex, cell, validation) {
     distillation.format = valueType.type
   }
 
-  if (valueType.type == "iso-date") {
+  if (valueType.type == "iso-date" && distillation.type != "formula") {
     var date = new Date(distillation.data)
     var isoString = Utilities.formatDate(date, "UTC", "yyy-MM-dd")
     distillation.data = isoString.split("T")[0]
@@ -621,6 +621,8 @@ function serializeSheet(workbook, sheetIndex) {
         var cCol = cell.col
         var cCell = cell.cell
         var cDataclass = cell.dataclass
+        var cNote = cell.note
+        var cFormat = cell.format
         delete cell.row
         delete cell.col
         delete cell.cell
@@ -628,6 +630,14 @@ function serializeSheet(workbook, sheetIndex) {
         if (cDataclass != null) {
           cell.dataclass = cDataclass.type
         }
+        if (cFormat == "auto") {
+          // I dont' want to lose this from the struct, but also don't want it serialized as it's extra noise
+          delete cell.format
+        }
+
+        // do this purely to move the note to the end of the object
+        delete cell.note
+        cell.note = cNote
 
         var cData = cell.data
         if (censor == true && cDataclass != null && cDataclass.sensitive == true) {
@@ -643,6 +653,9 @@ function serializeSheet(workbook, sheetIndex) {
         if (cDataclass != null) {
           delete cell.dataclass
           cell.dataclass = cDataclass
+        }
+        if (cFormat != null) {
+          cell.format = cFormat
         }
       }
     }
