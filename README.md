@@ -39,14 +39,14 @@ Items planned for next release:
 The spreadsheet is exported from Google Sheets. I've tried opening it in Excel but it's not happy. If there are easy tweaks to make it comptiable that'll be my first change. Until then, import into Google Docs.
 
 * [spreadsheet for ESPP & RSU basis and realized gain cacluations](https://github.com/hickeng/financial/raw/main/VMW_to_AVGO_ESPP_and_RSU.xlsx)
-  * I **STRONGLY** recommend that if you need to add rows to RSUs you append at the bottom of the data grid instead of preserving date ordering. This is so that it's easy to copy/paste into the reference sheet when it's updated, then reappend your custom rows at the end.
+  * I **STRONGLY** recommend that if you need to add rows to RSUs you append at the bottom of the data grid instead of preserving date ordering. This is so that it's easy to copy/paste into the reference sheet when it's updated, then re-append your custom rows at the end.
 * [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf) - this is what we need to file with taxes. See #1 for generation of values.
 
 ## On "Upgrades"
 
 I've inserted missing RSU rows in date order once, but I'm not doing it again unless I come up with some magic way of loading/copy/pasting RSU inputs that factors in the additional rows. It's just too much of a pain to do the transcription of inputs from old version to new version.
 
-For now I've coloured the `Release Date` for the added rows in a slightly darker prepopulated colour to indicate which are new. It helps.
+For now I've coloured the `Release Date` for the added rows in a slightly darker pre-populated colour to indicate which are new. It helps.
 
 See #9 for tracking a more general solution.
 
@@ -62,7 +62,9 @@ If it's also applicable to me, I'll get to them (no latency guarantees).  If not
 
 This is the form used to report "Sales and Other Dispositions of Captial Assets". It's split into Short Term and Long Term gain sections, with a radio button (well, checkbox but radio button is the required behaviour) to record how it intersects with the 1099-B. If you need to use multiple radio buttons, then you must submit additional instances of the form (attaching the one with code `Z` in column (f) first). I'm working through the details of this in #1.
 
-![example image from the top of form 8949](image.png)
+[Form 8949](documents/f8949.pdf) - ([instructions](documents/f8949%20-%20instructions.pdf))
+
+![example image from the top of form 8949](assets/f8949-snippet.png)
 
 I used costbasis.com to get a comparison, and it gave me one that I agree with, but it didn't explain _how_ that value was reached or provide reference links. I've not been able to find absolute references but I've worked through it from first principles and have the same values. The following reasoning is promoted from [my working](https://github.com/hickeng/financial/issues/1#issuecomment-1950283122) in #1.
 
@@ -128,6 +130,9 @@ avgo_basis = vmw_basis - cash_received + f8937_gain
 ```
 
 # References
+
+* [IRS instructions for Form 8949](https://www.irs.gov/instructions/i8949)
+* [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf)
 
 ## ESPP
 
