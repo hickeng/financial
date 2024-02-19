@@ -11,6 +11,8 @@ Donations will go towards getting CPA validation of the calculations I'm using a
 
 # Release Status
 
+Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
+
 ## [v0.1.0](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-18
 
 Initial tagged release because the foundation is there:
@@ -28,11 +30,6 @@ I've been able to:
 3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 4. Choose `Replace Spreadsheet`, and select `Import data`
 
-Items planned for next release:
-
-- [ ] enter 1099-B lot values - [#38](https://github.com/hickeng/financial/issues/38)
-- [ ] generate Form 8949 values - [#1](https://github.com/hickeng/financial/issues/1)
-- [ ] explore per-lot election treatment - [#10](https://github.com/hickeng/financial/issues/10)
 
 # Contents
 
