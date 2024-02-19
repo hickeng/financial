@@ -7,6 +7,7 @@ By insistent recommendation of colleagues/friends that _they_ want to be able to
 Don't feel obligated in any way to do so - my goal is to provide as much support as feasible for everyone with the same set of concerns... and to get peer reviewed in turn to improve _my_ filing correctness! Basically standard Open Source motive.
 For people that have insisted, I'm suggesting $3.80, $38, ... as an ironic echo of the _voluntary reorganization_ fee by eTrade, for which we had the expectation of correct data. Whatever it's worth to you, but _please not more than noise to you!_.
 
+Donations will go towards getting CPA validation of the calculations I'm using and answering [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa). I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
 
 # Release Status
 
