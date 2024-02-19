@@ -8,13 +8,36 @@ Don't feel obligated in any way to do so - my goal is to provide as much support
 For people that have insisted, I'm suggesting $3.80, $38, ... as an ironic echo of the _voluntary reorganization_ fee by eTrade, for which we had the expectation of correct data. Whatever it's worth to you, but _please not more than noise to you!_.
 
 
+# Release Status
 
+## [v0.1.0](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-18
+
+Initial tagged release because the foundation is there:
+
+* human readable diffs are sufficient for reviewing changes before commit
+* basic inputs are complete - minimal input data needed and easily sourced from downloadable confirmation docs
+* basic outputs are complete - per-lot cash amounts, gain, old adjusted vmw basis, and new avgo basis are calculated considering short/long term gain and ESPP qualified/disqualified status
+* all planned changes are enhancements
+
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.0/VMW_to_AVGO_ESPP_and_RSU-v0.1.0-github.xlsx) attached to the release, suitable for import into Google Sheets.
+I've been able to:
+
+1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.0/VMW_to_AVGO_ESPP_and_RSU-v0.1.0-github.xlsx)
+2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
+3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
+4. Choose `Replace Spreadsheet`, and select `Import data`
+
+Items planned for next release:
+
+- [ ] enter 1099-B lot values - [#38](https://github.com/hickeng/financial/issues/38)
+- [ ] generate Form 8949 values - [#1](https://github.com/hickeng/financial/issues/1)
+- [ ] explore per-lot election treatment - [#10](https://github.com/hickeng/financial/issues/10)
 
 # Contents
 
 The spreadsheet is exported from Google Sheets. I've tried opening it in Excel but it's not happy. If there are easy tweaks to make it comptiable that'll be my first change. Until then, import into Google Docs.
 
-* [spreadsheet for ESPP & RSU basis and realized gain cacluations](https://github.com/hickeng/financial/raw/main/VMW%20to%20AVGO%20-%20ESPP%20&%20RSU%20worksheet.xlsx)
+* [spreadsheet for ESPP & RSU basis and realized gain cacluations](https://github.com/hickeng/financial/raw/main/VMW_to_AVGO_ESPP_and_RSU.xlsx)
   * I **STRONGLY** recommend that if you need to add rows to RSUs you append at the bottom of the data grid instead of preserving date ordering. This is so that it's easy to copy/paste into the reference sheet when it's updated, then reappend your custom rows at the end.
 * [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf) - this is what we need to file with taxes. See #1 for generation of values.
 
