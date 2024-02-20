@@ -1,6 +1,6 @@
 Welcome, fellow members of the Turtle Pond.
 
-This repo is going to hold all my spreadsheets (santized) for the financials around the VMW->AVGO acquisition.
+This repo is going to hold all my spreadsheets (santized) for the financials around the VMW->AVGO acquisition. Click on the burger menu on the top right of the readme pane for a table of contents.
 
 By insistent recommendation of colleagues/friends that _they_ want to be able to pay something, I haved enabled Sponsor for the repo ([:heart:](https://github.com/sponsors/hickeng)).
 
