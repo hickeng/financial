@@ -126,10 +126,14 @@ if cash_received < alternate_gain_calc {
 avgo_basis = vmw_basis - cash_received + f8937_gain
 ```
 
-# References
+Links into the IRS webiste:
 
 * [IRS instructions for Form 8949](https://www.irs.gov/instructions/i8949)
 * [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf)
+
+
+
+# References
 
 ## ESPP
 
