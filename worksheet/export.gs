@@ -1,16 +1,3 @@
-const defaultExportFolder = 'github_hickeng_financial_vmw_avgo_merger_data'
-var censor = false
-var printPropagations = false
-const overrideStartIndex = 0
-const debug = 0
-
-// Merge processing turned out to be insanely slow.
-// Almost 60s added just for the cells in Summary, with the bulk of that spent
-// in the per-cell getMergedRanges calls
-const enableMergeProcessing = false
-
-const app = SpreadsheetApp.getActiveSpreadsheet()
-const sheets = app.getSheets()
 
 // Install menu items
 function onOpen() {

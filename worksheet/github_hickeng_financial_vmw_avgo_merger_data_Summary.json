@@ -1,4 +1,4 @@
-{"sheet":0,"id":"_","name":"Summary","conditional_formatting":{"type":"bool","criteria":"CELL_NOT_EMPTY","args":["=B25+B26","=AND(EQ(K27, \"eTrade\"), NE(B30,C42))","=NE(K27,\"eTrade\")","=B42"],"ranges":["B29","B30","B30","B30","B31","G42"],"effect":["background: #DED5BA","background: #B7E1CD"]}},
+{"sheet":0,"id":"_","name":"Summary","conditional_formatting":{"type":"bool","criteria":"NUMBER_NOT_EQUAL_TO","args":["=B25+B26","=AND(EQ(K27, \"eTrade\"), NE(B30,C42))","=NE(K27,\"eTrade\")","=B42","=ROUNDDOWN(B26 * indirect(\"Reference!$B$6\"))"],"ranges":["B29","B30","B30","B30","B31","G42","F41"],"effect":["background: #DED5BA","background: #B7E1CD","background: #FF0000"]}},
 {"sheet":0,"id":"A1","data":"Colour Coding","dataclass":"info"},
 {"sheet":0,"id":"A2","dataclass":"in"},
 {"sheet":0,"id":"A3","dataclass":"in_opt"},
