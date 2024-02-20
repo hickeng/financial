@@ -1,17 +1,3 @@
-
-// Install menu items
-function onOpen() {
-  var ui = SpreadsheetApp.getUi()
-  ui.createMenu("Custom Functions")
-    .addItem("Export Workbook (with Data)", "serializeStandard")
-    .addItem("Export Workbook (Censored)", "serializeCensored")
-    .addItem("Export Workbook (Debug)", "serializeDebug")
-    .addItem("Export Active Sheet (with Data)", "serializeActiveStandard")
-    .addItem("Export Active Sheet(Censored)", "serializeActiveCensored")
-    .addItem("Export Active Sheet (Debug)", "serializeActiveDebug")
-    .addToUi()
-}
-
 /////////////////////////
 // Serialization
 

@@ -13,6 +13,28 @@ Donations will go towards getting CPA validation of the calculations I'm using a
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+
+
+## [v0.1.1](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-20
+
+Adds per-lot treatment mechanism in the RSU and ESPP datasheets:
+
+* select preference per-lot for `cash` or `shares`
+* run the optimizer to automatically adjust lot preference for maximum deferred tax (see steps below)
+
+
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx) attached to the releases, suitable for import into Google Sheets.
+
+1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx)
+2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
+3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
+4. Choose `Replace Spreadsheet`, and select `Import data`
+5. Import the AppScript (needed for running lot optimization)
+   1. In the sheet, `Extensions->App Scripts` and copy the .gs files from the repo worksheet directory. You can just pasted them all into one large file if need be.
+   2. Either reload the spreadsheet, or run the `common.gs:onOpen` function using the AppScript UI
+6. Go to the new sheet menu `Custom Functions->Optimize per-lot selection`
+   1. This should set the preference for each lot to `cash` or `shares` and you'll see the impact if choosing `manual per-lot ratio` in the Tweaks.
+
 ## [v0.1.0](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-18
 
 Initial tagged release because the foundation is there:
@@ -22,13 +44,7 @@ Initial tagged release because the foundation is there:
 * basic outputs are complete - per-lot cash amounts, gain, old adjusted vmw basis, and new avgo basis are calculated considering short/long term gain and ESPP qualified/disqualified status
 * all planned changes are enhancements
 
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.0/VMW_to_AVGO_ESPP_and_RSU-v0.1.0-github.xlsx) attached to the release, suitable for import into Google Sheets.
-I've been able to:
 
-1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.0/VMW_to_AVGO_ESPP_and_RSU-v0.1.0-github.xlsx)
-2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
-3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
-4. Choose `Replace Spreadsheet`, and select `Import data`
 
 
 # Contents
