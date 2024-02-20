@@ -13,6 +13,6 @@ function onOpen() {
     .addItem("Export Active Sheet(Censored)", "serializeActiveCensored")
     .addItem("Export Active Sheet (Debug)", "serializeActiveDebug")
     .addSeparator()
-    .addItem("Optimize per-lot selection", optimize)
+    .addItem("Optimize per-lot selection", "optimize")
     .addToUi()
 }
