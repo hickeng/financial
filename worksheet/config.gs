@@ -26,7 +26,9 @@ const datasheetColNameRow = 4
 // Use future basis with inverted comparison to factor in ordinary income
 const curCostBasisColName = "VMW cost-basis per share"
 const futureCostBasisColName = "New tax basis per share"
+const avgoQtyColName = "active qty"
 
+const vmwSharePurchaseDate = 2 // always in column C currently
 const vmwShareQtyIdx = 3 // always in column D currently
 
 // the rows for heading/spacing before data starts
