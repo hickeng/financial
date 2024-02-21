@@ -50,7 +50,7 @@ function optimize() {
     stockShares+= count
     Logger.log(`Assigned ${cur.count} shares to stock (${cur.sheet}!${cur.row}=${cur.basis})`)
   }
-
+    
   for (; highIdx > lowIdx; highIdx--) {
     // work from lowest basis, selecting for shares
     var cur = costBasisSet[highIdx]
@@ -82,7 +82,7 @@ function optimize() {
   var balanceToCash = balanceLot.count - balanceToStock
 
   Logger.log(`balance - ratio: ${finalLotRatio}, cash: ${balanceToCash}, stock: ${balanceToStock}`)
-
+  
   stockShares+= balanceToStock
   cashShares+= balanceToCash
   Logger.log(`final - ratio: ${stockShares/totalShares}, cash: ${cashShares}, stock: ${stockShares}`)
@@ -105,6 +105,11 @@ function gatherCostBasis(sheet) {
       Logger.log(`unknown sheet ${sheet.getName()}`)
   }
 
+  var costBasisColName = curCostBasisColName
+  if (useFutureBasisForOptimization) {
+    costBasisColName = futureCostBasisColName
+  }
+
   for (var row = datasheetSpecificHeadingRow; row < data.length; row++) {
     if (costBasisColIdx < 0) {
       for (var col = 0; col < data[row].length; col++) {
@@ -116,10 +121,17 @@ function gatherCostBasis(sheet) {
       }
     }
 
+    if (costBasisColIdx == -1) {
+      Logger.log(`Unable to locate column for basis with name ${costBasisColName}`)
+    }
+
     var basis = data[row][costBasisColIdx]
     if (basis == "" || basis == null) {
       // bottom of the range
       break
+    }
+    if(basis == "n/a") {
+      continue
     }
 
   var basis = {
@@ -129,6 +141,9 @@ function gatherCostBasis(sheet) {
     basis: data[row][costBasisColIdx],
     count: data[row][vmwShareQtyIdx],
     pref: activeRange.getCell(row+1, preferenceCol+1),
+    // TODO: for logging the lot selection
+    releaseDate: "",
+    avgoCount: 0,
   }
 
     // collect the basis
@@ -137,7 +152,11 @@ function gatherCostBasis(sheet) {
 }
 
 
+// compareBasis returns in such a way that stock < cash
 function compareBasis(a, b) {
-  // TODO: consider if we want to prefer sale of older or newer lots
-  return a.basis - b.basis
+  if (useFutureBasisForOptimization) {
+    return a.basis - b.basis
+  } else {
+    return a.basis - b.basis
+  }
 }
