@@ -24,7 +24,11 @@ Impact:
 The 1099-B and Supplement both have a cost basis of $0 for all lots Stock Plan lots.
 While this is technically correct for RSUs, as you did not pay anything for them, your _tax basis_ is the Fair Market Value at time of vest as you paid taxes on the RSUs at that time.
 
-The incorrect adjustment in Supplement is the original cost basis of VMW, but your tax basis must account for the Return of Captial from the Dell distributions:
+The primary issue here isn't the basis info in the 1099-B - it's the lack of correct info in the Supplement. I found [this](https://investor.vanguard.com/investor-resources-education/taxes/cost-basis-covered-noncovered#:~:text=In%20addition%2C%20for,and%20Form%208949.) on Vanguards site noting they aren't required to make certain adjustment, and for them they don't for cross-account wash sales, or for gift tax.
+
+We're suffering from an _expectation_ mismatch with what eTrade are obligated to and what we need from them, and it's exposed a potential complication to filing we were unaware of. This should feed into decisions of what brokers to use, but I don't _think_ there's an actual lapse of duty. I do think providing a supplement with incorrect numbers is leading holders into error as there's no point in the supplement if the numbers cannot be used in Frm 8949.
+
+The adjustment present in my eTrade Supplement is the original cost basis of VMW, but a tax basis must account for the Return of Captial from the Dell distributions:
 * 2018-12-27 - reduce basis by $10.18 per share of VMW
 * 2021-10-29 - reduce basis by $16.87 per share of VMW
 
@@ -35,7 +39,7 @@ Groups:
 Impact:
 * all cash proceeds recognized as gain without unless reporting an adjustment on Form 8949
 * use of Supplement values as adjustment will overstate cost basis resulting in underpayment of tax
-
+* lots of frustration and confusion around how to get a correct Form 8949 or the inputs to such
 
 ## Fractional share sold at incorrect price
 
