@@ -33,7 +33,7 @@ function optimize() {
   var highIdx = costBasisSet.length-1
 
   for (; lowIdx < highIdx; lowIdx++) {
-    // work from lowest basis, selecting for shares
+    // work from lowest, selecting for shares
     var cur = costBasisSet[lowIdx]
     var pref = cur.pref
 
@@ -52,7 +52,7 @@ function optimize() {
   }
     
   for (; highIdx > lowIdx; highIdx--) {
-    // work from lowest basis, selecting for shares
+    // work from highest, selecting for cash
     var cur = costBasisSet[highIdx]
     var pref = cur.pref
 
@@ -71,17 +71,22 @@ function optimize() {
     Logger.log(`Assigned ${cur.count} shares to cash (${cur.sheet}!${cur.row}=${cur.basis})`)
   }
 
-  // determine the ratio needed to normalize
-  var lackingStockShares = maxStockShares - stockShares
-  var finalLotRatio = lackingStockShares / balanceLot.count
-  balanceRatioCell.setValue(finalLotRatio)
-
   Logger.log(`${cashShares} cash, ${stockShares} stock, ${stockShares/(cashShares+stockShares)}`)
 
-  var balanceToStock = finalLotRatio * balanceLot.count
-  var balanceToCash = balanceLot.count - balanceToStock
+  // determine the ratio needed to normalize
+  if (balanceLot == null) {
+    Logger.log(`exact fit, no need for a balance lot`)
+  } else {
+    var lackingStockShares = maxStockShares - stockShares
+    var finalLotRatio = lackingStockShares / balanceLot.count
+    balanceRatioCell.setValue(finalLotRatio)
 
-  Logger.log(`balance - ratio: ${finalLotRatio}, cash: ${balanceToCash}, stock: ${balanceToStock}`)
+    var balanceToStock = finalLotRatio * balanceLot.count
+    var balanceToCash = balanceLot.count - balanceToStock
+
+    Logger.log(`balance - ratio: ${finalLotRatio}, cash: ${balanceToCash}, stock: ${balanceToStock}`)
+  }
+
   
   stockShares+= balanceToStock
   cashShares+= balanceToCash
@@ -134,17 +139,17 @@ function gatherCostBasis(sheet) {
       continue
     }
 
-  var basis = {
-    sheet: sheet.getName(),
-    row: row,
-    col: costBasisColIdx,
-    basis: data[row][costBasisColIdx],
-    count: data[row][vmwShareQtyIdx],
-    pref: activeRange.getCell(row+1, preferenceCol+1),
-    // TODO: for logging the lot selection
-    releaseDate: "",
-    avgoCount: 0,
-  }
+    var basis = {
+      sheet: sheet.getName(),
+      row: row,
+      col: costBasisColIdx,
+      basis: data[row][costBasisColIdx],
+      count: data[row][vmwShareQtyIdx],
+      pref: activeRange.getCell(row+1, preferenceCol+1),
+      // TODO: for logging the lot selection
+      releaseDate: "",
+      avgoCount: 0,
+    }
 
     // collect the basis
     costBasisSet.push(basis)
