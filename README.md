@@ -11,7 +11,9 @@ Donations will go towards getting CPA validation of the calculations I'm using a
 
 The problems we as VMW holders know of are collected [here](problems.md), along with groups impacted, and impact assment. All are works in progress:
 * $0 cost basis and incorrect adjustment in eTrade Supplement
+   * the cascade consequences of this single issue account for the bulk of this repo
 * treatment of proceeds as dividends
+   * substantially impacting non-US residents
 * fractional share sold at incorrect price
 * ... if you know of others, please open an issue or pull request
 
