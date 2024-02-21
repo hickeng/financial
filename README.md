@@ -260,7 +260,7 @@ This details sequential steps of:
 1. receive fractional share
 2. sell fractional share
 
-I'm interpreting that as needing to calculate the gain for the fractional share sale (step 2) using the new cost basis, post conversion. You'll have also seperately recognised gain on the conversion of the fraction (step 1).
+I'm interpreting that as needing to calculate the gain for the fractional share sale (step 2) using the new cost basis, post conversion. You'll have also separately recognised gain on the conversion of the fraction (step 1).
 If the fraction was attributed against an ESPP share this implies recognizing the ordinary income associated with the fraction given it's a sale.
 
 > The amount paid for a fractional share of Broadcom Common Stock _was based on_ the closing price of Broadcom Common Stock as reported on the NASDAQ on November 21, 2023, which was $981.20.
