@@ -24,18 +24,15 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+## [v0.1.2](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-22
 
-## [v0.1.1](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-20
+Refines the per-lot treatment option and adds an input for a "date of sale" for post-merger AVGO to assess changes from Short Term Gains to Long (RSU), and from disqualified to qualified (ESPP) as the lots age.
 
-Adds per-lot treatment mechanism in the RSU and ESPP datasheets:
+If you put in a date prior to 2024 then it'll roll the gains from AVGO sale into the tax estimate... but remember that's a very naive estimate and check the logic in the sheet both works for your case and is sufficient for purpose.
 
-* select preference per-lot for `cash` or `shares`
-* run the optimizer to automatically adjust lot preference for maximum deferred tax (see steps below)
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.2-github.xlsx) attached to the releases, suitable for import into Google Sheets.
 
-
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx) attached to the releases, suitable for import into Google Sheets.
-
-1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx)
+1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.2-github.xlsx)
 2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
 3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 4. Choose `Replace Spreadsheet`, and select `Import data`
@@ -44,6 +41,15 @@ There's [a binary sheet](https://github.com/hickeng/financial/releases/download/
    2. Either reload the spreadsheet, or run the `common.gs:onOpen` function using the AppScript UI
 6. Go to the new sheet menu `Custom Functions->Optimize per-lot selection`
    1. This should set the preference for each lot to `cash` or `shares` and you'll see the impact if choosing `manual per-lot ratio` in the Tweaks.
+
+
+## [v0.1.1](https://github.com/hickeng/financial/releases/tag/v0.1.1) - 2024-02-20
+
+Adds per-lot treatment mechanism in the RSU and ESPP datasheets:
+
+* select preference per-lot for `cash` or `shares`
+* run the optimizer to automatically adjust lot preference for maximum deferred tax (see steps below)
+
 
 ## [v0.1.0](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-18
 
