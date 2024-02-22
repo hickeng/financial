@@ -14,5 +14,15 @@ function onOpen() {
     .addItem("Export Active Sheet (Debug)", "serializeActiveDebug")
     .addSeparator()
     .addItem("Optimize per-lot selection", "optimize")
+    // these are just for testing as there's no way for them to satisfy the ratio requirements
+    // .addItem("All Cash", "setCashPreference")
+    // .addItem("All Stock", "setStockPreference")
+    .addItem("All Balance", "setBalancePreference")
     .addToUi()
+}
+
+function shortDate(input) {
+    var date = new Date(input)
+    var isoString = Utilities.formatDate(date, "UTC", "yyy-MM-dd")
+    return isoString.split("T")[0]  
 }

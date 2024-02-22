@@ -320,9 +320,7 @@ function processCell(workbook, sheetIndex, cell, validation) {
   }
 
   if (valueType.type == "iso-date" && distillation.type != "formula") {
-    var date = new Date(distillation.data)
-    var isoString = Utilities.formatDate(date, "UTC", "yyy-MM-dd")
-    distillation.data = isoString.split("T")[0]
+    distillation.data = shortDate(distillation.data)
   }
 
 
@@ -350,6 +348,10 @@ function processCell(workbook, sheetIndex, cell, validation) {
   distillation.dataclass = cellColourMapping(cell.getBackground())
   if (distillation.dataclass.colour != null) {
       Logger.log(`${distillation.sheet}!${distillation.id}: unrecognized datatype colour ${distillation.dataclass.colour}`)
+  }
+  if (distillation.dataclass.type == "info" && distillation.type != "formula") {
+    // it's a calcualted value, but not a formula - for now that means script injected, so censor it
+    distillation.dataclass.sensitive = true
   }
 
   if (isCellEmpty(distillation)) {
@@ -426,7 +428,7 @@ function cellColourMapping(code) {
         type: "in_ref",
         sensitive: true,
       }
-
+    
     case "#a2c4c9":
       // data validation modified colour
     case "#d0e0e3":

@@ -3,6 +3,7 @@ const defaultExportFolder = 'github_hickeng_financial_vmw_avgo_merger_data'
 var censor = false
 var printPropagations = false
 var debug = 0
+var exportLotsCSV = true
 
 const overrideStartIndex = 0
 
@@ -24,9 +25,16 @@ const referenceName = "Reference"
 const datasheetColNameRow = 4
 
 // Use future basis with inverted comparison to factor in ordinary income
-const curCostBasisColName = "VMW cost-basis per share"
-const futureCostBasisColName = "New tax basis per share"
-const avgoQtyColName = "active qty"
+
+// Names for looking up column indexes from the stable(ish) pretty names - regexp
+const colIdxNames = {
+  vmwBasis: "VMW tax-basis per share",
+  avgoBasis: "AVGO tax-basis per share",
+  purchaseDate: "(Release Date|Purchase Date)",
+  vmwQuantity: "(Shares Issued|Shares Purchased)",
+  avgoQuantity: "active qty",
+  treatmentPreference: "Prefer",
+}
 
 const vmwSharePurchaseDate = 2 // always in column C currently
 const vmwShareQtyIdx = 3 // always in column D currently
@@ -35,4 +43,5 @@ const vmwShareQtyIdx = 3 // always in column D currently
 const datasheetSpecificHeadingRow = 3 // 0-indexed
 const datasheetDataStartRow = 6 // 0-indexed
 
+const derivedStockRatioCellA1Notation = "B5"
 const balanceRatioA1Notation = "E7"
