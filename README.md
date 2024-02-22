@@ -24,6 +24,34 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
+
+## [v0.1.2](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-22
+
+Refines the per-lot treatment option and adds an input for a "date of sale" for post-merger AVGO to assess changes from Short Term Gains to Long (RSU), and from disqualified to qualified (ESPP) as the lots age.
+
+If you put in a date prior to 2024 then it'll roll the gains from AVGO sale into the tax estimate... but remember that's a very naive estimate and check the logic in the sheet both works for your case and is sufficient for purpose.
+
+The Tweak is found as a dropdown below the Fractional Share Values and contains dates of interest:
+* last year - this let's you see a tax estimation 
+* today - calculate with todays date for LTG/STG and qualified/disqualified
+* a series of dates on which RSUs transition from STG to LTG
+
+On the same row there is a share price, set to AVGO live by default that you can overwrite with any postive value.
+
+
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.2-github.xlsx) attached to the releases, suitable for import into Google Sheets.
+
+1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.2-github.xlsx)
+2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
+3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
+4. Choose `Replace Spreadsheet`, and select `Import data`
+5. Import the AppScript (needed for running lot optimization)
+   1. In the sheet, `Extensions->App Scripts` and copy the .gs files from the repo worksheet directory. You can just pasted them all into one large file if need be.
+   2. Either reload the spreadsheet, or run the `common.gs:onOpen` function using the AppScript UI
+6. Go to the new sheet menu `Custom Functions->Optimize per-lot selection`
+   1. This should set the preference for each lot to `cash` or `shares` and you'll see the impact if choosing `manual per-lot ratio` in the Tweaks.
+
 
 ## [v0.1.1](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-20
 
@@ -35,15 +63,6 @@ Adds per-lot treatment mechanism in the RSU and ESPP datasheets:
 
 There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx) attached to the releases, suitable for import into Google Sheets.
 
-1. Download [the sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx)
-2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
-3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
-4. Choose `Replace Spreadsheet`, and select `Import data`
-5. Import the AppScript (needed for running lot optimization)
-   1. In the sheet, `Extensions->App Scripts` and copy the .gs files from the repo worksheet directory. You can just pasted them all into one large file if need be.
-   2. Either reload the spreadsheet, or run the `common.gs:onOpen` function using the AppScript UI
-6. Go to the new sheet menu `Custom Functions->Optimize per-lot selection`
-   1. This should set the preference for each lot to `cash` or `shares` and you'll see the impact if choosing `manual per-lot ratio` in the Tweaks.
 
 ## [v0.1.0](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-18
 
