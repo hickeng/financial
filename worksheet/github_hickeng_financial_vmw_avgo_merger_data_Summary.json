@@ -89,7 +89,7 @@
 {"sheet":0,"id":"E26","data":"2023","propagate":{"end":"E29"}},
 {"sheet":0,"id":"E40","data":"Gain (Long)"},
 {"sheet":0,"id":"E42","data":"=ESPP!AH5+RSU!AE5","type":"formula","format":"financial","dataclass":"out_now"},
-{"sheet":0,"id":"E44","data":"=RSU!AI5+ESPP!AM5","type":"formula","format":"financial","dataclass":"out_future","note":"This estimate may drop if it turns out the symmetric treatment suggested in https://github.com/hickeng/financial/issues/15#issuecomment-1948444299 is the correct approach for calculating gain on sale of qualified ESPPs\n"},
+{"sheet":0,"id":"E44","data":"=RSU!AI5+ESPP!AN5","type":"formula","format":"financial","dataclass":"out_future","note":"This estimate may drop if it turns out the symmetric treatment suggested in https://github.com/hickeng/financial/issues/15#issuecomment-1948444299 is the correct approach for calculating gain on sale of qualified ESPPs\n"},
 {"sheet":0,"id":"E52","data":"Outstanding"},
 {"sheet":0,"id":"E53","data":"=D53-G27","type":"formula","format":"financial","dataclass":"out_now"},
 {"sheet":0,"id":"E56","data":"=D56-G29","type":"formula","format":"financial","dataclass":"out_now"},

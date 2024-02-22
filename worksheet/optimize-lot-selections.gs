@@ -37,6 +37,24 @@ function setBalancePreference() {
   }
 }
 
+function optimizeSynthetic() {
+  useSyntheticBasisForOptimization = true
+  useFutureBasisForOptimization = true
+  optimize()
+}
+
+function optimizeAVGO() {
+  useSyntheticBasisForOptimization = false
+  useFutureBasisForOptimization = true
+  optimize()
+}
+
+function optimizeVMW() {
+  useFutureBasisForOptimization = false
+  useSyntheticBasisForOptimization = false
+  optimize()
+}
+
 function optimize() {
   var referenceSheet = app.getSheetByName(referenceName)
   var balanceRatioCell = referenceSheet.getRange(balanceRatioA1Notation)
@@ -168,6 +186,8 @@ function findIndices(sheet) {
     vmwQuantity: -1,
     avgoQuantity: -1,
     preference: -1,
+    stg: -1,
+    ltg: -1
   }
 
   switch (sheet.getName()) {
@@ -196,6 +216,10 @@ function findIndices(sheet) {
       colIdx.avgoQuantity = col
     } else if (new RegExp(colIdxNames.treatmentPreference).test(str)) {
       colIdx.preference = col
+    } else if (new RegExp(colIdxNames.shortTermGain).test(str)) {
+      colIdx.stg = col
+    } else if (new RegExp(colIdxNames.longTermGain).test(str)) {
+      colIdx.ltg = col
     }
   }
 
@@ -204,7 +228,9 @@ function findIndices(sheet) {
     colIdx.purchaseDate == -1 ||
     colIdx.vmwQuantity == -1 ||
     colIdx.avgoQuantity == -1 ||
-    colIdx.preference == -1) {
+    colIdx.preference == -1 || 
+    colIdx.stg == -1 ||
+    colIdx.ltg == -1) {
       Logger.log("unable to locate all columns for gathering optimizer input")
       return
   }
@@ -222,11 +248,16 @@ function normalizeLotPreference(preference, sheet, colIdx) {
 }
 
 function gatherCostBasis(sheet, colIdx) {
+  var referenceSheet = app.getSheetByName(referenceName)
+  var ltgRate = referenceSheet.getRange(longTermRateA1Notation).getValue()
+
   var activeRange = sheet.getDataRange()
   var data = activeRange.getValues()
 
+
   var lots = []
   var vmwCount = 0
+
 
   for (var row = datasheetDataStartRow; row < data.length; row++) {
     if (data[row][colIdx.purchaseDate] == "") {
@@ -248,7 +279,13 @@ function gatherCostBasis(sheet, colIdx) {
       vmwQuantity: data[row][colIdx.vmwQuantity],
       avgoQuantity: data[row][colIdx.avgoQuantity],
       pref: activeRange.getCell(row+1,colIdx.preference+1),
+      shortGain: data[row][colIdx.stg],
+      longGain: data[row][colIdx.ltg],
     }
+
+    // construct a synthetic basis, adjusting it down by the amount of tax to be realized.
+    // TODO: remove the hardcoding of STG rate
+    lot.syntheticBasis = lot.avgoBasis - ((lot.longGain * ltgRate) + (lot.shortGain * 0.48)) / lot.avgoQuantity
 
     vmwCount+= lot.vmwQuantity
 
@@ -266,11 +303,13 @@ function gatherCostBasis(sheet, colIdx) {
 
 // compareBasis returns in such a way that stock < cash
 function compareBasis(a, b) {
-  if (useFutureBasisForOptimization) {
-    // if avgo basis makes no difference, eg. capped at FMV, then look at vmw.
-    if (a.avgoBasis != b.avgoBasis) {
-      return a.avgoBasis - b.avgoBasis
-    }
+  // if basis makes no difference, eg. capped at FMV, then look at other calcs.
+  if (useSyntheticBasisForOptimization && a.syntheticBasis != b.syntheticBasis) {
+    return a.syntheticBasis - b.syntheticBasis
+  }
+  
+  if (useFutureBasisForOptimization && a.avgoBasis != b.avgoBasis) {
+        return a.avgoBasis - b.avgoBasis
   }
 
   return a.vmwBasis - b.vmwBasis

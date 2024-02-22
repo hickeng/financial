@@ -7,7 +7,8 @@ var exportLotsCSV = true
 
 const overrideStartIndex = 0
 
-const useFutureBasisForOptimization = true
+var useFutureBasisForOptimization = true
+var useSyntheticBasisForOptimization = true
 
 // Merge processing turned out to be insanely slow.
 // Almost 60s added just for the cells in Summary, with the bulk of that spent
@@ -34,6 +35,8 @@ const colIdxNames = {
   vmwQuantity: "(Shares Issued|Shares Purchased)",
   avgoQuantity: "active qty",
   treatmentPreference: "Prefer",
+  shortTermGain: "Short Term Capital Gain",
+  longTermGain: "Long Term Capital Gain",
 }
 
 const vmwSharePurchaseDate = 2 // always in column C currently
@@ -43,5 +46,9 @@ const vmwShareQtyIdx = 3 // always in column D currently
 const datasheetSpecificHeadingRow = 3 // 0-indexed
 const datasheetDataStartRow = 6 // 0-indexed
 
+// Reference sheet
 const derivedStockRatioCellA1Notation = "B5"
 const balanceRatioA1Notation = "E7"
+// TODO: don't just hardcode to max
+// const incomeRateA1Notation = ""
+const longTermRateA1Notation = "B44"
