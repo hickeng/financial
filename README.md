@@ -19,9 +19,12 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 * ... if you know of others, please open an issue or pull request
 
 
+
 # Install
 
 To just use the sheet directly from Google, go [here](https://docs.google.com/spreadsheets/d/1BhHIC7fdozrP8zKrc79gNPdW9p9iZX8iypyUdZoPv10/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
+
+User documentation is [here](usage.md).
 
 Install is more "import", but there's some fixup required because of a Sheets bug I haven't got a workaround for as yet.
 
