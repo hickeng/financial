@@ -9,21 +9,25 @@ function onOpen() {
     .addItem("Export Workbook (Censored)", "serializeCensored")
     .addItem("Export Workbook (Debug)", "serializeDebug")
     .addSeparator()
+
     .addItem("Export Active Sheet (with Data)", "serializeActiveStandard")
     .addItem("Export Active Sheet(Censored)", "serializeActiveCensored")
     .addItem("Export Active Sheet (Debug)", "serializeActiveDebug")
     .addSeparator()
+
     .addItem("Optimize per-lot (vmw basis)", "optimizeVMW")
     .addItem("Optimize per-lot (avgo basis)", "optimizeAVGO")
-
     // This doesn't consider STG or State currently and doesn't seem to be benefical, so disabled
     // until it's at least complete.
     // .addItem("Optimize per-lot (synthetic basis)", "optimizeSynthetic")
-
     // these are just for testing as there's no way for them to satisfy the ratio requirements
     // .addItem("All Cash", "setCashPreference")
     // .addItem("All Stock", "setStockPreference")
     .addItem("All Balance", "setBalancePreference")
+    .addSeparator()
+
+    .addItem("Import 1099-B via copy/paste", "promptFor1099B")
+
     .addToUi()
 }
 

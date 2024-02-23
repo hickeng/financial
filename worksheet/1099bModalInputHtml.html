@@ -1,0 +1,19 @@
+<body>
+    <h2>1099-B import</h2>
+  
+    <p>Copy the entire body of the 1099-B and paste into the dialog</p>
+  
+    <input type="button" value="Submit" onclick="returnData()" />
+    <textarea id="1099bInput" rows="1000" cols="184"></textarea>
+    <script>
+      function returnData() {
+        var data = document.getElementById("1099bInput").value
+        console.log("collected 1099b input");
+        google.script.run.withSuccessHandler(closeMe).process1099b(data);
+      }
+  
+      function closeMe() {
+        google.script.host.close();
+      }
+    </script>
+  </body>
