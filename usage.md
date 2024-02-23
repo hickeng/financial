@@ -46,7 +46,7 @@ The other values are used for validation as, with just the ratio and the number 
 
 Go to etrade `Stock Plan->My Account->Benefit History` and look at the `OSPS` section:
 * for each lot, take the `Acquired Qty.` (orange) and add it into the worksheet (details below)
-* the `Total Acquired Qty.` (red) should match the number of AVGO you received in the transaction log and entered into 
+* the `Total Acquired Qty.` (red) should match the number of AVGO you received in the transaction log and entered into
 
 ![screenshot showing where to find quantities of AVGO after conversion ](assets/etrade-benefit-history-osps-highlighted.png)
 
@@ -58,6 +58,7 @@ If you had a fractional share, you'll be adjusting one of these values to add it
 
 ![screenshot of the ESPP sheet with shares from etrade highlighted](assets/sheet-espp-shares-from-etrade-highlight.png)
 
+)
 
 
 ### eTrade 1099-B & Supplement
