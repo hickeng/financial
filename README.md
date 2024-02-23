@@ -90,7 +90,7 @@ Initial tagged release because the foundation is there:
 * all planned changes are enhancements
 
 
-
+This repo is free for non-commercial use. If you want to use any of it commercially, contact me.
 
 # Contents
 
