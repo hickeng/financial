@@ -44,15 +44,20 @@ The other values are used for validation as, with just the ratio and the number 
 
 ### eTrade per-lot AVGO quantities
 
-*HELP NEEDED* - I no longer have lots in eTrade so cannot grab screenshots of how to get these values.
+Go to etrade `Stock Plan->My Account->Benefit History` and look at the `OSPS` section:
+* for each lot, take the `Acquired Qty.` (orange) and add it into the worksheet (details below)
+* the `Total Acquired Qty.` (red) should match the number of AVGO you received in the transaction log and entered into 
 
-If I recall correctly, these were accessible in the `Stock Plan->Other Stock Plan Shares (OSPS)->By Status`. You then expand all of the lots and record the `x.xxx` number of AVGO shares for each. These go into the `Share amounts from eTrade` column in the worksheet, on the ESPP and RSU sheets as appropriate. In general, the purchase dates for the lots shown on eTrade (I don't recall the specific field name) for ESPP will be on the last day of the month, and those for RSUs on the 1st.
+![screenshot showing where to find quantities of AVGO after conversion ](assets/etrade-benefit-history-osps-highlighted.png)
 
-Be sure to match them up to the appropriate row in the sheet if using the sheet to save these values using the `Purchase Date`. There are by-status and by-benefit-type export options that provide cvs files, but I do not know if the necessary information is in them.
+For each lot I see it bracketed with a pair of 0 qty lots. I _presume_ these come from the various holding company transitions that occurred as part of the conversion from `VMW->Holding1->Holding2->AVGO`... regardless I've ignored them.
 
+Enter these received quantities into the `Share amounts from eTrade` column in ESPP and RSU sheets. Be sure to match them up to the appropriate row in the sheet if using the sheet to save these values using the `Purchase Date`.
+
+If you had a fractional share, you'll be adjusting one of these values to add it back later, once the lot it came from has been determined.
 
 ![screenshot of the ESPP sheet with shares from etrade highlighted](assets/sheet-espp-shares-from-etrade-highlight.png)
-![alt text](image.png)
+
 
 
 ### eTrade 1099-B & Supplement
