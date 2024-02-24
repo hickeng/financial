@@ -52,3 +52,28 @@ const balanceRatioA1Notation = "E7"
 // TODO: don't just hardcode to max
 // const incomeRateA1Notation = ""
 const longTermRateA1Notation = "B44"
+
+// Import 1099B patterns
+const transactionSectionHeader = "1099-B PROCEEDS FROM BROKER AND BARTER EXCHANGE TRANSACTIONS"
+const transactionSectionEnd = "Total Covered and Noncovered Securities"
+// subsections
+// TODO: ignore the (Continued heading)
+const transactionSubSections = {
+  shortNoncovered: {
+    start: "Short Term - Noncovered Securities",
+    end: "Total Short Term Noncovered Securities",
+  },
+  shortCovered: {
+    start: "Short Term - Covered Securities",
+    end: "Total Short Term Covered Securities",
+  },
+  longNoncovered: {
+    start: "Long Term - Noncovered Securities", 
+    end: "Total Long Term Noncovered Securities",
+  },
+  longCovered: {
+    start: "Long Term - Covered Securities",
+    end: "Total Long Term Covered Securities",
+  },
+}
+
