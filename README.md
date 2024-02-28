@@ -39,7 +39,7 @@ There's [a binary sheet](https://github.com/hickeng/financial/releases/download/
    1. Repeat (4) but for `RSU!J5`, replacing with `=COUNTIF(J7:J84, TRUE)`
    1. (the bottom sums are just for convenience and because people expect totals at the bottom - fix them up with the same formula if you care)
 1. Import the AppScript (needed for running lot optimization)
-   1. In the sheet, `Extensions->App Scripts` and copy the .gs files from the repo worksheet directory.
+   1. In the sheet, `Extensions->App Scripts` and copy the .gs and .html files from the repo [worksheet](worksheet) directory.
    1. Either reload the spreadsheet, or run the `common.gs:onOpen` function using the AppScript UI
    1. Menu `Custom Functions->All balance` to trigger auth prompts
    1. Accept the authorization prompts - like self-signed website certs, you need to look at the small links below the main warning and text to proceed.
