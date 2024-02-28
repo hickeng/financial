@@ -18,6 +18,11 @@ const enableMergeProcessing = false
 
 const datasheetNames = ["ESPP","RSU"]
 const referenceName = "Reference"
+const summaryName = "Summary"
+
+const sharesCashCellA1Notation = "B25"
+const sharesStockCellA1Notation = "B26"
+const totalVMWCellA1Notation = "B29"
 
 // the row in which the costBasisColName can be found.
 // TODO: this is a monumental hack. Could also use a search, a NamedRange,

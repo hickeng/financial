@@ -3,9 +3,6 @@ var esppPrefer = 16
 var cashPreference = "cash"
 var stockPreference = "shares"
 var balancePreference = "balance"
-var totalShares = 9545
-var maxCashShares = 4573
-var maxStockShares = 4972
 
 var lotPreferenceCSV = "Lot Share Type,Lot Vest Date,AVGO shares,AVGO cost basis,Equity Ratio,Description\n"
 
@@ -57,7 +54,16 @@ function optimizeVMW() {
 
 function optimize() {
   var referenceSheet = app.getSheetByName(referenceName)
+  var summarySheet = app.getSheetByName(summaryName)
   var balanceRatioCell = referenceSheet.getRange(balanceRatioA1Notation)
+  var avgoTargetCell = summarySheet.getRange(sharesStockCellA1Notation)
+  var cashTargetCell = summarySheet.getRange(sharesCashCellA1Notation)
+  var totalVMWCell = summarySheet.getRange(totalVMWCellA1Notation)
+
+  totalShares = totalVMWCell.getValue()
+  maxCashShares = cashTargetCell.getValue()
+  maxStockShares = avgoTargetCell.getValue()
+
 
   var lotSet = []
 
@@ -314,24 +320,3 @@ function compareBasis(a, b) {
 
   return a.vmwBasis - b.vmwBasis
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
