@@ -21,13 +21,13 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 # Install
 
-To just use the sheet directly from Google, go [here](https://docs.google.com/spreadsheets/d/16urkTZg7GXXgv8mch8PaI9xuXI52F8Lr4K2PWsxK-3w/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
+To just use the sheet directly from Google, go [here](https://docs.google.com/spreadsheets/d/1BhHIC7fdozrP8zKrc79gNPdW9p9iZX8iypyUdZoPv10/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
 
 Install is more "import", but there's some fixup required because of a Sheets bug I haven't got a workaround for as yet.
 
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.2-github.xlsx) attached to the releases, suitable for import into Google Sheets.
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.3/VMW_to_AVGO_ESPP_and_RSU-v0.1.3-github.xlsx) attached to the releases, suitable for import into Google Sheets.
 
-1. Download [the latest sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.2-github.xlsx)
+1. Download [the latest sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.3-github.xlsx)
 1. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
 1. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 1. Choose `Replace Spreadsheet`, and select `Import data`
@@ -55,6 +55,10 @@ Using github project for planning - see [Timeline](https://github.com/users/hick
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+## [v0.1.3](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-28
+
+Fixes use of hardcoded test values in the per-lot optimizer logic which would have meant almost no-one trying it would have got a valid final ratio of stocks/cash.
+
 ## [v0.1.2](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-22
 
 Refines the per-lot treatment option and adds an input for a "date of sale" for post-merger AVGO to assess changes from Short Term Gains to Long (RSU), and from disqualified to qualified (ESPP) as the lots age.
@@ -76,8 +80,6 @@ Adds per-lot treatment mechanism in the RSU and ESPP datasheets:
 * select preference per-lot for `cash` or `shares`
 * run the optimizer to automatically adjust lot preference for maximum deferred tax (see steps below)
 
-
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.1/VMW_to_AVGO_ESPP_and_RSU-v0.1.1-github.xlsx) attached to the releases, suitable for import into Google Sheets.
 
 
 ## [v0.1.0](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-18
