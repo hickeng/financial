@@ -60,6 +60,10 @@ Using github project for planning - see [Timeline](https://github.com/users/hick
 
 Fixes use of hardcoded test values in the per-lot optimizer logic which would have meant almost no-one trying it would have got a valid final ratio of stocks/cash.
 
+## [v0.1.3](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-28
+
+Fixes use of hardcoded test values in the per-lot optimizer logic which would have meant almost no-one trying it would have got a valid final ratio of stocks/cash.
+
 ## [v0.1.2](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-22
 
 Refines the per-lot treatment option and adds an input for a "date of sale" for post-merger AVGO to assess changes from Short Term Gains to Long (RSU), and from disqualified to qualified (ESPP) as the lots age.
