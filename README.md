@@ -53,8 +53,6 @@ There's [a binary sheet](https://github.com/hickeng/financial/releases/download/
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
-Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
-
 ## [v0.1.3](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-28
 
 Fixes use of hardcoded test values in the per-lot optimizer logic which would have meant almost no-one trying it would have got a valid final ratio of stocks/cash.
