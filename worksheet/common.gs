@@ -9,10 +9,12 @@ function onOpen() {
     .addItem("Export Workbook (Censored)", "serializeCensored")
     .addItem("Export Workbook (Debug)", "serializeDebug")
     .addSeparator()
+
     .addItem("Export Active Sheet (with Data)", "serializeActiveStandard")
     .addItem("Export Active Sheet(Censored)", "serializeActiveCensored")
     .addItem("Export Active Sheet (Debug)", "serializeActiveDebug")
     .addSeparator()
+
     .addItem("Optimize per-lot (vmw basis)", "optimizeVMW")
     .addItem("Optimize per-lot (avgo basis)", "optimizeAVGO")
 
@@ -30,5 +32,5 @@ function onOpen() {
 function shortDate(input) {
     var date = new Date(input)
     var isoString = Utilities.formatDate(date, "UTC", "yyy-MM-dd")
-    return isoString.split("T")[0]  
+    return isoString.split("T")[0]
 }
