@@ -28,9 +28,9 @@ User documentation is [here](usage.md).
 
 Install is more "import", but there's some fixup required because of a Sheets bug I haven't got a workaround for as yet.
 
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.3/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx) attached to the releases, suitable for import into Google Sheets.
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx) attached to the releases, suitable for import into Google Sheets.
 
-1. Download [the latest sheet](https://github.com/hickeng/financial/releases/download/v0.1.2/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx)
+1. Download [the latest sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx)
 1. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
 1. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 1. Choose `Replace Spreadsheet`, and select `Import data`
