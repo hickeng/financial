@@ -1,3 +1,4 @@
+
 /////////////////////////
 // Serialization
 
@@ -428,10 +429,11 @@ function cellColourMapping(code) {
         type: "in_ref",
         sensitive: true,
       }
-    
+
     case "#a2c4c9":
-      // data validation modified colour
+    // data validation modified colour
     case "#d0e0e3":
+    case "#bbc8cb": // alternating colours formatting
       return {
         type: "out_now",
         sensitive: false,
@@ -479,6 +481,7 @@ function cellFormatMapping(formatString) {
       }
 
     case "#,##0.00;(#,##0.00)":
+    case "[$$]#,##0.00":
       return {
         type: "financial",
         formatString: formatString,
@@ -554,6 +557,7 @@ function cellFormatMapping(formatString) {
 
     case "yyyy\"-\"mm\"-\"dd":
     case "yyyy-mm-dd":
+    case "mm\"/\"dd\"/\"yy":
       return {
         type: "iso-date",
         formatString: formatString,

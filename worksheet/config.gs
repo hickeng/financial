@@ -9,6 +9,8 @@ const overrideStartIndex = 0
 
 var useFutureBasisForOptimization = true
 var useSyntheticBasisForOptimization = true
+// When set to true, all lots that would realize an actual loss if straight cash are kept as pro-rata
+var forceLossLotsToBalance = false
 
 // Merge processing turned out to be insanely slow.
 // Almost 60s added just for the cells in Summary, with the bulk of that spent
@@ -52,6 +54,7 @@ const datasheetSpecificHeadingRow = 3 // 0-indexed
 const datasheetDataStartRow = 6 // 0-indexed
 
 // Reference sheet
+const vmwCashPriceA1Notation = "B3"
 const derivedStockRatioCellA1Notation = "B5"
 const balanceRatioA1Notation = "E7"
 // TODO: don't just hardcode to max
