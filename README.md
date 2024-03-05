@@ -7,23 +7,26 @@ Don't feel obligated - my goal is to provide support... and to get peer reviewed
 
 Donations will go towards getting CPA validation of the calculations I'm using and answering [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa). I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
 
+This repo is free for non-commercial use. Giving it to your CPA for your individual filing is fine - if they want to use it at any scale they should contact me.
 
 # Getting Started
 
 This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax.
 
+There is a Getting Started section in the [discussions forum](https://github.com/hickeng/financial/discussions).
+
 ## 1. Collect necessary inputs
 
-All of this information _should_ be in eTrade (see Known Problems if any is unavailable). Log into your eTrade account and follow the steps [here](usage.md). If you're logged into eTrade, the links provided deeplink into the sections mentioned as much as is possible.
+All of this information _should_ be in eTrade (see Known Problems if any is unavailable). Log into your eTrade account and follow the steps [here](usage.md). The instruction links below jump to specific steps. If you're logged into eTrade, the links provided deeplink into the appropriate eTrade pages where possible.
 
 By the end of it you should have:
 
-* ESPP Purchase Confirmations (PDFs)
-* RSU Release Confirmations (PDFs)
-* Transaction log from 2023-11-21 to some time later, but at least after 2023-11-28 (screenshot or csv)
-* Stock Plan Benefit History spreadsheet (xlsx)
-* eTrade 1099-B (PDF)
-* eTrade Supplement (PDF)
+* ESPP Purchase Confirmations (PDFs) - [instructions](usage.md#etrade-stock-plan-confirmations)
+* RSU Release Confirmations (PDFs) - [instructions](usage.md#etrade-stock-plan-confirmations) (same as above)
+* Transaction log from 2023-11-21 to some time later, but at least after 2023-11-28 (screenshot or csv) - [instructions](usage.md#etrade-transaction-log)
+* Stock Plan Benefit History spreadsheet (xlsx) - [instructions](usage.md#etrade-benefit-history-spreadsheet)
+* eTrade 1099-B (PDF) - [instructions](usage.md#etrade-1099-b--supplement)
+* eTrade Supplement (PDF) - [instructions](usage.md#etrade-1099-b--supplement) (same as above)
 
 
 ## 2. Create a bundle for a CPA
@@ -44,7 +47,7 @@ Please let your CPA know that they are free to use the spreadsheet to aid with y
 
 ## 3. Enter your collected data into the spreadsheet
 
-There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1P6XHoQT0DEUJN7wosmJfDXBziSoDh5AaLgWt5YbOJ1M/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
+There is a shared version of the spreadsheet on Google Sheets. Go [here](https://bit.ly/vmw-merger-taxes-spreadsheet), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
 
 This entails:
 1. entering number of VMW shares and:
@@ -134,9 +137,6 @@ Additionally:
 
 Fixes use of hardcoded test values in the per-lot optimizer logic which would have meant almost no-one trying it would have got a valid final ratio of stocks/cash.
 
-## [v0.1.3](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-28
-
-Fixes use of hardcoded test values in the per-lot optimizer logic which would have meant almost no-one trying it would have got a valid final ratio of stocks/cash.
 
 ## [v0.1.2](https://github.com/hickeng/financial/releases/tag/v0.1.2) - 2024-02-22
 
@@ -153,7 +153,7 @@ The Tweak is found as a dropdown below the Fractional Share Values and contains 
 On the same row there is a share price, set to AVGO live by default that you can overwrite with any postive value.
 
 
-## [v0.1.1](https://github.com/hickeng/financial/releases/tag/v0.1.0) - 2024-02-20
+## [v0.1.1](https://github.com/hickeng/financial/releases/tag/v0.1.1) - 2024-02-20
 
 Adds per-lot treatment mechanism in the RSU and ESPP datasheets:
 
@@ -172,7 +172,6 @@ Initial tagged release because the foundation is there:
 * all planned changes are enhancements
 
 
-This repo is free for non-commercial use. If you want to use any of it commercially, contact me.
 
 # Contents
 

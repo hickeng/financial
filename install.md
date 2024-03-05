@@ -1,6 +1,6 @@
 # Install
 
-To just use the sheet directly from Google, go [here](https://docs.google.com/spreadsheets/d/1P6XHoQT0DEUJN7wosmJfDXBziSoDh5AaLgWt5YbOJ1M/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
+To just use the sheet directly from Google, go [here](https://bit.ly/vmw-merger-taxes-spreadsheet), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
 
 User documentation is [here](usage.md).
 
@@ -8,7 +8,7 @@ Install is more "import", but there's some fixup required because of a Sheets bu
 
 There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx) attached to the releases, suitable for import into Google Sheets.
 
-1. Download [the latest sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx)
+1. Download [the latest binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx)
 1. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
 1. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 1. Choose `Replace Spreadsheet`, and select `Import data`

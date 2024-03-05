@@ -42,6 +42,15 @@ The other values are used for validation as, with just the ratio and the number 
 ![Colour coded Input section for worksheet](assets/sheet-summary-colour-coded-inputs.png)
 
 
+
+### eTrade Benefit History spreadsheet
+
+The benefit history spreadsheet is the richest document I've found regarding having all the data in one place. However that also makes it rather opaque to use.
+Download it so you've got it for future reference and in case the approaches detailed in other sections runs into absent data issues.
+
+![screenshot highlighting benefit history spreadsheet download](assets/etrade-benefit-history-spreadsheet-download-highlighted.png)
+
+
 ### eTrade per-lot AVGO quantities
 
 Go to etrade `Stock Plan->My Account->Benefit History` and look at the `OSPS` section:
@@ -57,10 +66,6 @@ Enter these received quantities into the `Share amounts from eTrade` column in E
 If you had a fractional share, you'll be adjusting one of these values to add it back later, once the lot it came from has been determined.
 
 ![screenshot of the ESPP sheet with shares from etrade highlighted](assets/sheet-espp-shares-from-etrade-highlight.png)
-
-The information shown on this page in eTrade, plus a lot more, is in the BenefitHistory.xlsx spreadsheet. You should download this in case of future need:
-
-![screenshot highlighting benefit history spreadsheet download](assets/etrade-benefit-history-spreadsheet-download-highlighted.png)
 
 
 ### eTrade 1099-B & Supplement
