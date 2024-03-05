@@ -108,36 +108,112 @@ For these lots I expect all of the dollar value fields to be `$0.00` except for 
 For each of these lots you'll enter the values for some fields into the sheet. At the bottom of the 1099-B you will also have a `Total Reportable Amounts` section
 
 
+## Summary Sheet Inputs
+
+The Summary page has the following inputs:
+
+### Necessary
+These values are fundamental to the function of the sheet and _must_ be present and correct. They were obtained during gathering in [the eTrade transaction log](#etrade-transaction-log) step:
+* Shares liquidated for cash (vmw) - blue
+* Shares for conversion (vmw) - green
+
+### Validations
+These are used for cross-checking output of the sheet with reality and to avoid transcription errors:
+* VMW held at close - should be the sum of the _Necessary Inputs_ shares. Collected [in this step](#etrade-total-vmw-share-ownership) - pale brown
+* Cash for fraction - the dollar value you received for any fraction of AVGO after conversion. Collected [in this step](#etrade-transaction-log) - orange
+* Cash portion without fraction - the dollar value you received from shares converted to cash, before the sale of the fraction. Collected [in this step](#etrade-transaction-log) (same as above) - dark red
+* AVGO shares received - the number of AVGO shares you received, used to doublecheck the number calculated by the sheet. Collected [in this step](#etrade-transaction-log) (same as above) - red
+
+
+
+![Colour coded Input section for worksheet](assets/sheet-summary-colour-coded-inputs.png)
+
+
+### Tax Estimation
+One purpose of the sheet was to allow estimation of 2023 tax liability so I could pay estimated taxes for the Janurary 15th deadline. The `Output/Merger` section in the Summary sheet has some useful information for this purpose, namely the Short and Long term captial gains realized in the merger.
+
+However that's only useful as an input into actual taxes owed, so there's a more involved calculation added that outputs in the `Tax Impact` section.
+
+NOTE: this is not a well tested and validated tax estimate and your actual taxes owed will be different to these numbers. The goal is to be _close enough_ to avoid underpayment penalties for the window between Jan 15th, and filing an extension with a refined estimate on Tax Day (April 15th). My estimate from the sheet was within 2% of that from TurboTax after feeding in the same info.
+
+
+Safe harbor thresholds are:
+* Federal - concrete number as it's based on 2022 taxes.
+  * [General rule](https://www.irs.gov/publications/p505#en_US_2023_publink1000194576:~:text=paying%20a%20penalty.-,General%20rule,-.%20The%20total) (2022 AGI was less than `$150k` or `$75k` if married filing separately) - lesser of
+    1. 90% of your total expected tax for 2023, or
+    1. 100% of the total tax shown on your 2022 return. Your 2022 tax return must cover all 12 months.
+  * [Higher income taxpayers](https://www.irs.gov/publications/p505#en_US_2023_publink1000194576:~:text=all%2012%20months.-,Special%20rules,-.%20There%20are)
+    1. substitute 110% for 100% in (2) above
+* California - likely to be a number based on 2023 taxes, so unknown without effort
+    * the safe number to use is `90%` of 2023 taxes due - this covers everyone
+    * [some people](https://www.ftb.ca.gov/pay/estimated-tax-payments.html) could use a lower threshold based on 2022 taxes
+
+Another purpose of the sheet was to determine if it was worth pursuing the fact that eTrade did not honour Minimum Tax strategy or explicit lot selection when assigning cash/stock to lots. This is almost certainly more complexity than it's worth for many people. See [manual lot selection](#manual-lot-selection) for more detail, but in summary:
+* it doesn't change the amount of tax you owe, only lets you defer some of that tax into the future
+* it makes a substantive difference only if you have a large spread of tax basis or long/short treatment across the lots in your holding. If you've got plenty of ESPP and RSUs from 2020 onwards, or RSUs from pre-2020 it may be worth looking at.
+* there's questions around the approach - see [#13](https://github.com/hickeng/financial/issues/13)
+
+#### W2 and 1040
+
+To get a useful estimate to feed into California taxes, enter the following additional information into the `Inputs (W2 & 1040)` section on the Summary sheet. This will allow an estimate of your progressive tax rate for Federal and California, along with the applicable Federal Long Term gains rate:
+
+![snippet of the Inputs for W2 and 1040](assets/sheet-summary-inputs-w2-and-1040.png)
+
+#### Estimated tax payments
+
+If you've paid estimated taxes for Federal or State, enter them into the Tax Impact section - this is purely a convenience so that you can see what your unpaid tax liability is and whether you've met the safe harbor including estimated payments.
+
+![snippet of the Tax Impact section highlighting the estimated tax paid inputs](assets/sheet-summary-tax-impact-estimated-payments-highlighted.png)
+
+#### Other income
+
+If you have substantial income outside of the merger and W2, then you can improve your estimate future using the [Other Income tweaks](#other-income).
+
+#### Deduction and filing status
+
+This is probably the roughest portion of the estimate. Filing status adjusts the Federal and California tax rate thresholds. Deduction applies to Federal but not California.
+
+![snippet of tweaks with filing status and deductions highlighted](assets/sheet-summary-tweaks-fliing-status-and-deduction-highlight.png)
+
+You can adjust your deduction manually if needed by selecting `Custom` and entering a value into the corresponding `Custom` field. Otherwise the deduction is hung off your selected filing status.
+
+
+
 ## ESPP
 
+Pending: steps for mapping Purchase confirmations into ESPP datasheet
 
 
 
 ## RSU
 
+Pending: steps for mapping Purchase confirmations into ESPP datasheet
+
+Pending: steps for adding a vest date row that's not in the sheet
+
 
 ## Factional share
 
-### eTrade 1099-B
+Pending: steps for determining which lot had the fractional share. This may be superceeded by enhancements to the sheet which could allow for automatic detection of the lot if the per-lot AVGO quantity from eTrade are provided.
 
-## Income & Taxes
-
-* 2022 1040
-* 2023 W2
-* Estimated Payments
-* Deductions & Filing Status
-
-## Sale of AVGO in 2023 post-merger
 
 
 
 # Outputs
+
+This section walks through how to interpret the outputs from the sheet and what to do with them.
+
+## Form 8949
+
+Pending: [#53](https://github.com/hickeng/financial/issues/53)
 
 ## Merger details
 
 ### 2023 Captial Gain & Cash Consideration
 
 ### Future Captial Gain
+
+
 
 
 # Estimated Tax
@@ -192,4 +268,4 @@ If Sheets complains about formula errors check the number of brackets and commas
 
 ## Export
 
-## Optimizer
+## Manual lot selection
