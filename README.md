@@ -86,6 +86,10 @@ Taxes are due for the 4th quarter [on January 15th of the next year](https://www
 
 If you've _not_ met safe harbor thresholds then look at reducing penalty and interest amounts by filing using Annualized Income Installment method.
 
+## 6. Adjust 1099-B in TurboTax (or similar)
+
+There's prelim step-by-step [here](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991) but screenshots are on a different computer so that's it for tonight.
+
 -----
 -----
 -----
