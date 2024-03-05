@@ -22,10 +22,18 @@ Keep these for your records and back them up somewhere. They are THE definitive 
 
 If you sold AVGO post-merger in 2023, you'll likely need to use the tradesdownload.csv to populate the worksheet `Share amounts from eTrade` column
 
+### eTrade total VMW share ownership
+
+We want the total number of shares you owned over the merger as a validation input. You may already have this value from elsewhere, but if not you can get it through [`Stock Plan->My Account->Gains & Losses`](https://us.etrade.com/etx/sp/stockplan#/myAccount/gainsLosses).
+
+Filter the view to show all VMW shares held on the date of the merger, and remember to hit apply. The total, circuled in brown, should be a whole number.
+
+![screenshot showing gain/loss view filtered to vmw owned over the merger](assets/etrade-gains-loss-filtered-totalvmw-highlighted.png)
+
 
 ### eTrade transaction log
 
-Use [the eTrade transaction log](https://us.etrade.com/e/t/accounts/txnhistory) (filter for entries relating to acquisition, propably between 2023-11-21 and 2023-12-09) to retrieve. You can also download a CSV using the tiny download icon in the top right:
+Use [the eTrade transaction log](https://us.etrade.com/e/t/accounts/txnhistory) (filter for entries relating to acquisition, propably between 2023-11-21 and 2023-12-09) to retrieve the following. You can also download a CSV using the tiny download icon in the top right:
 * VMW shares converted to AVGO (green)
 * VMW shares exchanged for cash (blue)
 * total cash consideration recieved (dark red)
@@ -37,7 +45,7 @@ Use [the eTrade transaction log](https://us.etrade.com/e/t/accounts/txnhistory) 
 
 These values should be entered into the worksheet Input section on the `Summary` sheet. The VMW shares exchange for XXX are used to determine the specific conversion ratio that applied to you, which is used to calculate the per-lot quantities for cash and AVGO.
 
-The other values are used for validation as, with just the ratio and the number of shares for each lot, we expect the numbers to match up.
+The other values are used for validation as, with just the ratio and the number of shares for each lot, we expect the numbers to match up. The `VMW held at close` is expected to be the sum of the shares converted to AVGO and the shares exchanged for cash. This value was retrieved [in an earlier step](#etrade-total-vmw-share-ownership).
 
 ![Colour coded Input section for worksheet](assets/sheet-summary-colour-coded-inputs.png)
 
@@ -45,15 +53,16 @@ The other values are used for validation as, with just the ratio and the number 
 
 ### eTrade Benefit History spreadsheet
 
-The benefit history spreadsheet is the richest document I've found regarding having all the data in one place. However that also makes it rather opaque to use.
-Download it so you've got it for future reference and in case the approaches detailed in other sections runs into absent data issues.
+Go to [`Stock Plan->My Account->Benefit History`](https://us.etrade.com/etx/sp/stockplan#/myAccount/benefitHistory) and download the spreadsheet.
+
+The benefit history spreadsheet is the richest document I've found regarding having all the data in one place. However that also makes it rather opaque to use. Download it so you've got it for future reference and in case the approaches detailed in other sections runs into absent data issues.
 
 ![screenshot highlighting benefit history spreadsheet download](assets/etrade-benefit-history-spreadsheet-download-highlighted.png)
 
 
 ### eTrade per-lot AVGO quantities
 
-Go to etrade `Stock Plan->My Account->Benefit History` and look at the `OSPS` section:
+Go to etrade [`Stock Plan->My Account->Benefit History`](https://us.etrade.com/etx/sp/stockplan#/myAccount/benefitHistory) and look at the `OSPS` section:
 * for each lot, take the `Acquired Qty.` (orange) and add it into the worksheet (details below)
 * the `Total Acquired Qty.` (red) should match the number of AVGO you received in the transaction log and entered into
 

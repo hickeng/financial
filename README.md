@@ -53,7 +53,7 @@ This entails:
 1. entering number of VMW shares and:
    1. RSUs - many vest dates are already populated, but you may need to add `Market Value Per Share` if yours is absent
    1. ESPP - almost everyone has the same offering periods, so only `Current Contributions` from the confirmations and your initial `Previous Carry Forward` value are needed
-1. details from eTrade transaction log
+1. details from eTrade transaction log - [instructions](usage.md#etrade-transaction-log)
    1. Shares (exchange for cash)
    1. Shares (tender payment)
 
