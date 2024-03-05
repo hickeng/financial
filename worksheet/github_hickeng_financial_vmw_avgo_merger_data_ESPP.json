@@ -242,7 +242,7 @@
 {"sheet":1,"id":"AW7","data":"=IFERROR(((AD7*D7) - AA7 + AL7 + IF(AY7, 0, AZ7))/AH7, \"n/a\")","type":"formula","format":"financial","propagate":{"end":"AW26"},"dataclass":"out_future"},
 {"sheet":1,"id":"AX4","data":"Potential Captial Gain (AVGO)"},
 {"sheet":1,"id":"AX5","data":"=SUM(AX28)","type":"formula","format":"financial","dataclass":"out_future"},
-{"sheet":1,"id":"AX7","data":"=iferror((Reference!$B$10-AW7)*(AH7) - AJ7, 0)","type":"formula","format":"financial","propagate":{"end":"AX26"},"dataclass":"out_future"},
+{"sheet":1,"id":"AX7","data":"=iferror((Reference!$B$10-AW7)*(AH7 - AJ7), 0)","type":"formula","format":"financial","propagate":{"end":"AX26"},"dataclass":"out_future"},
 {"sheet":1,"id":"AX28","data":"=SUM(AX7:AX26)","type":"formula","format":"financial","dataclass":"out_future"},
 {"sheet":1,"id":"AY4","data":"Qualified"},
 {"sheet":1,"id":"AY5","format":"financial","dataclass":"out_future"},
