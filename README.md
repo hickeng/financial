@@ -7,6 +7,90 @@ Don't feel obligated - my goal is to provide support... and to get peer reviewed
 
 Donations will go towards getting CPA validation of the calculations I'm using and answering [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa). I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
 
+
+# Getting Started
+
+This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax.
+
+## 1. Collect necessary inputs
+
+All of this information _should_ be in eTrade (see Known Problems if any is unavailable). Log into your eTrade account and follow the steps [here](usage.md). If you're logged into eTrade, the links provided deeplink into the sections mentioned as much as is possible.
+
+By the end of it you should have:
+
+* ESPP Purchase Confirmations (PDFs)
+* RSU Release Confirmations (PDFs)
+* Transaction log from 2023-11-21 to some time later, but at least after 2023-11-28 (screenshot or csv)
+* Stock Plan Benefit History spreadsheet (xlsx)
+* eTrade 1099-B (PDF)
+* eTrade Supplement (PDF)
+
+
+## 2. Create a bundle for a CPA
+
+Your CPA needs all of the information collected in the prior section, along with all the following if the conditions apply:
+* If you held VMware shares over the Broadcom merger
+  * [Form 8937](documents/Broadcom%20-%20Form%208937%20Acquistion%20of%20VMware%20Inc..pdf) for the merger
+* If you held VMware shares since before 2021-10-29 (the most recent Dell dividend)
+  * [Form 8937](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Distribution.pdf) for the  2nd Dell distribution
+* If you held VMware shares acquired via owning Dell shares during the 2021 Dell dividend
+  * [Form 8937](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Recapitalization.pdf) for the Dell recapitalization
+* If you held VMware shares since before 2018-12-27 (the first Dell dividend)
+  * [Form 8937](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20December%2028,%202018%20Distribution.pdf) for the 1st Dell distribution
+
+If you needed to give your CPA any of the Dell distribution/recapitalization forms, let them know that the eTrade Supplement does not include the necessary basis adjustment. Also let them know that you're uncertain whether "imputed ordinary income from the ESPP bargain element" will be correctly reported via W2.
+
+Please let your CPA know that they are free to use the spreadsheet to aid with your individual filing, but if they want to use it at any scale they should contact me.
+
+## 3. Enter your collected data into the spreadsheet
+
+There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1P6XHoQT0DEUJN7wosmJfDXBziSoDh5AaLgWt5YbOJ1M/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
+
+This entails:
+1. entering number of VMW shares and:
+   1. RSUs - many vest dates are already populated, but you may need to add `Market Value Per Share` if yours is absent
+   1. ESPP - almost everyone has the same offering periods, so only `Current Contributions` from the confirmations and your initial `Previous Carry Forward` value are needed
+1. details from eTrade transaction log
+   1. Shares (exchange for cash)
+   1. Shares (tender payment)
+
+and that's it.
+
+For completeness you should [figure out](usage.md#factional-share) which lot your fractional AVGO share came from and check the appropriate tickbox, but omitting this will have only a minor effect on things if you've any significant number of shares. You _should_ do this if using the sheet for filing, but if using it for estimation, exploration, double-checking CPA figures, etc then it's non-critical.
+
+Optionally you can [add validation inputs](usage.md#etrade-transaction-log) used to sanity check against transcription errors, and W2/1040 information to inform a ballpark tax estimate.
+
+Optionally you can [add other sources of income](usage.md#other-income) to improve the tax estimation.
+
+If you sold AVGO shares post-merger but in 2023, you can use the [post merger sale of AVGO](usage.md#post-merger-sale-of-avgo) tweak to set the price at which you sold and generate the necessary basis and imputed income (ESPP) for filing.
+
+Very, very optionally there is [a tweaks section](usage.md#tweaks-and-custom-functions) that you can play with to change the way the sheet works. This goes from minor things like chosing which Broadcom Fair Market Value to use (both Mean and Close seem to be confidently permitted) to major items like changing the per-lot ratios for cash/shares (note [#13](https://github.com/hickeng/financial/issues/13) if playing with this).
+
+The sheet is still being actively refined and, while it's slowed, people are still finding issues to be fixed. The [timeline](https://github.com/users/hickeng/projects/2/views/2) has a stable version that's as vetted as viable towards the end of March. I'll be tagging a v1.0.0 that I will use for filing my extension in April.
+
+## 4. Look at the outputs from the sheet
+
+The primary outputs from the sheet are:
+
+Critical:
+1. Per-lot tax basis and gain data needed for Form 8949 to be filed with your tax return. Used to either populate a Form 8949 directly, or to correct 1099-B imports. Information relevant to _now_, such as this data, is tinted in pale blue.
+1. Per-lot tax basis, needed when selling AVGO shares post-acquisition. Information related to post-acquisition sale of shares is tinted in pale green.
+
+Informational:
+1. Long and short term capital gains for 2023 and potential future values
+1. Ballpark tax liability estimate for Federal and California for making estimated payments
+
+## 5. Make Estimated payments if you've not reached Safe Harbor thresholds
+
+Taxes are due for the 4th quarter [on January 15th of the next year](https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2)... so 2024-01-15 was the deadline for paying any estimated taxes resulting from the merger.
+
+If you've _not_ met safe harbor thresholds then look at reducing penalty and interest amounts by filing using Annualized Income Installment method.
+
+-----
+-----
+-----
+
+
 # Known Tax Problems After Merger
 
 The problems we as VMW holders know of are collected [here](problems.md), along with groups impacted, and impact assment. All are works in progress:
@@ -16,39 +100,11 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 * treatment of proceeds as dividends
    * substantially impacting non-US residents
 * fractional share sold at incorrect price
+* missing stock confirmations in eTrade
+* missing lot information on eTrade 1099-B
 * ... if you know of others, please open an issue or pull request
 
 
-
-# Install
-
-To just use the sheet directly from Google, go [here](https://docs.google.com/spreadsheets/d/1P6XHoQT0DEUJN7wosmJfDXBziSoDh5AaLgWt5YbOJ1M/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
-
-User documentation is [here](usage.md).
-
-Install is more "import", but there's some fixup required because of a Sheets bug I haven't got a workaround for as yet.
-
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx) attached to the releases, suitable for import into Google Sheets.
-
-1. Download [the latest sheet](https://github.com/hickeng/financial/releases/download/v0.1.4/VMW_to_AVGO_ESPP_and_RSU-v0.1.4-github.xlsx)
-1. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
-1. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
-1. Choose `Replace Spreadsheet`, and select `Import data`
-1. FIXUP: there's a Sheets import bug ([#30](https://github.com/hickeng/financial/issues/30)) that drops the checkbox validation from `Use for fraction` column in ESPP and RSU sheets:
-   1. Menu `Data->Data validation`, then `Add rule` at the bottom of the right side pane that opens.
-   1. Set `Apply to range` to `ESPP!N7:N26`, `Criteria` to `Tick box`. Click `Done`.
-   1. Repeat (2) but with `Apply to range` as `RSU!J7:J84`
-   1. If `ESPP!N5` is displaying `#REF!`, replace the cell formula with `=COUNTIF(N7:N26, TRUE)`
-   1. Repeat (4) but for `RSU!J5`, replacing with `=COUNTIF(J7:J84, TRUE)`
-   1. (the bottom sums are just for convenience and because people expect totals at the bottom - fix them up with the same formula if you care)
-1. Import the AppScript (needed for running lot optimization)
-   1. In the sheet, `Extensions->App Scripts` and copy the .gs files from the repo worksheet directory.
-   1. Either reload the spreadsheet, or run the `common.gs:onOpen` function using the AppScript UI
-   1. Menu `Custom Functions->All balance` to trigger auth prompts
-   1. Accept the authorization prompts - like self-signed website certs, you need to look at the small links below the main warning and text to proceed.
-1. Run the `Custom Functions->Optimize per-lot (avgo basis)` function - you'll be
-   1. This sets the preference for each lot to `cash` or `shares` and you'll see the impact if choosing `manual per-lot ratio` in the Tweaks.
-   1. If you want to make changes to the sheet, then export those changes for a PR, use the `Custom Functions->Export Workbook (Censored)`. This will write json to a Google Drive location and is the mechanism I use to construct the json [in the repo](worksheet/). These are intended for easy visual review of diffs. Well, easy compared to doing it as a spreadsheet.
 
 
 

@@ -68,3 +68,34 @@ Groups:
 Impact:
 * a tiny loss - the maximum possible loss is if you had 0.999 of a share (rounding seems to be to 3dp), equaling $75.61
 
+
+## E-trade Stock Plan Confirmations does not have the confirmations
+
+One person has reported (and reported that eTrade have said it's affecting multiple people) that they have do not have confirmations documents as detailed in [Usage doc](usage.md#etrade-stock-plan-confirmations).
+
+Groups:
+* some eTrade account holders - specific criteria unknown
+
+Impact:
+* no confirmation PDFs available for extracting lot share quantity and basis information
+* `NOT ON FILE` shows up in the 1099-B for `Cost or other Basis`
+
+Mitigation:
+* Download the BenefitHistory.xlsx as shown below and extract that data from there
+
+![screenshot highlighting benefit history spreadsheet download](assets/etrade-benefit-history-spreadsheet-download-highlighted.png)
+
+
+## 1099-B has only totals and no lot information
+
+Some people are reporting that their 1099-B does not have a line per lot, only section totals for Long/Short Covered/Non-covered securities.
+
+Groups:
+* some eTrade account holders - specific criteria unknown
+
+Impact:
+* unable to import lots into TurboTax or other preparation software
+
+Mitigation:
+* Download BenefitHistory.xlsx as shown for missing confirmations and look for lot level information in there
+* If not, contact eTrade customer support to ask for a remediation.

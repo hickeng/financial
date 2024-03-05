@@ -25,7 +25,7 @@ If you sold AVGO post-merger in 2023, you'll likely need to use the tradesdownlo
 
 ### eTrade transaction log
 
-Use [the eTrade transaction log](https://us.etrade.com/e/t/accounts/txnhistory) (filter for entries relating to acquisition, propably between 2023-11-21 and 2023-12-09) to retrieve:
+Use [the eTrade transaction log](https://us.etrade.com/e/t/accounts/txnhistory) (filter for entries relating to acquisition, propably between 2023-11-21 and 2023-12-09) to retrieve. You can also download a CSV using the tiny download icon in the top right:
 * VMW shares converted to AVGO (green)
 * VMW shares exchanged for cash (blue)
 * total cash consideration recieved (dark red)
@@ -58,7 +58,9 @@ If you had a fractional share, you'll be adjusting one of these values to add it
 
 ![screenshot of the ESPP sheet with shares from etrade highlighted](assets/sheet-espp-shares-from-etrade-highlight.png)
 
-)
+The information shown on this page in eTrade, plus a lot more, is in the BenefitHistory.xlsx spreadsheet. You should download this in case of future need:
+
+![screenshot highlighting benefit history spreadsheet download](assets/etrade-benefit-history-spreadsheet-download-highlighted.png)
 
 
 ### eTrade 1099-B & Supplement
@@ -66,10 +68,12 @@ If you had a fractional share, you'll be adjusting one of these values to add it
 We need to get per-lot details from the eTrade 1099-B document for 2023. For completeness you'll want the Supplement and the CSV export of your trades for 2023 tax year. If you sold VMW pre-acquisition, or AVGO post-acquisition _I expect_ them to show up in the csv, but cannot confirm personally. Keep these for your records.
 
 These documents can be found in the [eTrade Tax Center](https://us.etrade.com/etx/pxy/tax-center?resource=stock-plan).
+<!--  -->
 ![eTrade tax center screenshot with relevant links highlighted](assets/etrade-tax-center-highlighted.png)
 
 
 It will contain some summary information that we don't need. What we need is the per-lot details found in `PROCEEDS FROM BROKER AND BARTER EXCHANGE TRANSACTIONS`
+
 ![Section header](assets/1099-b-section-header.png)
 
 Within there, there may be multiple different subsections. We only care about these groupings because it makes it easier to figure out whether it's an ESPP or RSU lot:
@@ -78,6 +82,7 @@ Within there, there may be multiple different subsections. We only care about th
 * `Long Term - Covered Securities` - ESPP (the final ESPP lot was 2022 so they'll all be here)
 
 Each of those sections has the following fields:
+
 ![Detail headings](assets/1099-b-detail-headings.png)
 
 We're only interested in VMW shares and only lots held over the merger. So:
@@ -95,6 +100,9 @@ For each of these lots you'll enter the values for some fields into the sheet. A
 
 
 ## RSU
+
+
+## Factional share
 
 ### eTrade 1099-B
 
@@ -121,7 +129,52 @@ For each of these lots you'll enter the values for some fields into the sheet. A
 # Estimated Tax
 
 
-# Custom Functions
+# Tweaks and Custom Functions
+
+## Post merger sale of AVGO
+
+This tweak allows you to change the presumed date of sale and price for post-merger AVGO shares. This is convenient for:
+* experimenting with impact of waiting to sell for Short Term RSUs to graduate to Long Term
+* experimenting with impact of waiting for disqualified ESPPs to qualify (all lots qualify since 2024-03-01)
+* generating tax basis and imputed income for sales of AVGO in 2023 post-merger
+
+Simply select the date at which you sold/will-sell AVGO and the price, and it'll adjust the green `Future` sections. The per-lot data needed for filing is in the RSU and ESPP datasheets on the far right. The dates in the dropdown correlate to the dates at which known RSU lots transition from Short Term to Long Term.
+
+If you select `last year` then it'll also roll any income and capital gain/loss into the Summary sections for captial gain and estimated tax.
+
+![screenshot showing dropdown of post-merger sale options](assets/sheet-summary-post-merger-sale-dropdown.png)
+
+## Other income
+
+To improve the tax estimation, add additional sources of income. These are rolled into your AGI estimate and impact the active Long Term Gains tax rate, and income tax rates for Federal and California.
+
+I've found the easiest way to do this is with a multi-line `LET` statement as that allows for useful pretty names to be associated with values. You cannot easily edit these formulae directly in the sheet, so use Notepad, vi, etc and copy/paste.
+
+Example:
+```
+=LET(
+brokerOdiv,1234.56 + 7890.12,
+brokerInt,0,
+brokerProceeds,123456.78,
+brokerProceedsBasis,23456.00,
+brokerS199a,42.42,
+etradeODiv,1812.00,
+etradeInt,1111.11,
+bankInt,2222.22,
+fidelityOdiv,333.33,
+fidelityInt,0,
+
+brokerOdiv+brokerInt+brokerS199a+
+brokerProceeds-brokerProceedsBasis+
+etradeOdiv+etradeInt+
+bankInt+
+fidelityOdiv+fidelityInt
+)
+```
+
+If Sheets complains about formula errors check the number of brackets and commas. If it complains about names, check for spelling between the name declaration and the use in the final section.
+
+![snippet showing other capital gain and income fields](assets/sheet-summary-other-income-fields.png)
 
 ## Export
 
