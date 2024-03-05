@@ -105,7 +105,8 @@ We're only interested in VMW shares and only lots held over the merger. So:
 
 For these lots I expect all of the dollar value fields to be `$0.00` except for `PROCEEDS (Box 1d)` and `GAIN(LOSS) AMOUNT`. If you've got values in any other column you'll need to understand why. Upvote [this tracking issue](https://github.com/hickeng/financial/issues/57) to flag the fact you're in this situation and the community can help figure out what it means.
 
-For each of these lots you'll enter the values for some fields into the sheet. At the bottom of the 1099-B you will also have a `Total Reportable Amounts` section
+Eventually you'll need to enter (or I'll add import capabilities) the various values for each lot into the sheet so that we can double check the 1099-B vs the sheet contents. However for now the sheet presents Form8949 numbers based off the calculated values. As such the 1099-B is only for reference right now (as of v0.1.4).
+
 
 
 ## Summary Sheet Inputs
