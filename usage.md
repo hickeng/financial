@@ -14,7 +14,9 @@ There's various documents we need to export from eTrade.
 
 ### eTrade Stock Plan Confirmations
 
-Gather the ESPP purchase confirmation, and RSU release confirmation documents for every lot for which you still own any shares from [the trade confirmations page](https://us.etrade.com/etx/sp/stockplan#/myAccount/stockPlanConfirmations). I don't know a better way than selecting each year in turn and clicking on the download links. If anyone finds a way to batch this, please let me know.
+Gather the ESPP purchase confirmation, and RSU release confirmation documents for every lot where you held shares over the merger from [the trade confirmations page](https://us.etrade.com/etx/sp/stockplan#/myAccount/stockPlanConfirmations). If you have sold _some_ shares from a lot prior to the merger, you'll need to deduct that quantity from the `Shares Issued` or `Shares Purchased` values in the confirmation documents. We need the documents to determine the tax basis for a lot, but we only want to calculate tax for shares that you owned when the merger completed.
+
+I don't know a better way than selecting each year in turn and clicking on the download links. If anyone finds a way to batch this, please let me know.
 
 ![etrade trade confirmations download page with relevant areas highlighted](assets/etrade-confirmations-highlighted.png)
 
