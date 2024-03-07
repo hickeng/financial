@@ -210,6 +210,12 @@ This section walks through how to interpret the outputs from the sheet and what 
 
 Pending: [#53](https://github.com/hickeng/financial/issues/53)
 
+### Entry into Turbotax
+
+There's preliminary steps noted in [this issue](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991) along with a case where, for unknown reason, ESPP entry went down a different path along with notes on workarounds discovered.
+
+I'll marshall that into structured docs with screen shots ASAP.
+
 ## Merger details
 
 ### 2023 Captial Gain & Cash Consideration
