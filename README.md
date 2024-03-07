@@ -281,10 +281,13 @@ Links into the IRS webiste:
 
 The ESPP discount is considered ordinary income and _should_ be reported on your W2 when you sell the shares. In the past it has shown up on VMW W2's in `Box 14 Other`, labelled as ESPP. However, the proportion of the discount treated as ordinary income vs long term capital gain depends on whether the ESPP shares are qualified or disqualified.
 
-Terms:
+The recognition of ordinary income is not a consideration for lots exchanged for shares or mixed shares/cash. IRS tax code [Section 424(c)(1)(b)](https://www.law.cornell.edu/uscode/text/26/424#:~:text=an%20exchange%20to%20which%20section) explicitly excludes Section 356 exchanges from being considered as a disposition and 356 is what's noted in [Form 8937](documents/Broadcom%20-%20Form%208937%20Acquistion%20of%20VMware%20Inc..pdf) as governing the exchange. A big thank you to @alkom for [tracking down the specific section references](https://github.com/hickeng/financial/issues/15#issuecomment-1982794737).
+
+There's discussion in [#15](https://github.com/hickeng/financial/issues/15) regarding specifics - below is a distilation of current understanding of terms/impact relating to ESPP:
 
 * disqualified - sold within either 1 year from purchase date (when you got the shares aka exercise) or 2 years from grant date (when the ESPP period started aka offering).
 * qualified - held for 2 years past grant _and_ 1 year past purchase
+* option price - the Fair Market Value at ESPP grant date, minus the 15% discount
 * market price - the Fair Market Value of the stock on the date of purchase
 * offer price (my term) - the lesser of the market price and the grant date price
 * purchase price - the amount you actually paid for it
