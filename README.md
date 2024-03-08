@@ -228,7 +228,7 @@ f8949_proceeds = cash_received + avgo_fmv
 
 # the alternate gain calculation from f8937
 # translating it, this is also the real economic value received: total consideration - true basis
-alternate_gain_calc = cash_received + fmv_avgo - vmw_basis
+alternate_gain_calc = cash_received + avgo_fmv - vmw_basis
 
 # the approximate threshold for per-share vmw basis (adjusted for dividends) where we switch clauses is
 # 0.2520 * 0.521 * 979.50 = 128.601
@@ -241,13 +241,13 @@ if cash_received < alternate_gain_calc {
   # the deferred gain from vmw->avgo conversion must still be realized in the future. Adjustment
   # to avgo_basis is the way this is accomplished. This is rolled into the mandated f8937 basis adjustment.
 
-  # we need the 2023 f8949 to reconcile correctly in the future against the deferred gain resulting from the
-  # inflexible avgo_basis.
-  # we must realize the cash_received as gain therefore, with f8949_proceeds fixed as cash_received:
-  #    f8949_basis = 0
-  # but we're deferring avgo_fmv - vmw_basis gain to the future, so we must not pay tax on it now, therefore
-  #   f8949_basis += avgo_fmv - vmw_basis
-  f8949_basis = avgo_fmv - vmw_basis
+  # we need the 2023 f8949 to reconcile correctly in the future against the deferred gain resulting from the inflexible
+  # avgo_basis. future avgo_basis is dictated as vmw_basis - cash_received + f8937_gain which simplifies to vmw_basis
+  # for this case.
+  #
+  # we're deferring avgo_fmv - vmw_basis gain to the future, and we must realize the cash_received as gain now.
+  # we've got a mandated basis of vmw_basis for future sales, so our current basis is avgo_fmv to achieve the necessary delta.
+  f8949_basis = avgo_fmv
 
 } else {
 
@@ -259,8 +259,8 @@ if cash_received < alternate_gain_calc {
   # avgo_basis = vmw_basis - cash_received + f8937_gain
   #
   # This is still okay, as that simplifies
-  # avgo_basis = vmw_basis - cash_received + cash_received + fmv_avgo - vmw_basis
-  # avgo_basis = fmv_avgo
+  # avgo_basis = vmw_basis - cash_received + cash_received + avgo_fmv - vmw_basis
+  # avgo_basis = avgo_fmv
   f8949_basis = vmw_basis
 }
 
