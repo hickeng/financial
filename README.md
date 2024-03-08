@@ -312,6 +312,8 @@ Links to the relevant Form 8937's:
 * [Dell distribution 2021](https://investors.broadcom.com/static-files/c03396b2-538b-42c3-910c-dce218d5d9f1) ([from repo](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Distribution.pdf))
 * [Dell distribution 2018](https://investors.broadcom.com/static-files/674c4fc3-6cc3-48cf-83b1-f6f6f3f75623) ([from repo](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20December%2028,%202018%20Distribution.pdf))
 
+Of note, there was a prior version of the 2021 Form 8937 which appears to have been used for our taxes that year. See [#83](https://github.com/hickeng/financial/issues/83). I will be adding a tweak to the sheet to chose which version applies. Form added to repo for reference:
+* [Dell distribution 2021 - original version](documents/Form%208937%20-%20October%2029,%202021.pdf)
 
 
 ### Pro-rata vs other allocation of cash/share split
