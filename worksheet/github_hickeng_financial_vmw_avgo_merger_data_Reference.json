@@ -82,7 +82,7 @@
 {"sheet":3,"id":"B59","data":"=LET(income,B32+B33,\n(0.01*(MIN(MAX(income,B55),C55-B55)))+\n(0.02*(MIN(MAX(income-C55,0),D55-C55)))+\n(0.04*(MIN(MAX(income-D55,0),E55-D55)))+\n(0.06*(MIN(MAX(income-E55,0),F55-E55)))+\n(0.08*(MIN(MAX(income-F55,0),G55-F55)))+\n(0.093*(MIN(MAX(income-G55,0),H55-G55)))+\n(0.103*(MIN(MAX(income-H55,0),I55-H55)))+\n(0.113*(MIN(MAX(income-I55,0),J55-I55)))+\n(0.123*(MIN(MAX(income-J55,0),K55-J55)))+\n(0.133*MAX(income-K55,0)))","type":"formula","format":"financial","dataclass":"info"},
 {"sheet":3,"id":"C25","data":"Basis adjustment"},
 {"sheet":3,"id":"C26","data":"10.18","format":"financial","dataclass":"in_prepop"},
-{"sheet":3,"id":"C27","data":"16.87","format":"financial","dataclass":"in_prepop"},
+{"sheet":3,"id":"C27","data":"16.58","format":"financial","dataclass":"in_prepop"},
 {"sheet":3,"id":"C31","data":"Post-merger sale date in 2023"},
 {"sheet":3,"id":"C32","data":"=IF(LT(YEAR($B$29),2024),Summary!D44+Summary!G44,0)","type":"formula","dataclass":"info"},
 {"sheet":3,"id":"C33","data":"=IF(LT(YEAR($B$29),2024),Summary!$E$44,0)","type":"formula","dataclass":"info"},
