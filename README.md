@@ -3,11 +3,11 @@ Welcome, fellow members of the Turtle Pond.
 This repo is going to hold all my spreadsheets (santized), research, and conclusions for the financials around the VMW->AVGO acquisition. Click on the burger menu on the top right of the readme pane for a table of contents.
 
 By insistent recommendation of colleagues/friends that _they_ want to be able to pay something, I haved enabled Sponsor for the repo ([:heart:](https://github.com/sponsors/hickeng)).
-Don't feel obligated - my goal is to provide support... and to get peer reviewed in turn to improve _my_ filing correctness! Basically standard Open Source motive.
+Don't feel obligated - my goal is to provide support to colleagues and friends in getting through an unexpectedly complex tax season... and to get peer reviewed in turn to improve _my_ filing correctness! So, mostly standard Open Source motive.
 
-Donations will go towards getting CPA validation of the calculations I'm using and answering [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa). I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
+Donations will initially go towards getting CPA validation of the calculations I'm using and answering [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa) assuming I can find one willing to engage in that style. I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
 
-This repo is free for non-commercial use. Giving it to your CPA for your individual filing is fine - if they want to use it at any scale they should contact me.
+Use by past and present VMware and Broadcom employees for tax purposes, including giving it to a CPA for use with your personal holding, is acceptable under the non-commercial license. Use by other individuals for personal tax purposes without CPA involvement is also acceptable. For broader use than that, contact me for commercial licensing.
 
 # Getting Started
 
