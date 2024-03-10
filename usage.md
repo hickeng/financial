@@ -252,7 +252,37 @@ The blue dot to click and drag down:
 
 ## Factional share
 
-Pending: steps for determining which lot had the fractional share. This may be superceeded by enhancements to the sheet which could allow for automatic detection of the lot if the per-lot AVGO quantity from eTrade are provided.
+There are several ways to determine the fractional lot. There is a problem if they don't result in the same answer! You need to know which lot the fraction was sold from because it's still sale of a share. That means you need to know the tax-basis in order to calculate gain, and if it's an ESPP lot (aka covered security) then you need to recognize ordinary income for the ESPP bargin element and adjust the tax-basis correspondingly. All of that is handled by the sheet, with a [possible minor future adjustment](https://github.com/hickeng/financial/issues/86) in our favour depending on CPA consult.
+
+
+Once you have the lot, perform the following steps:
+
+- [ ] check the tick box for the identified lot in the ESPP or RSU sheet
+- [ ] add the fractional quantity back into the "AVGO qty from eTrade" cell for the lot (if you've chosen to populate those numbers). This is done so there's not this single special case value in a cell that's divergent from the others but not visually distinct, and also avoids additional formula complexity.
+- [ ] TIP: Personally I add a note to the "AVGO qty from eTrade" cell for the fractional lot so that in the future I've got an in-situ reminder of why this single number differs from the downloaded docs, eg:
+  > This is NOT the value in eTrade for this lot - it is the value in eTrade + the fractional share that was sold from this lot.
+  > This is done to keep the rest of the sheet sane so there isn't a formula exception that applies to a single row.
+
+Two options for determining the lot used for the fraction are below.
+
+### Via 1099-B
+
+If your 1099-B has granular entries for each lot sale (most people do, some people don't), you should see an entry similar to the example below. Note the `Description (Box 1a)` is `BROADCOM INC` where your others will be `VMWARE INC CLASS A`. From this line you want the `Date Acquired (Box 1c)`:
+
+![1099b snippet for fractional AVGO sale](assets/1099b-avgo-fractional-sale.png)
+
+The sub-section of the 1099-B tells you which type of lot it came from:
+
+* `Long Term - Noncovered securities` - RSU
+* `Short Term - Noncovered securities` - RSU
+* `Long Term - Covered Securities` - ESPP
+* `Short Term - Covered Securities` - you should NOT have this section shares relevant to the merger as the final ESPP offering period close more than 1 year before the merger. Noted in the list for completeness.
+
+
+### Via AVGO share quantities from eTrade
+
+If you've filled in the optional "[AVGO qty from eTrade](#etrade-per-lot-avgo-quantities)" column, you should have one row with an anomolously low value in the "Derived from manual share qty" column. This column may be hidden - as of v0.1.5 it is `ESPP!U` and `RSU!Q`.
+`Reference!E8` contains a threshold value based on the standard deviation of the "AVGO qty from eTrade" values - it's _likely_ you'll see a threshold value below that figure but not assured if your fractional share value is on the smaller end of the range (0 -> 1).
 
 
 ## AVGO qty from eTrade
