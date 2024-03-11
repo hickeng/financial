@@ -121,11 +121,35 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+## [v0.1.5](https://github.com/hickeng/financial/releases/tag/v0.1.5) - 2024-03-11
+
+Substantial revision and update to documentation and allows selection of eTrade tax strategy for per-lot use, including:
+
+* Getting Started section
+* Examples for entering RSU & ESPP
+* Step-by-step for adding new rows to RSU & ESPP
+* Step-by-step for correcting Turbotax Proceeds and Basis for imported 1099-Bs
+* In-sheet checklist for tracking progress through completion
+* Various updates to in-sheet notes
+
+Updates:
+* Updated Dell 2021 Return of Capital number to match eTrade's use in 2021 and added draft Form8937 noting that estimated value
+* Added effective rate calculation to estimate
+* Added general mechanism for applying eTrade tax strategy from Account Settings if using per-lot approach
+* Definitive answer that the merger is not a disposition so doesn't incur imputed income from ESPP bargin element
+
+Includes bug fixes:
+* Fractional share now correctly included in potential capital gain
+* Other LTG was not being included in tax estimate
+* Corrected ESPP basis calculation to use only grant date as per [this comment](https://github.com/hickeng/financial/issues/15#issuecomment-1975816154)
+
+
 ## [v0.1.4](https://github.com/hickeng/financial/releases/tag/v0.1.4) - 2024-02-28
 
 Gets the basics of Form8949 / cost-basis entry for TurboTax in place, adding Form 8949 sections in Summary and RSU/ESPP datasheets.
 
 Additionally:
+
 * fixed up Turbotax 1099-B import using the sheet Form8949 as test.
 * various column renames for consistency, precision, and clarity.
 * added Close value for AVGO FMV and noted where it's stated it's acceptable (costbasis.com)
