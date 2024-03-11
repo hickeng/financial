@@ -5,7 +5,7 @@
 {"sheet":3,"id":"A5","data":"Avgo ratio (calculated)"},
 {"sheet":3,"id":"A6","data":"AVGO conversion ratio"},
 {"sheet":3,"id":"A7","data":"Avgo ratio (etrade transaction log)"},
-{"sheet":3,"id":"A10","data":"AVGO live value"},
+{"sheet":3,"id":"A10","data":"AVGO post-merger sale value"},
 {"sheet":3,"id":"A12","data":"AVGO FMV (close of merger)"},
 {"sheet":3,"id":"A13","data":"Open"},
 {"sheet":3,"id":"A14","data":"Close"},
