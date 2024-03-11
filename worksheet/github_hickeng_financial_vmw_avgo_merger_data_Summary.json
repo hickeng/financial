@@ -144,7 +144,7 @@
 {"sheet":0,"id":"J39","data":"Fractional share"},
 {"sheet":0,"id":"J49","data":"Donate via github sponsors"},
 {"sheet":0,"id":"K25","data":"Mean","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["Mean","Close","High","Low","Custom"],"enforced":true,"help":""},"dataclass":"in_prepop","note":"Mean is noted in Form 8937.\n\nClose is noted on costbasistools.com as \"Use of 11/22/2023 closing price of $972.00 is also an acceptable IRS method\""},
-{"sheet":0,"id":"K26","data":"Calculated from Necessary Inputs","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["Per eTrade transaction log","Calculated from Necessary Inputs","Calculated from manual share qty","Manual per-lot ratio"],"enforced":true,"help":""},"dataclass":"in_prepop"},
+{"sheet":0,"id":"K26","data":"Pro-rata - from Necessary Inputs","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["Pro-rata - from Necessary Inputs","Per-lot - from strategy or manual selection","Pro-rata - from eTrade share qty","Pro-rata - from eTrade transaction log"],"enforced":true,"help":""},"dataclass":"in_prepop"},
 {"sheet":0,"id":"K27","data":"eTrade","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["eTrade","Form 8937","Custom"],"enforced":true,"help":""},"dataclass":"in_prepop"},
 {"sheet":0,"id":"K28","data":"today","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["last year","today","2024-03-01","2024-05-01","2024-06-01","2024-08-01","2024-09-01"],"enforced":false,"help":"Click and enter a value from the list of items"},"dataclass":"in_prepop"},
 {"sheet":0,"id":"K30","format":"financial","propagate":{"end":"K32"},"dataclass":"in_opt"},
