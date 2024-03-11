@@ -32,10 +32,11 @@ By the end of it you should have:
 ## 2. Create a bundle for a CPA
 
 Your CPA needs all of the information collected in the prior section, along with all the following if the conditions apply:
+
 * If you held VMware shares over the Broadcom merger
   * [Form 8937](documents/Broadcom%20-%20Form%208937%20Acquistion%20of%20VMware%20Inc..pdf) for the merger
 * If you held VMware shares since before 2021-10-29 (the most recent Dell dividend)
-  * [Form 8937](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Distribution.pdf) for the  2nd Dell distribution
+  * [Form 8937](documents/Form%208937%20-%20October%2029,%202021.pdf) for the  2nd Dell distribution (the version with the value eTrade used)
 * If you held VMware shares acquired via owning Dell shares during the 2021 Dell dividend
   * [Form 8937](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Recapitalization.pdf) for the Dell recapitalization
 * If you held VMware shares since before 2018-12-27 (the first Dell dividend)
@@ -43,7 +44,9 @@ Your CPA needs all of the information collected in the prior section, along with
 
 If you needed to give your CPA any of the Dell distribution/recapitalization forms, let them know that the eTrade Supplement does not include the necessary basis adjustment. Also let them know that you're uncertain whether "imputed ordinary income from the ESPP bargain element" will be correctly reported via W2.
 
-Please let your CPA know that they are free to use the spreadsheet to aid with your individual filing, but if they want to use it at any scale they should contact me.
+The above information is everything necessary to completely recreate what the sheet does but, for utility, if you're a past/present VMware/Broadcom employee the non-commercial license allows for giving it to a CPA for use with your personal filing.
+
+If you don't want to give your CPA the entire sheet, you could give them the values from the three Form8949 sections (section in Summary for fraction, and sections for ESPPs and RSUs).
 
 ## 3. Enter your collected data into the spreadsheet
 
