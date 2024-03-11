@@ -210,6 +210,22 @@ In this document we care about only a few values:
 
 ![example entry of RSU data into the sheet ](assets/rsu-example-entry-into-sheet.png)
 
+There are a couple of things to note about the RSU datasheet that do not apply to ESPP:
+
+1. there are rows with duplicate values for `Release Date` and `Market Value Per Share`
+2. there are rows where `Release Date` is tinted a slightly different colour
+
+### Presence of Duplicate Values
+
+ This is because vests from multiple awards can stack and be released on the same date. The presence of the multiple rows derives from the origin of this sheet as a way to estimate my Jan 15th bill - I entered the `Award Number` and `Award Date` into RSU columns A & B, which makes those duplicate rows distinct for me.
+
+ I've not collpased them into a single row since because of the upgrade impact to people copy/pasting between versions of the sheet. You can safely leave duplicate rows that you do not need empty/populated with zeros, which will allow you to copy/paste into new versions easily.
+
+ If you have multiple stacked vests I recommend you add them up into a single entry for clarity. If you need to track which award the share quantities came from, you can use a formula such as `=LET(awardA, 10, awardB, 20, awardA+awardB)` to preserve the source data while collpasing the numeric value.
+
+### Tinted Release Dates
+
+ This is the result of the single instance where I added rows in date order within the sheet. It caused substantial friction migrating input data between version `v0.1.0` and `v0.1.1`. The highlighting was added to help mitigate that mistake and show which rows were added. For people migrating from versions newer than `v0.1.0` the highlighting is irrelevant.
 
 ## Add a row for ESPP or RSUs
 
