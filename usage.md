@@ -64,6 +64,8 @@ The benefit history spreadsheet is the richest document I've found regarding hav
 
 ### eTrade per-lot AVGO quantities
 
+NOTE: if you do _not_ populate these values, then you _must not_ use the `Pro-rata - from eTrade share qty` option from `Cash/stock ratio` tweak as it depends on them.
+
 Go to etrade [`Stock Plan->My Account->Benefit History`](https://us.etrade.com/etx/sp/stockplan#/myAccount/benefitHistory) and look at the `OSPS` section:
 * for each lot, take the `Acquired Qty.` (orange) and add it into the worksheet (details below)
 * the `Total Acquired Qty.` (red) should match the number of AVGO you received in the transaction log and entered into
