@@ -201,7 +201,7 @@
 {"sheet":1,"id":"AL28","data":"=AL5","type":"formula","format":"financial","dataclass":"info"},
 {"sheet":1,"id":"AM4","data":"Income & short term gain","note":"This pulls in the ordinary income portion for the fractional share if associated with the lot."},
 {"sheet":1,"id":"AM5","data":"=SUM(AM7:AM26)","type":"formula","format":"financial","dataclass":"out_now"},
-{"sheet":1,"id":"AM7","data":"=IF(DATEDIF(C7,Reference!$B$28,\"Y\")>=1,0,AK7+AL7)+iferror(((AZ7/D7)*AJ7),0)","type":"formula","format":"int_4dp","propagate":{"end":"AM26"},"dataclass":"out_now"},
+{"sheet":1,"id":"AM7","data":"=LET(perAvgoOrdinaryIncome, iferror(AZ7/AH7,0), IF(DATEDIF(C7,Reference!$B$28,\"Y\")>=1,0,AK7+AL7)+(perAvgoOrdinaryIncome*AJ7)+IF(AH7=0,AZ7,0))","type":"formula","format":"int_4dp","propagate":{"end":"AM26"},"dataclass":"out_now"},
 {"sheet":1,"id":"AM28","data":"=AM5","type":"formula","format":"financial","dataclass":"out_now"},
 {"sheet":1,"id":"AN4","data":"Long term gain"},
 {"sheet":1,"id":"AN5","data":"=SUM(AN7:AN26)","type":"formula","format":"financial","dataclass":"out_now"},
