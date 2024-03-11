@@ -3,6 +3,7 @@ var esppPrefer = 16
 var cashPreference = "cash"
 var stockPreference = "shares"
 var balancePreference = "balance"
+var vmwCashValue = 0
 
 var lotPreferenceCSV = "Lot Share Type,Lot Vest Date,AVGO shares,AVGO cost basis,Equity Ratio,Description\n"
 
@@ -24,35 +25,42 @@ function setStockPreference() {
 
 function setBalancePreference() {
   var referenceSheet = app.getSheetByName(referenceName)
-  var balanceRatioCell = referenceSheet.getRange(balanceRatioA1Notation)
+
+  // This has been turned into a cell formula so that changes via the preference dropdowns immediately cause recalculation.
+  // var balanceRatioCell = referenceSheet.getRange(balanceRatioA1Notation)
 
   for (var i = 0; i < datasheetNames.length; i++) {
     var sheet = app.getSheetByName(datasheetNames[i])
     var colIdx = findIndices(sheet)
-    balanceRatioCell.setValue(`=${derivedStockRatioCellA1Notation}`)
     normalizeLotPreference(balancePreference, sheet, colIdx)
   }
 }
 
-function optimizeSynthetic() {
+function solveSyntheticOptimization() {
+  useFIFOStrategy = false
+  useHIFOStrategy = false
   useSyntheticBasisForOptimization = true
   useFutureBasisForOptimization = true
-  optimize()
+  solve()
 }
 
-function optimizeAVGO() {
+function solveFIFO() {
+  useFIFOStrategy = true
+  useHIFOStrategy = false
   useSyntheticBasisForOptimization = false
-  useFutureBasisForOptimization = true
-  optimize()
+  useFutureBasisForOptimization = false
+  solve()
 }
 
-function optimizeVMW() {
+function solveHIFO() {
+  useHIFOStrategy = true
+  useFIFOStrategy = false
   useFutureBasisForOptimization = false
   useSyntheticBasisForOptimization = false
-  optimize()
+  solve()
 }
 
-function optimize() {
+function solve() {
   var referenceSheet = app.getSheetByName(referenceName)
   var summarySheet = app.getSheetByName(summaryName)
   var balanceRatioCell = referenceSheet.getRange(balanceRatioA1Notation)
@@ -83,7 +91,7 @@ function optimize() {
 
   handleLossLots(lotSet, vmwCashValue)
 
-  // sort the basis array
+  // sort the basis array for non-lossy lots
   lotSet.sort(compareBasis)
 
   // lowest basis will be in costBasisSet[0]
@@ -220,7 +228,8 @@ function optimize() {
     }
 
     var finalLotRatio = lackingStockShares / balVMWQty
-    balanceRatioCell.setValue(finalLotRatio)
+    // This has been turned into a cell formula so that changes via the preference dropdowns immediately cause recalculation.
+    // balanceRatioCell.setValue(finalLotRatio)
 
     for (var i = 0; i < bal.length; i++) {
       bal[i].pref.setValue(balancePreference)
@@ -266,7 +275,9 @@ function findIndices(sheet) {
     avgoQuantity: -1,
     preference: -1,
     stg: -1,
-    ltg: -1
+    ltg: -1,
+    ordinaryIncome: -1,
+    fractional: -1,
   }
 
   switch (sheet.getName()) {
@@ -299,6 +310,10 @@ function findIndices(sheet) {
       colIdx.stg = col
     } else if (new RegExp(colIdxNames.longTermGain).test(str)) {
       colIdx.ltg = col
+    } else if (new RegExp(colIdxNames.ordinaryIncome).test(str)) {
+      colIdx.ordinaryIncome = col
+    } else if (new RegExp(colIdxNames.fractionalLot).test(str)) {
+      colIdx.fractional = col
     }
   }
 
@@ -309,8 +324,11 @@ function findIndices(sheet) {
     colIdx.avgoQuantity == -1 ||
     colIdx.preference == -1 ||
     colIdx.stg == -1 ||
-    colIdx.ltg == -1) {
-      Logger.log("unable to locate all columns for gathering optimizer input")
+    colIdx.ltg == -1 ||
+    colIdx.fractional == -1 ||
+    (colIdx.ordinaryIncome == -1 && sheet.getName() == "ESPP")
+    ) {
+      Logger.log("unable to locate all columns for gathering solver input")
       return
   }
 
@@ -365,11 +383,22 @@ function gatherCostBasis(sheet, colIdx) {
       pref: activeRange.getCell(row+1,colIdx.preference+1),
       shortGain: data[row][colIdx.stg],
       longGain: data[row][colIdx.ltg],
+      fractional: data[row][colIdx.fractional],
     }
 
-    // construct a synthetic basis, adjusting it down by the amount of tax to be realized.
-    // TODO: remove the hardcoding of STG rate
-    lot.syntheticBasis = lot.avgoBasis - ((lot.longGain * ltgRate) + (lot.shortGain * 0.48)) / lot.avgoQuantity
+    // construct a synthetic basis
+    lot.syntheticBasis = lot.avgoBasis
+
+    if (colIdx.ordinaryIncome != -1) {
+      lot.ordinaryIncome = data[row][colIdx.ordinaryIncome]
+
+      // adjusting up by the ordinary income to be recognized
+      lot.syntheticBasis+= lot.ordinaryIncome/lot.vmwQuantity
+    }
+
+    // adjusting it down by the amount of tax to be realized.
+    // TODO: remove the hardcoding of rates
+    lot.syntheticBasis-= ((lot.longGain * 0.2) + (lot.longGain *0.10) + (lot.shortGain * 0.45)) / lot.avgoQuantity
 
     vmwCount+= lot.vmwQuantity
 
@@ -387,6 +416,26 @@ function gatherCostBasis(sheet, colIdx) {
 
 // compareBasis returns in such a way that stock < cash
 function compareBasis(a, b) {
+  // OVERRIDE fractional lot to shares as etrade have committed us to that by virtue of a concrete sale
+  if (a.fractional && b.fractional) {
+    return 0
+  } else if (a.fractional) {
+    return -1
+  } else if (b.fractional) {
+    return +1
+  }
+
+  // simpler strategies approaches are at the top of the function
+  if (useFIFOStrategy) {
+    // older lots should be earlier in the sort
+    return b.purchaseDate - a.purchaseDate
+  }
+
+  if (useHIFOStrategy) {
+    return a.vmwBasis - b.vmwBasis
+  }
+
+  // below are nascent attempts at a proximate MT/optimizer strategy
   // if basis makes no difference, eg. capped at FMV, then look at other calcs.
   if (useSyntheticBasisForOptimization && a.syntheticBasis != b.syntheticBasis) {
     return a.syntheticBasis - b.syntheticBasis
@@ -396,5 +445,6 @@ function compareBasis(a, b) {
         return a.avgoBasis - b.avgoBasis
   }
 
+  // fallback to HIFO
   return a.vmwBasis - b.vmwBasis
 }

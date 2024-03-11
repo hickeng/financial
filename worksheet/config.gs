@@ -9,6 +9,8 @@ const overrideStartIndex = 0
 
 var useFutureBasisForOptimization = true
 var useSyntheticBasisForOptimization = true
+var useFIFOStrategy = false
+var useHIFOStrategy = false
 // When set to true, all lots that would realize an actual loss if straight cash are kept as pro-rata
 var forceLossLotsToBalance = false
 
@@ -44,6 +46,8 @@ const colIdxNames = {
   treatmentPreference: "Prefer",
   shortTermGain: "Short Term Capital Gain",
   longTermGain: "Long Term Capital Gain",
+  ordinaryIncome: "Pending Ordinary Income",
+  fractionalLot: "Use for fraction",
 }
 
 const vmwSharePurchaseDate = 2 // always in column C currently
