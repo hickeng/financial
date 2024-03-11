@@ -192,7 +192,7 @@
 {"sheet":0,"id":"M24","data":"Custom","note":"Present if you want to experiment with different values for these inputs."},
 {"sheet":0,"id":"M25","format":"financial","dataclass":"in_opt"},
 {"sheet":0,"id":"M27","format":"financial","dataclass":"in_opt"},
-{"sheet":0,"id":"M28","data":"=GOOGLEFINANCE(\"AVGO\")","type":"formula","format":"[$$]#,##0.00","validation":{"type":"NUMBER_GREATER_THAN","values":0,"enforced":true,"help":""}},
+{"sheet":0,"id":"M28","data":"=GOOGLEFINANCE(\"AVGO\")","type":"formula","format":"financial","validation":{"type":"NUMBER_GREATER_THAN","values":0,"enforced":true,"help":""},"dataclass":"in_prepop"},
 {"sheet":0,"id":"M34","dataclass":"in_opt"},
 {"sheet":0,"id":"M43","data":"Code (f)"},
 {"sheet":0,"id":"M44","data":"B","format":"financial","dataclass":"out_now"},
