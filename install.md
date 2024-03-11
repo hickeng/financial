@@ -1,6 +1,6 @@
 # Install
 
-To just use the sheet directly from Google, go [here](https://bit.ly/vmw-merger-taxes-spreadsheet), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
+To just use the sheet directly from Google, go [here](https://docs.google.com/spreadsheets/d/1L943lQjcC-cHeGObOAPqmowEskdFsoUCkRiIxZOxJVs/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
 
 User documentation is [here](usage.md).
 

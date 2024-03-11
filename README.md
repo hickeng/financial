@@ -47,7 +47,7 @@ Please let your CPA know that they are free to use the spreadsheet to aid with y
 
 ## 3. Enter your collected data into the spreadsheet
 
-There is a shared version of the spreadsheet on Google Sheets. Go [here](https://bit.ly/vmw-merger-taxes-spreadsheet), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
+There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1L943lQjcC-cHeGObOAPqmowEskdFsoUCkRiIxZOxJVs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
 
 This entails:
 1. entering number of VMW shares and:
