@@ -304,7 +304,7 @@ The values in the sheet are those needed to go into Form 8949 (although the `Cod
 
 The `Proceeds (d`) are the true compensation you received for your VMW shares - the cash _plus_ the Fair Market Value of the AVGO. [costbasis.com](https://costbasis.com/calculators/cashtobootmerger.html#:~:text=you%20have%20two%20alternative%20ways%C2%A0to%20report%20this%20on%20your%20tax%20return) notes there are two approaches to declaring Proceeds to the IRS on your Form8949. The first is to report only the cash portion, report gain as mandated by Form8937 and set the basis to the synthetic value needed for cash and gain to agree. The second is to use the received value including shares. I've chosen the second approach because:
 
-1. many people seem to think they took a lose on some shares, but technically they did not and using the true compensation makes that clear.
+1. many people seem to think they took a loss on some shares, but technically they did not and using the true compensation makes that clear.
 2. the basis used to get the mandated gain can be calculated independently using logic [noted in this section](https://github.com/hickeng/financial?tab=readme-ov-file#form-8949-to-be-filed-with-taxes) which I strongly prefer as an approach.
 
 
