@@ -306,7 +306,7 @@ Links into the IRS webiste:
 
 ## ESPP
 
-The ESPP discount is considered ordinary income and _should_ be reported on your W2 when you sell the shares. In the past it has shown up on VMW W2's in `Box 14 Other`, labelled as ESPP. However, the proportion of the discount treated as ordinary income vs long term capital gain depends on whether the ESPP shares are qualified or disqualified.
+The ESPP discount is considered ordinary income and _should_ be reported on your W2 when you sell the shares. In the past it has shown up on VMW W2's in `Box 14 Other`, labelled as ESPP. However, the proportion of the discount treated as ordinary income vs long term capital gain depends on whether the ESPP shares are qualified or disqualified and that's termed the Bargain Element.
 
 The recognition of ordinary income is not a consideration for lots exchanged for shares or mixed shares/cash. IRS tax code [Section 424(c)(1)(b)](https://www.law.cornell.edu/uscode/text/26/424#:~:text=an%20exchange%20to%20which%20section) explicitly excludes Section 356 exchanges from being considered as a disposition and 356 is what's noted in [Form 8937](documents/Broadcom%20-%20Form%208937%20Acquistion%20of%20VMware%20Inc..pdf) as governing the exchange. A big thank you to [@alkom](https://github.com/alkom) for [tracking down the specific section references](https://github.com/hickeng/financial/issues/15#issuecomment-1982794737).
 
@@ -314,18 +314,15 @@ There's discussion in [#15](https://github.com/hickeng/financial/issues/15) rega
 
 * disqualified - sold within either 1 year from purchase date (when you got the shares aka exercise) or 2 years from grant date (when the ESPP period started aka offering).
 * qualified - held for 2 years past grant _and_ 1 year past purchase
-* option price - the Fair Market Value at ESPP grant date, minus the 15% discount
-* market price - the Fair Market Value of the stock on the date of purchase
-* offer price (my term) - the lesser of the market price and the grant date price
-* purchase price - the amount you actually paid for it
-* bargain element - the ESPP discount, `market price - purchase price`
+* tax basis - the actual amount you paid
+* grant date price - the Fair Market Value at ESPP grant date
+* purchase date price - the Fair Market Value when you actually acquired the share
+* Disposition - the share exits your control, eg. through a sale, gift, etc.
+  * Surrender of VMW for cash+AVGO consideration under section 356 does _not_ count as a Disposition
+* Bargain element - I refer to this as imputed income. You pay tax on this via your W2 as if it were actual income on Disposition of the share (eg. sale). The broker should inform Broadcom of any future sale, and Broadcom should add it to your W2. If it does not show up on your W2 for some reason it's your responsibility to ensure it's reported.
+  * [Qualified bargain element](https://fairmark.com/compensation-stock-options/employee-stock-purchase-plans/qualifying-disposition-reporting/) - `grant date price - purchase price`, which equates to 15% of grant date price for the VMware ESPP plan. If you made less than the bargain element in gain from Disposition, then it's the gain amount instead.
+  * [Disqualified bargain element](https://fairmark.com/compensation-stock-options/employee-stock-purchase-plans/disqualifying-disposition-reporting/) - `purchase date price - actual amount paid`
 
-Qualified vs disqualified proportion of discount considered ordinary income and reported on W2:
-
-* disqualified - `market price - purchase price` - the entire discount, 15% plus any increase in share price over the offering period, is treated as income.
-* qualified - `offer price - purchase price` - just the 15% reduction on offer price is treated as income. Any `market price - offer price` delta due to share price change over the offering period is treated as captial gain (long term because you've inherently held for a year).
-
-[Reference](https://turbotax.intuit.com/tax-tips/investments-and-taxes/employee-stock-purchase-plans/L8NgMFpFX)
 
 ## Form 8937
 These forms detail tax handling for an event. This includes qualified/unqualified amounts from dividends, how to adjust cost-basis, how to calculate gain that must be realized, etc. These are pulled from the [Broadcom Invester Relations](https://investors.broadcom.com/financial-information/tax-information) site.
@@ -339,8 +336,8 @@ Links to the relevant Form 8937's:
 * [Dell distribution 2021](https://investors.broadcom.com/static-files/c03396b2-538b-42c3-910c-dce218d5d9f1) ([from repo](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Distribution.pdf))
 * [Dell distribution 2018](https://investors.broadcom.com/static-files/674c4fc3-6cc3-48cf-83b1-f6f6f3f75623) ([from repo](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20December%2028,%202018%20Distribution.pdf))
 
-Of note, there was a prior version of the 2021 Form 8937 which appears to have been used for our taxes that year. See [#83](https://github.com/hickeng/financial/issues/83). I will be adding a tweak to the sheet to chose which version applies. Form added to repo for reference:
-* [Dell distribution 2021 - original version](documents/Form%208937%20-%20October%2029,%202021.pdf)
+Of note, there was a draft version of the 2021 Form 8937 with an estimated return of capital value. By inspection of statements and 1099-B by multiple people, it's this estimate that was used for our taxes that year and therefore should be the basis adjustment. See [#83](https://github.com/hickeng/financial/issues/83).
+* [Dell distribution 2021 - draft version](documents/Form%208937%20-%20October%2029,%202021.pdf)
 
 
 ### Pro-rata vs other allocation of cash/share split
