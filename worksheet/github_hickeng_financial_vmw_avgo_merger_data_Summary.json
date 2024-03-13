@@ -180,7 +180,7 @@
 {"sheet":0,"id":"L28","data":"  @ "},
 {"sheet":0,"id":"L34","data":"=SWITCH(K34, \"By status\", SWITCH(K33,\"Single\",Reference!B36,\"Joint\",Reference!C36,\"Head of household\",Reference!D36), \"Custom\",M34)","type":"formula","dataclass":"info"},
 {"sheet":0,"id":"L43","data":"1099-B basis (e)"},
-{"sheet":0,"id":"L44","data":"0","format":"financial","dataclass":"out_now"},
+{"sheet":0,"id":"L44","data":"=IF(ESPP!N5>0,0,K44-O44)","type":"formula","format":"financial","dataclass":"out_now"},
 {"sheet":0,"id":"M5","data":"Enter Necessary inputs from eTrade transaction log (Summary!B24)"},
 {"sheet":0,"id":"M6","data":"Enter details of owned ESPP shares"},
 {"sheet":0,"id":"M7","data":"Enter details of owned RSUs shares"},

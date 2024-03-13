@@ -337,9 +337,12 @@ Repeat for `Box E` entries, selecting `RSU` as the `Investment Type`.
 Now we update the Proceeds and Basis information for each lot in turn. I recommend working through a single lot type (ESPP or RSU) at a time to avoid switching sheets.
 
 Edit an entry (repeat until you've updated all entries and no more are flagged for review):
+
 1. Use Box 1d - Proceeds and Box 1b (acquisition date) to identify the lot in the sheet. I recommend using proceeds as the key because it's either unambiguous for dates with multiple lots (ambiguity if lots are identical in both qty and date is irrelevant).
 2. Update Box 1d - Proceeds with `Proceeds (d)` value from Sheet
-3. Update Box 1e - Cost or other Basis with 0.00 - this is the 1099-B value, leave it as is.
+3. Update Box 1e - Cost or other Basis with 0.00 - this is the 1099-B value
+   1. leave it as is for ESPP
+   2. update it to be the `1099-B basis (e)` value from the sheet
 4. Check the The cost basis is incorrect or missing on my 1099-B box
 5. Continue
 
@@ -347,7 +350,9 @@ Edit an entry (repeat until you've updated all entries and no more are flagged f
 
 6. Select I found my adjusted cost basis
    * NOTE:* There is a case where Turbotax went down a different set of screens for the basis adjustment, noted in [this issue](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991) with notes on workarounds discovered.
-7. Enter `Adjustment (g)` value from sheet as is - TurboTax strips the negative brackets (the correct behaviour).
+7. This is different for ESPP vs RSU because the values are sourced from different columns in the sheet. Neither type should have a `0.00` value here:
+   1. For ESPP - enter `Adjustment (g)` value from sheet as is - TurboTax strips the negative brackets (the correct behaviour).
+   2. For RSU - enter `1099-B basis (e)` value from the sheet as is.
 8. Continue
 
 ![turbotax screenshot of 1099-b entry edit basis adjustment](assets/turbotax-1099-b-entry-edit-basis-adjustment.png)
