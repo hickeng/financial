@@ -14,14 +14,17 @@ The primary issue here isn't the basis info in the 1099-B - it's the lack of cor
 We're suffering from an _expectation_ mismatch with what eTrade are obligated to and what we need from them, and it's exposed a potential complication to filing we were unaware of. This should feed into decisions of what brokers to use, but I don't _think_ there's an actual lapse of duty. I do think providing a supplement with incorrect numbers is leading holders into error as there's no point in the supplement if the numbers cannot be used in Frm 8949.
 
 The adjustment present in my eTrade Supplement is the original cost basis of VMW, but a tax basis must account for the Return of Captial from the Dell distributions:
+
 * 2018-12-27 - reduce basis by $10.18 per share of VMW
 * 2021-10-29 - reduce basis by $16.87 per share of VMW
 
 Groups:
+
 * eTrade Stock Plan account holdings AND
 * holding VMW since before 2021-10-29
 
 Impact:
+
 * all cash proceeds recognized as gain without unless reporting an adjustment on Form 8949
 * use of Supplement values as adjustment will overstate cost basis resulting in underpayment of tax
 * lots of frustration and confusion around how to get a correct Form 8949 or the inputs to such
@@ -36,10 +39,16 @@ TurboTax is adding code `N` in column (f) which is described as:
 TurboTax [acknowledged the issue](https://ttlc.intuit.com/community/taxes/discussion/form-8949-column-f-code-n/00/3199783).
 
 Groups:
+
 * TurboTax users who auto-imported their Etrade 1099-B
 
 Impact:
-* incorrect Form 8949 - need to delete and re-enter values manually 
+
+* incorrect Form 8949 - need to delete and re-enter values manually
+
+Mitigation:
+
+* delete the prior sales rows and rerun the import. I don't know when this was fixed but it was functional on 2024-03-03 for me.
 
 
 ## Treatment of proceeds as dividend
@@ -48,10 +57,12 @@ The cash proceeds from the merger were treated as a dividend instead of “[cash
 
 
 Groups:
+
 * non-resident aliens - if you file a [W-8 BEN](https://www.irs.gov/forms-pubs/about-form-w-8-ben) with the US, this is you
   * ? was this specific to eTrade or did other brokers do the same?
 
 Impact:
+
 * (tentative) cash proceeds were taxed as dividend rather than capital gain
 * (tentative) difficulty reclaiming withheld taxes from IRS
 * (tentative) no deferral of taxes though application of tax basis
@@ -63,9 +74,11 @@ Any fractional share of AVGO after the merger and conversion was sold per the te
 eTrade sold these fractions multiple days after at $904.79.
 
 Groups:
+
 * eTrade account holders
 
 Impact:
+
 * a tiny loss - the maximum possible loss is if you had 0.999 of a share (rounding seems to be to 3dp), equaling $75.61
 
 
@@ -74,13 +87,16 @@ Impact:
 One person has reported (and reported that eTrade have said it's affecting multiple people) that they have do not have confirmations documents as detailed in [Usage doc](usage.md#etrade-stock-plan-confirmations).
 
 Groups:
+
 * some eTrade account holders - specific criteria unknown
 
 Impact:
+
 * no confirmation PDFs available for extracting lot share quantity and basis information
 * `NOT ON FILE` shows up in the 1099-B for `Cost or other Basis`
 
 Mitigation:
+
 * Download the BenefitHistory.xlsx as shown below and extract that data from there
 
 ![screenshot highlighting benefit history spreadsheet download](assets/etrade-benefit-history-spreadsheet-download-highlighted.png)
@@ -91,11 +107,52 @@ Mitigation:
 Some people are reporting that their 1099-B does not have a line per lot, only section totals for Long/Short Covered/Non-covered securities.
 
 Groups:
+
 * some eTrade account holders - specific criteria unknown
 
 Impact:
+
 * unable to import lots into TurboTax or other preparation software
 
 Mitigation:
+
 * Download BenefitHistory.xlsx as shown for missing confirmations and look for lot level information in there
 * If not, contact eTrade customer support to ask for a remediation.
+
+
+## Estimated value used for 2021 return of capital without a corrected 1099 being issued
+
+Multiple people have confirmed through statements that the value used for the 2021 return of capital was the estimated `$16.58` value found in the [draft form](documents/Form%208937%20-%20October%2029,%202021.pdf) rather than the `$16.87` value from the [final form](documents/IRS%20Form%208937%20-%20VMWARE,%20INC.%20November%201,%202021%20Distribution.pdf). No corrected 1099 was issued to anyone who has confirmed for me.
+
+Groups:
+
+* eTrade account holders with shares from prior to the Dell distribution on 2021-10-29.
+  * The non-taxable deposit amount, found on Oct 2021's eTrade statement, should be a very close multiple of the number of VMW shares held on that date.
+
+Impact:
+
+* if the official value is used for basis adjustment, then basis will be too low by `$0.29` per VMW share.
+
+Mitigation:
+
+* use the actual non-taxable return amount as the basis adjustment (this seems technically valid in terms consistency, but I don't know if it's legally permitted), or
+* request a corrected 1099 from eTrade and file an amended tax return for 2021 using the corrected values
+
+
+## Etrade reports some (or all) ESPP lots under "Long term non-covered" in 1099-B
+
+At least two people have noted that they have ESPP lots that are reported as Noncovered Securities in their 2023 1099-Bs. See [#105](https://github.com/hickeng/financial/issues/105).
+
+Groups:
+
+* some eTrade account holders with ESPP shares - specific criteria unknown
+
+Impact:
+
+* technically incorrect data filed with IRS - consequence unknown
+
+Mitigations:
+
+* Request a corrected 1099 from eTrade
+* Change the `Sales Section` for the entry in TurboTax, et al, that imported the form to the correct value (Long Term, (covered)), and enter code `T` into column `(f)` for Form 8949. See [IRS instructions](https://www.irs.gov/instructions/i8949#en_US_2022_publink59421zd0e1936:~:text=You%20received%20a%20Form%201099%2DB%20(or%20substitute%20statement)%20and%20the%20type%20of%20gain%20(or%20loss)%20shown%20in%20box%202%20is%20incorrect)
+  * I _think_ the type of gain/loss referred to in that link would be the long/short/(non)covered security types but this is one of those you must confirm with a CPA.

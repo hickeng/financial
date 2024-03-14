@@ -114,8 +114,9 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 * fractional share sold at incorrect price
 * missing stock confirmations in eTrade
 * missing lot information on eTrade 1099-B
+* estimated value was used from draft f8937 for 2021 return of capital
+* some ESPP lots are showing up on 1099 as Noncovered Securities
 * ... if you know of others, please open an issue or pull request
-
 
 
 
