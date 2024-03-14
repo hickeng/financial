@@ -154,5 +154,6 @@ Impact:
 Mitigations:
 
 * Request a corrected 1099 from eTrade
-* Change the `Sales Section` for the entry in TurboTax, et al, that imported the form to the correct value (Long Term, (covered)), and enter code `T` into column `(f)` for Form 8949. See [IRS instructions](https://www.irs.gov/instructions/i8949#en_US_2022_publink59421zd0e1936:~:text=You%20received%20a%20Form%201099%2DB%20(or%20substitute%20statement)%20and%20the%20type%20of%20gain%20(or%20loss)%20shown%20in%20box%202%20is%20incorrect)
-  * I _think_ the type of gain/loss referred to in that link would be the long/short/(non)covered security types but this is one of those you must confirm with a CPA.
+* Change the `Sales Section` for the entry in TurboTax, et al, that imported the form to the correct value (Long Term, (covered))
+  * I _hope_ it's allowed to change the Sales Section like this but cannot confirm. If we're not supposed to change it, why would it be a dropdown...?
+  * See [#105](https://github.com/hickeng/financial/issues/105) for currnent state of discussion on additional steps and details.
