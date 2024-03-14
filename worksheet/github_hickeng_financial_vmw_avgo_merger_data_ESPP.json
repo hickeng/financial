@@ -290,7 +290,7 @@
 {"sheet":1,"id":"AZ29","data":"=AZ5","type":"formula","format":"financial","dataclass":"out_future"},
 {"sheet":1,"id":"BA4","data":"Qualified"},
 {"sheet":1,"id":"BA5","format":"financial","dataclass":"out_future"},
-{"sheet":1,"id":"BA7","data":"=LET(grantDate,B7, postMergerSaleDate,Reference!$B$29, purchaseBeginDate,A9, AND(DATEDIF(grantDate,postMergerSaleDate,\"Y\")>=1, DATEDIF(purchaseBeginDate, postMergerSaleDate, \"Y\")>=2))","type":"formula","format":"financial","propagate":{"end":"BA26"},"dataclass":"info"},
+{"sheet":1,"id":"BA7","data":"=LET(grantDate,B7, postMergerSaleDate,Reference!$B$29, purchaseBeginDate,A7, AND(DATEDIF(grantDate,postMergerSaleDate,\"Y\")>=1, DATEDIF(purchaseBeginDate, postMergerSaleDate, \"Y\")>=2))","type":"formula","format":"financial","propagate":{"end":"BA26"},"dataclass":"info"},
 {"sheet":1,"id":"BA27","format":"financial","dataclass":"info"},
 {"sheet":1,"id":"BA29","format":"financial","dataclass":"out_future"},
 {"sheet":1,"id":"BB4","data":"Pending Ordinary Income"},
