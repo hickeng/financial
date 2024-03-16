@@ -125,6 +125,14 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+## [v0.1.6-b](https://github.com/hickeng/financial/releases/tag/v0.1.6) - 2024-03-15
+
+In place patch to the v0.1.6 release to address two row skews resulting from transcription errors when doing the comprehensible formula work.
+
+I've added a v0.1.6-b version of the binary sheets to the release assets that includes a hotfix for a formula that incorrectly skews across rows. The columns impacted were ESPP qualified status, and RSU post-merger short term gain. The old binaries to avoid mistaken use.
+
+Shared sheets had fix made in place and a comment added to cell ESPP!BA7 and RSU!AV7 noting that the cell has changed vs the repo tag.
+
 ## [v0.1.6](https://github.com/hickeng/financial/releases/tag/v0.1.6) - 2024-03-13
 
 Updates to ESPP post-merger basis and Form8949 columns for RSUs, and polish:
