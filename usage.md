@@ -267,7 +267,7 @@ Two options for determining the lot used for the fraction are below.
 
 ### Via 1099-B
 
-If your 1099-B has granular entries for each lot sale (most people do, some people don't), you should see an entry similar to the example below. Note the `Description (Box 1a)` is `BROADCOM INC` where your others will be `VMWARE INC CLASS A`. From this line you want the `Date Acquired (Box 1c)`:
+If your 1099-B has granular entries for each lot sale (most people do, some people don't), you should see an entry similar to the example below. Note the `Description (Box 1a)` is `BROADCOM INC` where your others will be `VMWARE INC CLASS A`. From this line you want the `Date Acquired (Box 1b)`:
 
 ![1099b snippet for fractional AVGO sale](assets/1099b-avgo-fractional-sale.png)
 
