@@ -323,13 +323,27 @@ These values were collected in [this section](#etrade-per-lot-avgo-quantities) w
 
 This section walks through how to interpret the outputs from the sheet and what to do with them.
 
+The sheet has three primary outputs:
+1. Form 8949 values - this is the form you need to file with the IRS for security trades. The sheet generates the detailed values needed for the form, or for entry into tax prep software.
+1. The Sort and Long Term Captial Gain we realize from the merger (and must pay tax on), and the potential post-merger gains from the shares received.
+2. A rough tax estimate - this ballpark estimate is what I used for paying estimated tax prior to Tax Day
+
 ## Form 8949
 
-The values in the sheet are those needed to go into Form 8949. However most people will be using tax prep software, so are more likely to want to use those values to correct an imported 1099-B.
+There's additional details on Form 8949 [in the readme](https://github.com/hickeng/financial?tab=readme-ov-file#form-8949-to-be-filed-with-taxes) but in summary:
 
-This example is for ESPP shares where the basis must be a negative value in the `Adjustment (g)` column. For RSUs the basis is instead a positive value in `1099-B basis (e)`. This difference is per IRS instructions on form usage. The general requirement is that `Proceeds - Basis + Adjustment = Gain`.
+* this form is used to report security trades to the IRS
+* there are two main types of securities, covered and noncovered
+   * covered securities - your broker reports the details of the trades to the IRS, including the basis information. ESPP are covered securities.
+   * non-covered securities - your broker does not report the details of these trades to the IRS but you must. RSUs are non-covered securities.
+* each of those types is subdivided into long and short term sections
+* each grouping of type and subtype are reported on Form 8949 using a different "Box".
 
-![snippet of the top row with data for first ESPP lot](assets/sheet-espp-form8949-first-lot-with-data.png)
+The general data consistency requirement for the form is that `Proceeds (d) - Basis (e) + Adjustment (g) = Gain (h)`.
+
+![form8949 header example](assets/f8949-snippet.png)
+
+The sheet generates the necessary information to populate this form, including the appropriate Box. If filling it in directly, do read the Form instructions. Most people will be using tax prep software or a CPA, so are more likely to want to use those values to correct an imported 1099-B or to hand off to someone else. Steps for entry into TurboTax are [here](#entry-into-turbotax).
 
 There are two styles of reporting noted on [costbasis.com](https://costbasis.com/calculators/cashtobootmerger.html#:~:text=you%20have%20two%20alternative%20ways%C2%A0to%20report%20this%20on%20your%20tax%20return) for the Form 8949 Proceeds:
 1. report the cash received
@@ -350,6 +364,18 @@ However, there are reasons to prefer the "cash only" style:
 1. the proceeds should match with the values on the 1099-B provided by eTrade so long as you have "Pro-rata - from Necessary Inputs" selected as the cash/stock ratio style.
 2. TurboTax (and presumably others) instruct you to enter values exactly as shown on 1099-B
 3. TurboTax does not allow for the attachment of a note explaining the Proceeds adjustment as suggested by costbasis.com for the combined approach.
+
+---
+The sheet has three Form 8949 areas you should collate for filing, entry into tax prep software, or handoff to your CPA. These areas are colour coded in Blue with a thick border around them:
+
+1. Fractional share - on the Summary sheet - we were not allow to receive a fraction of a Broadcom share, so any fraction was sold during the merger. This should be reported against the same Box type as the lot that it was taken from. See [fractional share](#factional-share) for how to determine this.
+   ![snippet showing fractional share form8949](assets/sheet-summary-fractional-share-form8949.png)
+1. ESPP sheet - these have basis values in the `Adjustment (g)` column as, due to being covered, the `Basis (e)` column must be the same value reported to the IRS by your broker. This example is with the "combined" reporting style.
+   ![snippet showing ESPP form8949](assets/sheet-espp-form8949.png)
+1. RSU sheet - these have basis values in the `Basis (e)` column. This example is with the "combined" reporting style.
+![snippet showing RSU form8949](assets/sheet-rsu-form8949.png)
+
+
 
 
 ### Entry into Turbotax
