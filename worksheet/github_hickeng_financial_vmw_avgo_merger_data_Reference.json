@@ -135,7 +135,7 @@
 {"sheet":3,"id":"E6","data":"1","format":"int_6dp","dataclass":"in_prepop"},
 {"sheet":3,"id":"E7","data":"=LET(\ntargetAvgo,Summary!$B$26*B6,\nesppAvgoExBal, SUMIF(ESPP!$W7:$W27,\"<>balance\",ESPP!$AI7:$AI27),\nesppVmwBase,   SUMIF(ESPP!$W7:$W27,\"=balance\",ESPP!$D7:$D27),\nrsuAvgoExBal,  SUMIF(RSU!$S7:$S85, \"<>balance\",RSU!$AE7:$AE85),\nrsuVmwBase,    SUMIF(RSU!$S7:$S85, \"=balance\",RSU!$D7:$D85),\nmissingAvgo,   targetAvgo - esppAvgoExBal -rsuAvgoExBal,\nratio,         (missingAvgo/$B$6)/(rsuVmwBase+esppVmwBase),\nIF(missingAvgo<0,error(\"insufficient balance lots\"),\n  IF(ratio>1,error(\"unsufficient balance lots\"),\n        ratio\n    )\n  )\n)","type":"formula","format":"int_6dp","dataclass":"info","note":"This is calculated to balance the ratio to meet the obligation of correct number of total shares across lots.\n"},
 {"sheet":3,"id":"E8","data":"=LET(\nratioTotals, SUM(ESPP!U7:U27)+SUM(RSU!Q7:Q85),\nnumLots, COUNTIF(ESPP!U7:U27, \">0\") + COUNTIF(RSU!Q7:Q85, \">0\"),\nstdev, STDEV(FILTER(ESPP!U7:U27,ESPP!U7:U27>0),FILTER(RSU!Q7:Q85,RSU!Q7:Q85>0)),\navg,ratioTotals/numLots,\nthreshold,avg - stdev,\nthreshold\n)","type":"formula"},
-{"sheet":3,"id":"E9","data":"=iferror(SWITCH(#REF!, \"Cash Only\", \"cashOnly\", \"Cash & AVGO FMV\", \"combined\"),\"combined\")","type":"formula","dataclass":"info"},
+{"sheet":3,"id":"E9","data":"=iferror(SWITCH(Summary!$K$36, \"Cash Only\", \"cashOnly\", \"Cash & AVGO FMV\", \"combined\"),\"combined\")","type":"formula","dataclass":"info"},
 {"sheet":3,"id":"E46","data":"0.24","format":"%"},
 {"sheet":3,"id":"E47","data":"95375","format":"financial"},
 {"sheet":3,"id":"E48","data":"190750","format":"financial"},
