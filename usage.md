@@ -4,6 +4,15 @@ User documentation for the worksheet. This aims to be a hand-held step-by-step f
 
 For how to access the worksheet, see [the readme install section](https://github.com/hickeng/financial?tab=readme-ov-file#install)
 
+The high level steps are as follows - the doc walks you through these in detail:
+1. gather the inputs needed from various eTrade documents
+2. enter some high level info into the Summary sheet
+3. enter the numbers of shares you held over the merger for each lot
+   1. ESPP: edit prepopulated info to match yours (may happen if you entered an offering period at a different time)
+   2. RUS: add a row to the bottom of the sheet if the vest date is not already present
+4. transfer the output (Form 8949) numbers to your CPA, tax prep software, etc
+
+
 # Inputs
 
 This section is about getting all of the input data needed. Once gathered, you should back this up and keep it in case of future reference.
@@ -186,13 +195,18 @@ You can adjust your deduction manually if needed by selecting `Custom` and enter
 
 ## ESPP
 
-Entry of ESPPs and RSUs into the sheet is a very structured process. For ESPPs this uses the Purchase confirmation documents.
+Entry of ESPPs and RSUs into the sheet is a very structured process. For ESPPs this uses the Purchase confirmation documents. If you have an ESPP lot where the prepopulated values don't match, then you'll need to edit a row, or insert a new one. See [the detailed steps to do so](#add-a-row-for-espp).
 
 In this document we care about only a few values:
 
-1. Grant Date & Purchase Date - this pair of data controls the price at which the shares are purchased. You need to confirm _both_ are the same before using a row as some people have reported different grant dates resulting in very different purchase price. Match these up against the similarly titled columns in the `ESPP` sheet. If the prepopulated date values do not match yours, see [instructions for adding a row](#add-a-row-for-espp-or-rsus) and then add the data into the new row.
-2. Enter the `Shares Purchased` and `Current Contributions` values from the document into the similarly named columns in the `ESPP` sheet.
-3. Enter the `Previous Carry Forward` value from the document into the similarly named column. The sheet will calculate this value for all but the first, but double check and use the document value if different. You can put the value either in the top cell and let it propagate down, or put it in the row for your first lot. It depends whether you prefer to keep all inputs in the colour coded boxes or not, but there's no functional difference.
+1. Grant Date & Purchase Date - this pair of data controls the price at which the shares are purchased. You need to confirm _both_ are the same before using a row as some people have reported different grant dates resulting in very different purchase price. Match these up against the similarly titled columns in the `ESPP` sheet. If the prepopulated date values do not match yours, see [instructions for adding a row](#add-a-row-for-espp) and then add the data into the new row.
+2. Enter the `Shares Purchased` value from the document into the similarly named columns in the `ESPP` sheet.
+   1. if you've sold this lot pre-merger, don't enter it at all
+   1. if you've sold some shares from this lot pre-merger, adjust the number of shares to be only those you held over the merger.
+   1. if the numbers for your ESPP lot do not match the prepopulated values for the purchase date, see [these detailed steps](#add-a-row-for-espp).
+3. (optional) Enter `Current Contributions` and `Previous Carry Forward` values from the document into the similarly named column.
+    * The sheet will calculate the `Carry Forward` value for all but the first, but double check and use the document value if different. You can put the value either in the top cell and let it propagate down, or put it in the row for your first lot. It depends whether you prefer to keep all inputs in the colour coded boxes or not, but there's no functional difference.
+    * This is purely to allow you to collate all the inputs into one location - the Current Contributions and Carry Forward do not impact the final calculation.
 
 ![example ESPP purchase confirmation](assets/espp-example-purchase-confirmation.png)
 
@@ -200,13 +214,13 @@ In this document we care about only a few values:
 
 ## RSU
 
-Entry of ESPPs and RSUs into the sheet is a very structured process. For RSUs this uses the Release confirmation documents.
+Entry of ESPPs and RSUs into the sheet is a very structured process. For RSUs this uses the Release confirmation documents. If you have an RSU lot where the prepopulated values don't match, then you'll need to add a row at the bottom. See [the detailed steps to do so](#add-a-row-for-rsus).
 
 In this document we care about only a few values:
 
-1. Release Date - this date dictates the price at which the shares are received. If the prepopulated date values do not match yours, see [instructions for adding a row](#add-a-row-for-espp-or-rsus) and then add the data into the new row.
+1. Release Date - this date dictates the price at which the shares are received. If the prepopulated date values do not match yours, see [instructions for adding a row](#add-a-row-for-rsus) and then add the data into the new row.
 2. Enter the `Shares Issued` and `Shares Traded` values from the document into the similarly named columns in the `RSU` sheet. `Shares Traded` is optional data simply to keep all non-derivable numbers in one place for future reference, but it has no bearing on calculations or taxes.
-3. Double check the `Market Value Per Share` in the release confirmation matches the similarly named column in the sheet.
+3. Double check the `Market Value Per Share` in the release confirmation matches the similarly named column in the sheet. If it does not, see [these detailed steps](#add-a-row-for-rsus).
 
 ![example RSU release confirmation](assets/rsu-example-release-confirmation.png)
 
@@ -229,7 +243,19 @@ There are a couple of things to note about the RSU datasheet that do not apply t
 
  This is the result of the single instance where I added rows in date order within the sheet. It caused substantial friction migrating input data between version `v0.1.0` and `v0.1.1`. The highlighting was added to help mitigate that mistake and show which rows were added. For people migrating from versions newer than `v0.1.0` the highlighting is irrelevant.
 
-## Add a row for ESPP or RSUs
+## Add a row for ESPP
+
+You may up here if:
+
+1. you have ESPP lots from prior to 2012
+1. you joined an ESPP period at a different time
+
+If adding additional earlier lots, you can follow the steps for adding an RSU row, but instead of adding it at the bottom of the datagrid, insert it at the top and fill the formula up. You'll need to re-do this when moving between sheet versions until [issue #9](https://github.com/hickeng/financial/issues/9) is resolved.
+
+If your values differ from the prepopulated values, you can modify the row with the same purchase date. Ensure you update `Grant Date`, `Grant Date Market Value`, and `Purchase Value Per Share`. You will need to copy those modified values over to new sheet versions.
+
+
+## Add a row for RSUs
 
 If you need a row for ESPP or RSU that isn't pre-populated with values, use the following approach to add it at the bottom of the relevant sheet. It's added at the bottom to make copy/paste into new sheet versions simpler and because there's no assumption of date ordering in the formulae.
 
@@ -249,6 +275,7 @@ The blue dot to click and drag down:
 ![snippet showing the blue dot for filling down with a selected row](assets/espp-example-row-selected-for-filldown-blue-dot-highlighted.png)
 ![snippet showing dilled down row](assets/espp-example-filled-down-row.png)
 
+Some people have reported the downfill does not work in Google Sheets. If that's an issue you for, you should also be able to select a populated row and copy/paste. It doesn't matter how the formula get into the new row, but do check the row references have updated - almost all references to columns within the same sheet should be within the same row.
 
 ## Factional share
 
