@@ -298,14 +298,31 @@ This section walks through how to interpret the outputs from the sheet and what 
 
 ## Form 8949
 
-The values in the sheet are those needed to go into Form 8949 (although the `Code (f)` is currently missing). However most people will be using tax prep software, so are more likely to want to use those values to correct an imported 1099-B.
+The values in the sheet are those needed to go into Form 8949. However most people will be using tax prep software, so are more likely to want to use those values to correct an imported 1099-B.
+
+This example is for ESPP shares where the basis must be a negative value in the `Adjustment (g)` column. For RSUs the basis is instead a positive value in `1099-B basis (e)`. This difference is per IRS instructions on form usage. The general requirement is that `Proceeds - Basis + Adjustment = Gain`.
 
 ![snippet of the top row with data for first ESPP lot](assets/sheet-espp-form8949-first-lot-with-data.png)
 
-This example is for ESPP shares where the basis must be a negative value in the `Adjustment (g)` column. For RSUs the basis is instead a positive value in `1099-B basis (e)`. This difference is per IRS instructions on form usage. The `Proceeds (d`) are the true compensation you received for your VMW shares - the cash _plus_ the Fair Market Value of the AVGO. [costbasis.com](https://costbasis.com/calculators/cashtobootmerger.html#:~:text=you%20have%20two%20alternative%20ways%C2%A0to%20report%20this%20on%20your%20tax%20return) notes there are two approaches to declaring Proceeds to the IRS on your Form8949. The first is to report only the cash portion, report gain as mandated by Form8937 and set the basis to the synthetic value needed for cash and gain to agree. The second is to use the received value including shares. I've chosen the second approach because:
+There are two styles of reporting noted on [costbasis.com](https://costbasis.com/calculators/cashtobootmerger.html#:~:text=you%20have%20two%20alternative%20ways%C2%A0to%20report%20this%20on%20your%20tax%20return) for the Form 8949 Proceeds:
+1. report the cash received
+2. report the true economic value received (cash + shares)
 
-1. many people seem to think they took a loss on some shares, but technically they did not and using the true compensation makes that clear.
-2. the basis used to get the mandated gain can be calculated independently using logic [noted in this section](https://github.com/hickeng/financial?tab=readme-ov-file#form-8949-to-be-filed-with-taxes) which I strongly prefer as an approach.
+The Summary sheet has a dropdown in the Tweaks to allow control over the style you wish to use:
+
+![snippet of summary for the combined vs cash Proceeds tweak](assets/sheet-summary-form8949-proceeds-style-dropdown.png)
+
+Personally I prefer the combined value, for the following reasons:
+
+1. many people seem to think they took a loss or are paying too much in gain, and using the true compensation value helps clarify mattes.
+2. the basis used to get the mandated gain can be calculated independently using logic [noted in this section](https://github.com/hickeng/financial?tab=readme-ov-file#form-8949-to-be-filed-with-taxes) which I strongly prefer vs use of `basis = proceeds - gain` when basis is supposed to be an input.
+3. the combined value is consistent when using per-lot selection.
+
+However, there are reasons to prefer the "cash only" style:
+
+1. the proceeds should match with the values on the 1099-B provided by eTrade so long as you have "Pro-rata - from Necessary Inputs" selected as the cash/stock ratio style.
+2. TurboTax (and presumably others) instruct you to enter values exactly as shown on 1099-B
+3. TurboTax does not allow for the attachment of a note explaining the Proceeds adjustment as suggested by costbasis.com for the combined approach.
 
 
 ### Entry into Turbotax
@@ -450,3 +467,12 @@ This dropdown controls which values are used to calculate the immediate and post
   * to apply an eTrade tax strategy such as `FIFO` or `HIFO`, select the `Custom Functions` menu, and run the desired strategy. This will not reflect in the Summary values unless you have the dropdown set to `Per-lot`.
 
 ![snippet showing the per-lot cash/stock ratio option in a dropdown](assets/sheet-summary-cash-stock-ratio-dropdown-per-lot-selected.png)
+
+
+## Display of Form 8949
+
+This allows you to toggle the behaviour of Form 8949 values for `Proceeds`. The options for proceeds are:
+1. the cash received
+2. the true economic value received (cash + shares)
+
+Details for this tweak are inline the [Form 8949](#form-8949) section as it's proven to be something many people have questions about.
