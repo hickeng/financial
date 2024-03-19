@@ -338,7 +338,7 @@ There's discussion in [#15](https://github.com/hickeng/financial/issues/15) rega
 * disqualified - sold within either 1 year from purchase date (when you got the shares aka exercise) or 2 years from grant date (when the ESPP period started aka offering).
 * qualified - held for 2 years past grant _and_ 1 year past purchase
 * tax basis - the actual amount you paid
-* grant date price - the Fair Market Value at ESPP grant date
+* grant date price - the Fair Market Value at ESPP grant date - because the final option price is not know at grant, this is the price used to determine the ordinary income amount.
 * purchase date price - the Fair Market Value when you actually acquired the share
 * Disposition - the share exits your control, eg. through a sale, gift, etc.
   * Surrender of VMW for cash+AVGO consideration under section 356 does _not_ count as a Disposition
