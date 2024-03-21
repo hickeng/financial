@@ -125,6 +125,16 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+## [v0.1.7](https://github.com/hickeng/financial/releases/tag/v0.1.7) - 2024-03-21
+
+Major changes to entry of data into RSU and ESPP, and allows configuration of Form 8949 value style:
+
+* price data is now retrieved based on data from a reference sheet
+* no need to insert rows for RSU or ESPP datasheets - all ranges reference the entire column below the headings.
+* Form8949 Proceeds, Basis, and Adjustment can be switched between the two styles (`cash & stock` vs `cash only`) using a Tweak. See [the doc](usage.md#display-of-form-8949).
+* Adds additional documentation for [Form 8949](usage.md#form-8949) and [fractional shares](usage.md#factional-share).
+
+
 ## [v0.1.6-b](https://github.com/hickeng/financial/releases/tag/v0.1.6) - 2024-03-15
 
 In place patch to the v0.1.6 release to address two row skews resulting from transcription errors when doing the comprehensible formula work.
@@ -225,19 +235,22 @@ Initial tagged release because the foundation is there:
 
 # Contents
 
-The spreadsheet is exported from Google Sheets. I've tried opening it in Excel but it's not happy. If there are easy tweaks to make it comptiable that'll be my first change. Until then, import into Google Docs.
+The spreadsheet is exported from Google Sheets. It can be re-imported into Google Sheets but some minor fix up is required, see [here](install.md). It cannot be imported into Excel without issues - since v0.1.6 there is an Excel version of the sheet attached to the releases that can be used, along with an Office365 shared version.
 
-* [spreadsheet for ESPP & RSU basis and realized gain cacluations](https://github.com/hickeng/financial/raw/main/VMW_to_AVGO_ESPP_and_RSU.xlsx)
-  * I **STRONGLY** recommend that if you need to add rows to RSUs you append at the bottom of the data grid instead of preserving date ordering. This is so that it's easy to copy/paste into the reference sheet when it's updated, then re-append your custom rows at the end.
-* [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf) - this is what we need to file with taxes. See #1 for generation of values.
+* [spreadsheet](https://github.com/hickeng/financial/raw/main/VMW_to_AVGO_ESPP_and_RSU.xlsx) - for calculating ESPP & RSU basis and realized gains
+* [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf) - this is what we need to file with taxes. See [here](usage.md#form-8949) for documentation about generating the values to enter into this form. Additionally, the IRS form [instructions](documents/f8949%20-%20instructions.pdf).
+* various Form 8937 - these forms exist for the Dell distributions in 2018 and 2021, and for the merger. They detail the tax implications for shares held over those dates.
+* [Broadcom/VMware merger agreement](documents/VMware%20Broadcom%20Merger%20Agreement.html)
+* A [press release](documents/Broadcom%20and%20VMware%20Provide%20Update%20on%20Pending%20Transaction-%202012-10-30.pdf) and [Form 8-K](documents/Broadcom%20-%20Form%208-K.pdf) that combined are the best reference I currently have for the proration ratio of the overall deal.
+* A [2017 article](documents/Code_Sec_356_and_358_Regulations.pdf) from `The M&A Tax Report` - describes the concepts behind how share basis works through Section 356 mergers, along with commentary on a trial relating to such a merger.
+
 
 ## On "Upgrades"
 
-I've inserted missing RSU rows in date order once, but I'm not doing it again unless I come up with some magic way of loading/copy/pasting RSU inputs that factors in the additional rows. It's just too much of a pain to do the transcription of inputs from old version to new version.
+Prior to `v0.1.7` it was necessary to jump through hoops to insert rows in the RSU and ESPP sheets. With contribution from Eric Gray (a VLOOKUP prototype) and [market price data](https://github.com/wligithub/tax-tool/blob/93c2b2c2461f0e4b08cfec8098bd33c4c38d6228/data/vmw-historical-price.csv) from @wligithub this friction has been resolved.
 
-For now I've coloured the `Release Date` for the added rows in a slightly darker pre-populated colour to indicate which are new. It helps.
+Upgrade between sheets should now be a matter of simple copy/paste of entered data, consisting of Dates, Share quantities, and a checkbox for a fractional lot.
 
-See #9 for tracking a more general solution.
 
 
 # On use of Issues
