@@ -199,18 +199,20 @@ Entry of ESPPs and RSUs into the sheet is a very structured process. For ESPPs t
 
 In this document we care about only a few values:
 
-1. Grant Date & Purchase Date - this pair of data controls the price at which the shares are purchased. You need to confirm _both_ are the same before using a row as some people have reported different grant dates resulting in very different purchase price. Match these up against the similarly titled columns in the `ESPP` sheet. If the prepopulated date values do not match yours, see [instructions for adding a row](#add-a-row-for-espp) and then add the data into the new row.
-2. Enter the `Shares Purchased` value from the document into the similarly named columns in the `ESPP` sheet.
+1. Grant Date & Purchase Date - this pair of data controls the price at which the shares are purchased.
+   * these dates are key inputs, used to source the market price for the start and end of the offering period, and to determine other properties about the lot.
+2. Enter the `Shares Purchased` value from the document into the similarly named column in the `ESPP` sheet.
    1. if you've sold this lot pre-merger, don't enter it at all
    1. if you've sold some shares from this lot pre-merger, adjust the number of shares to be only those you held over the merger.
-   1. if the numbers for your ESPP lot do not match the prepopulated values for the purchase date, see [these detailed steps](#add-a-row-for-espp).
 3. (optional) Enter `Current Contributions` and `Previous Carry Forward` values from the document into the similarly named column.
-    * The sheet will calculate the `Carry Forward` value for all but the first, but double check and use the document value if different. You can put the value either in the top cell and let it propagate down, or put it in the row for your first lot. It depends whether you prefer to keep all inputs in the colour coded boxes or not, but there's no functional difference.
     * This is purely to allow you to collate all the inputs into one location - the Current Contributions and Carry Forward do not impact the final calculation.
+    * These columns are hidden by default - click on the `<>` arrows between columns to expand.
+    * The sheet will calculate the `Carry Forward` value for all but the first, but double check and override with the document value if different.
 
 ![example ESPP purchase confirmation](assets/espp-example-purchase-confirmation.png)
 
 ![example entry of ESPP data into the sheet](assets/espp-example-entry-into-sheet.png)
+
 
 ## RSU
 
@@ -218,64 +220,24 @@ Entry of ESPPs and RSUs into the sheet is a very structured process. For RSUs th
 
 In this document we care about only a few values:
 
-1. Release Date - this date dictates the price at which the shares are received. If the prepopulated date values do not match yours, see [instructions for adding a row](#add-a-row-for-rsus) and then add the data into the new row.
-2. Enter the `Shares Issued` and `Shares Traded` values from the document into the similarly named columns in the `RSU` sheet. `Shares Traded` is optional data simply to keep all non-derivable numbers in one place for future reference, but it has no bearing on calculations or taxes.
-3. Double check the `Market Value Per Share` in the release confirmation matches the similarly named column in the sheet. If it does not, see [these detailed steps](#add-a-row-for-rsus).
+1. Release Date - this date dictates the price at which the shares are received. This date will be used to determine the share price from the PriceReference data.
+1. Enter share quantities - from release confirmation documents (or any of the various statements and spreadsheets that can be downloaded).
+   1. `Shares Issued` - if you've sold any shares from the lot, adjust this value to be only the number of shares held over the merger. If you've sold the entire lot, don't enter it at all.
+   1. `Shares Traded` - optional data simply to keep all non-derivable numbers in one place for future reference, but it has no bearing on calculations or taxes. This column is hidden by default - click on the `<>` arrows between columns to expand.
+   1. `AVGO qty from eTrade` - optional data, allows you to record the precise number of AVGO shares eTrade has nominally assigned to this lot. Entering this enables the use of a different ratio option in Tweaks (`Pro-rata - from eTrade share qty`). See [this collection section](#avgo-qty-from-etrade) for where to source this info.
+
 
 ![example RSU release confirmation](assets/rsu-example-release-confirmation.png)
 
 ![example entry of RSU data into the sheet ](assets/rsu-example-entry-into-sheet.png)
+
 
 There are a couple of things to note about the RSU datasheet that do not apply to ESPP:
 
 1. there are rows with duplicate values for `Release Date` and `Market Value Per Share`
 2. there are rows where `Release Date` is tinted a slightly different colour
 
-### Presence of Duplicate Values
 
- This is because vests from multiple awards can stack and be released on the same date. The presence of the multiple rows derives from the origin of this sheet as a way to estimate my Jan 15th bill - I entered the `Award Number` and `Award Date` into RSU columns A & B, which makes those duplicate rows distinct for me.
-
- I've not collpased them into a single row since because of the upgrade impact to people copy/pasting between versions of the sheet. You can safely leave duplicate rows that you do not need empty/populated with zeros, which will allow you to copy/paste into new versions easily.
-
- If you have multiple stacked vests I recommend you add them up into a single entry for clarity. If you need to track which award the share quantities came from, you can use a formula such as `=LET(awardA, 10, awardB, 20, awardA+awardB)` to preserve the source data while collpasing the numeric value.
-
-### Tinted Release Dates
-
- This is the result of the single instance where I added rows in date order within the sheet. It caused substantial friction migrating input data between version `v0.1.0` and `v0.1.1`. The highlighting was added to help mitigate that mistake and show which rows were added. For people migrating from versions newer than `v0.1.0` the highlighting is irrelevant.
-
-## Add a row for ESPP
-
-You may up here if:
-
-1. you have ESPP lots from prior to 2012
-1. you joined an ESPP period at a different time
-
-If adding additional earlier lots, you can follow the steps for adding an RSU row, but instead of adding it at the bottom of the datagrid, insert it at the top and fill the formula up. You'll need to re-do this when moving between sheet versions until [issue #9](https://github.com/hickeng/financial/issues/9) is resolved.
-
-If your values differ from the prepopulated values, you can modify the row with the same purchase date. Ensure you update `Grant Date`, `Grant Date Market Value`, and `Purchase Value Per Share`. You will need to copy those modified values over to new sheet versions.
-
-
-## Add a row for RSUs
-
-If you need a row for ESPP or RSU that isn't pre-populated with values, use the following approach to add it at the bottom of the relevant sheet. It's added at the bottom to make copy/paste into new sheet versions simpler and because there's no assumption of date ordering in the formulae.
-
-1. Select the entire row just below the prepopulated values for the ESPP or RSU sheet by clicking on the row number (see example below).
-2. Right click on the highlighted and select `Insert 1 row above` - done like this the `SUM` formulae automatically update to include the new row
-3. Fill the formulae down into the new row
-   1. Select the entire row _above_ the newly added row
-   2. Scroll all the way to the right of the sheet and find the blue dot on the bottom right of the highlighted row
-   3. Hover over the dot until the mouse cursor turns into a cross
-   4. Click and drag down to include your newly added row, then release
-   5. You should see the new row populate with default values
-
-![snippet showing insertion of new row at the bottom of the ESPP sheet](assets/espp-example-add-row.png)
-
-The blue dot to click and drag down:
-
-![snippet showing the blue dot for filling down with a selected row](assets/espp-example-row-selected-for-filldown-blue-dot-highlighted.png)
-![snippet showing dilled down row](assets/espp-example-filled-down-row.png)
-
-Some people have reported the downfill does not work in Google Sheets. If that's an issue you for, you should also be able to select a populated row and copy/paste. It doesn't matter how the formula get into the new row, but do check the row references have updated - almost all references to columns within the same sheet should be within the same row.
 
 ## Factional share
 
@@ -529,3 +491,5 @@ This allows you to toggle the behaviour of Form 8949 values for `Proceeds`. The 
 2. the true economic value received (cash + shares)
 
 Details for this tweak are inline the [Form 8949](#form-8949) section as it's proven to be something many people have questions about.
+
+The details of these two styles are noted on [costbasis.com](https://costbasis.com/calculators/cashtobootmerger.html#:~:text=you%20have%20two%20alternative%20ways%C2%A0to%20report%20this%20on%20your%20tax%20return).
