@@ -3,7 +3,7 @@
 To just use the sheet directly from Google, go:
 
 * [here for G-Suite](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
-* [here for Office365](https://1drv.ms/x/s!AkHZkTkvLX2LmpFBkTTLx0I8SgHEGA?e=vJ5AGJ) (does not have the logic for applying strategies, but the sheet works and the lot selections for strategies can be copied over easily)
+* [here for Office365](https://1drv.ms/x/s!AkHZkTkvLX2LmpFBkTTLx0I8SgHEGA?e=e9nnah) (does not have the logic for applying strategies, but the sheet works and the lot selections for strategies can be copied over easily)
 
 User documentation is [here](usage.md).
 
