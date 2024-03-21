@@ -102,13 +102,14 @@ function serialize(sheets) {
     // handle the file first to front load IO errors
     var fileName = defaultExportFolder+"_"+workbook[i].name + ".json"
     var fileItr = DriveApp.getFilesByName(fileName)
+    var existingFile
+
     if (fileItr.hasNext() == false) {
       Logger.log(`Creating new export file: ${fileName}`)
-      existingFile = dataFolder.createFile(fileName, data)
+      existingFile = dataFolder.createFile(fileName, "")
+    } else {
+      existingFile = fileItr.next()
     }
-
-    var existingFile = fileItr.next()
-
 
     Logger.log(`Serializing sheet ${workbook[i].name} to ${fileName}`)
     const startTime = Date.now();
@@ -431,7 +432,7 @@ function cellColourMapping(code) {
       }
 
     case "#a2c4c9":
-    // data validation modified colour
+      // data validation modified colour
     case "#d0e0e3":
     case "#bbc8cb": // alternating colours formatting
       return {
