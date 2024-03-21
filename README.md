@@ -50,7 +50,7 @@ If you don't want to give your CPA the entire sheet, you could give them the val
 
 ## 3. Enter your collected data into the spreadsheet
 
-There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1uMr691SCG3aOayA7QZTfEwx2C8Bevn6hyI6UWwLvlPM/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
+There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
 
 This entails:
 1. entering number of VMW shares and:
@@ -153,8 +153,8 @@ Updates to ESPP post-merger basis and Form8949 columns for RSUs, and polish:
 * Updates the sheet formula to be more comprehensible through liberal use of LET and variable names
 * Additional documentation expansion including addition of two new [known problems](#known-tax-problems-after-merger) people are hitting
 * Includes an Excel compatible sheet version, albeit without strategy logic
-  * Binary attached to [the release](https://github.com/hickeng/financial/releases/tag/v0.1.6)
-  * Shared version on Office365 - [v0.1.6](https://1drv.ms/x/s!AkHZkTkvLX2LmpA9AQYw2TWjU7hyOQ?e=dxZx0o)
+  * Binary attached to [the release](https://github.com/hickeng/financial/releases/tag/v0.1.6) and shared sheet linked
+
 
 ## [v0.1.5](https://github.com/hickeng/financial/releases/tag/v0.1.5) - 2024-03-11
 

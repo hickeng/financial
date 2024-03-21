@@ -1,16 +1,17 @@
 # Install
 
 To just use the sheet directly from Google, go:
-* [here for G-Suite](https://docs.google.com/spreadsheets/d/1uMr691SCG3aOayA7QZTfEwx2C8Bevn6hyI6UWwLvlPM/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
-* [here for Office365](https://1drv.ms/x/s!AkHZkTkvLX2LmpA9AQYw2TWjU7hyOQ?e=dxZx0o) (does not have the logic for applying strategies, but the sheet works and the lot selections for strategies can be copied over easily)
+
+* [here for G-Suite](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
+* [here for Office365](https://1drv.ms/x/s!AkHZkTkvLX2LmpFBkTTLx0I8SgHEGA?e=vJ5AGJ) (does not have the logic for applying strategies, but the sheet works and the lot selections for strategies can be copied over easily)
 
 User documentation is [here](usage.md).
 
 Install is more "import", but there's some fixup required because of a Sheets bug I haven't got a workaround for as yet.
 
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.6/VMW_to_AVGO_ESPP_and_RSU-v0.1.6-b-github.xlsx) attached to the releases, suitable for import into Google Sheets, and a version [suitable for Excel](https://github.com/hickeng/financial/releases/download/v0.1.6/VMW_to_AVGO_ESPP_and_RSU-v0.1.6-b-github-excel.xlsx).
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.7/VMW_to_AVGO_ESPP_and_RSU-v0.1.7-github.xlsx) attached to the releases, suitable for import into Google Sheets, and a version [suitable for Excel](https://github.com/hickeng/financial/releases/download/v0.1.7/VMW_to_AVGO_ESPP_and_RSU-v0.1.7-github-excel.xlsx).
 
-1. Download [the latest binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.6/VMW_to_AVGO_ESPP_and_RSU-v0.1.6-b-github.xlsx)
+1. Download [the latest binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.7/VMW_to_AVGO_ESPP_and_RSU-v0.1.7-github.xlsx)
 2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
 3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 4. Choose `Replace Spreadsheet`, and select `Import data`
@@ -18,8 +19,8 @@ There's [a binary sheet](https://github.com/hickeng/financial/releases/download/
    1. Menu `Data->Data validation`, then `Add rule` at the bottom of the right side pane that opens.
    2. Set `Apply to range` to `ESPP!N7:N26`, `Criteria` to `Tick box`. Click `Done`.
    3. Repeat (2) but with `Apply to range` as `RSU!J7:J84`
-   4. If `ESPP!N5` is displaying `#REF!`, replace the cell formula with `=COUNTIF(N7:N26, TRUE)`
-   5. Repeat (4) but for `RSU!J5`, replacing with `=COUNTIF(J7:J84, TRUE)`
+   4. If `ESPP!N5` is displaying `#REF!`, replace the cell formula with `=COUNTIF(N7:N, TRUE)`
+   5. Repeat (4) but for `RSU!J5`, replacing with `=COUNTIF(J7:J, TRUE)`
    6. (the bottom sums are just for convenience and because people expect totals at the bottom - fix them up with the same formula if you care)
 6. Import the AppScript (needed for running lot optimization)
    1. In the sheet, `Extensions->App Scripts` and copy the .gs files from the repo worksheet directory.
