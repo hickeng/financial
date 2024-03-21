@@ -2,7 +2,7 @@
 
 User documentation for the worksheet. This aims to be a hand-held step-by-step for how to gather the necessary documents, extract the information from them, and add it into the worksheet, chose any optional values, and then understand the result.
 
-For how to access the worksheet, see [the readme install section](https://github.com/hickeng/financial?tab=readme-ov-file#install)
+For how to access the worksheet, see [the install section](https://github.com/hickeng/financial/blob/main/install.md)
 
 The high level steps are as follows - the doc walks you through these in detail:
 1. gather the inputs needed from various eTrade documents
