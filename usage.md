@@ -298,9 +298,26 @@ This section walks through how to interpret the outputs from the sheet and what 
 
 The sheet has three primary outputs:
 1. Form 8949 values - this is the form you need to file with the IRS for security trades. The sheet generates the detailed values needed for the form, or for entry into tax prep software.
-1. The Sort and Long Term Captial Gain we realize from the merger (and must pay tax on), and the potential post-merger gains from the shares received.
-2. A rough tax estimate - this ballpark estimate is what I used for paying estimated tax prior to Tax Day
+1. The Short and Long Term Captial Gain we realize from the merger (and must pay tax on), and the potential post-merger gains from the shares received.
+1. A rough tax estimate - this ballpark estimate is what I used for paying estimated tax prior to Tax Day
 
+## On validations
+
+One subtle output is the colouring of validation inputs. These will be coloured something other than black if there's an issue with the validation they're supposed to provide.
+
+VMW held at close:
+* is expected to be the sum of the two values above - `Shares liquidated for cash (vmw)` + `Shares for conversion (vmw)` - this is a guard against simple transcription error for those Neccesary Inputs
+
+Cash for fraction:
+* orange - if the tweak for fractional sale value is set to anything other than `eTrade` as we don't expect values to match
+* red - if we expect values to match but they don't - compares vs the fractional share/dollar value in `C42`
+
+Cash portion without fraction:
+* expected to match the Cash Consideration/Dollar value in `B42`. The `B42` value is calculated from the holding ratio and the VMW quantities provided for each lot. If this value matches the actual cash value receieved from eTrade it's a strong indication that the data entry for share quantities was correct.
+
+AVGO shares received:
+* expected to match the number of AVGO received calculated from the holding ratio and the per-lot quantities. If this value matches it's a strong indication that the overall number of VMW shares recorded for lots is correct.
+  
 ## Form 8949
 
 There's additional details on Form 8949 [in the readme](https://github.com/hickeng/financial?tab=readme-ov-file#form-8949-to-be-filed-with-taxes) but in summary:
