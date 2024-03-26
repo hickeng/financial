@@ -34,7 +34,6 @@ I don't know a better way than selecting each year in turn and clicking on the d
 
 Keep these for your records and back them up somewhere. They are THE definitive input into the entire process. Everything else can be reconstructed if you have these.
 
-If you sold AVGO post-merger in 2023, you'll likely need to use the tradesdownload.csv to populate the worksheet `Share amounts from eTrade` column
 
 ### eTrade total VMW share ownership
 
@@ -76,7 +75,7 @@ The benefit history spreadsheet is the richest document I've found regarding hav
 
 ### eTrade per-lot AVGO quantities
 
-NOTE: if you do _not_ populate these values, then you _must not_ use the `Pro-rata - from eTrade share qty` option from `Cash/stock ratio` tweak as it depends on them.
+NOTE: this is optional, but if you do _not_ populate these values then you _must not_ use the `Pro-rata - from eTrade share qty` option from `Cash/stock ratio` tweak as it depends on them.
 
 Go to etrade [`Stock Plan->My Account->Benefit History`](https://us.etrade.com/etx/sp/stockplan#/myAccount/benefitHistory) and look at the `OSPS` section:
 * for each lot, take the `Acquired Qty.` (orange) and add it into the worksheet (details below)
@@ -86,11 +85,16 @@ Go to etrade [`Stock Plan->My Account->Benefit History`](https://us.etrade.com/e
 
 For each lot I see it bracketed with a pair of 0 qty lots. I _presume_ these come from the various holding company transitions that occurred as part of the conversion from `VMW->Holding1->Holding2->AVGO`... regardless I've ignored them.
 
-Enter these received quantities into the `Share amounts from eTrade` column in ESPP and RSU sheets. Be sure to match them up to the appropriate row in the sheet if using the sheet to save these values using the `Purchase Date`.
+Enter these received quantities into the `AVGO qty from eTrade` column in ESPP and RSU sheets. Be sure to match the quantity value up to the appropriate row in the sheet, matching `Acquired Date` with `Purchase Date` (ESPP), or `Release Date` (RSU).
 
-If you had a fractional share, you'll be adjusting one of these values to add it back later, once the lot it came from has been determined.
+![screenshot of the ESPP sheet with shares from etrade highlighted](https://github.com/hickeng/financial/assets/3923729/19512e67-9f09-4bd4-beb9-30ec8bff0d4d)
 
-![screenshot of the ESPP sheet with shares from etrade highlighted](assets/sheet-espp-shares-from-etrade-highlight.png)
+
+If the eTrade OSPS view does not show any lots, perhaps you sold AVGO before collecting this info or transferred shares to a different broker, or eTrade is just having issues. In that case you can try using the BenefitHistory spreadsheet, downloaded in a prior step, to map the VMW lots to AVGO quantities. Use the `OSPS` tab in the BenefitHistory spreadsheet:
+* `Acquired Date` column - this should match with a `Purchase Date` or `Release Date` for ESPP and RSU respectively
+* `Acquired Qty.` column - this is the number of AVGO received for the lot
+
+If you had a fractional share, you'll be adjusting one of these values to add it back later, once the lot it came from has been determined. The approach for this is detailed in a later step.
 
 
 ### eTrade 1099-B & Supplement
@@ -281,7 +285,9 @@ If you've filled in the optional "[AVGO qty from eTrade](#etrade-per-lot-avgo-qu
 
 ## AVGO qty from eTrade
 
-These values were collected in [this section](#etrade-per-lot-avgo-quantities) which recommended entering them into the sheet as you collected them. If you did not do so enter these received quantities into the `Share amounts from eTrade` column in ESPP and RSU sheets. Be sure to match them up to the appropriate row in the sheet if using the sheet to save these values using the `Purchase Date`.
+Optional.
+
+These values were collected in [this section](#etrade-per-lot-avgo-quantities) which recommended entering them into the sheet as you collected them. If you did not do so already, enter these received quantities into the `AVGO qty from eTrade` column in ESPP and RSU sheets. Be sure to match them up to the appropriate row in the sheet if using the sheet to save these values using the `Purchase Date`.
 
 ![screenshot of the ESPP sheet with shares from etrade highlighted](assets/sheet-espp-shares-from-etrade-highlight.png)
 
