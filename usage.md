@@ -17,6 +17,9 @@ The high level steps are as follows - the doc walks you through these in detail:
 
 This section is about getting all of the input data needed. Once gathered, you should back this up and keep it in case of future reference.
 
+NOTE: when entering dates into the sheet, use ISO date format, YYYY-MM-DD as it's unambiguous. Ambiguous formats such as the standard US MM/DD/YY have translated incorrectly for people and cause problems in lookup of data.
+I'll be updating the sheet to render dates using YYY-Month-DD with a textual month name, eg. 1970-Jan-01 so it's very apparent if there's been a date entry error.
+
 ## Gathering documents from eTrade
 
 There's various documents we need to export from eTrade.
@@ -201,6 +204,7 @@ In this document we care about only a few values:
 
 1. Grant Date & Purchase Date - this pair of data controls the price at which the shares are purchased.
    * these dates are key inputs, used to source the market price for the start and end of the offering period, and to determine other properties about the lot.
+   * NOTE: when entering dates into the sheet, use ISO date format, YYYY-MM-DD as it's unambiguous. Ambiguous formats such as the standard US MM/DD/YY have translated incorrectly for people and cause problems in lookup of data. I'll be updating the sheet to render dates using YYY-Month-DD with a textual month name, eg. 1970-Jan-01 so it's very apparent if there's been a date entry error.
 2. Enter the `Shares Purchased` value from the document into the similarly named column in the `ESPP` sheet.
    1. if you've sold this lot pre-merger, don't enter it at all
    1. if you've sold some shares from this lot pre-merger, adjust the number of shares to be only those you held over the merger.
@@ -221,6 +225,7 @@ Entry of ESPPs and RSUs into the sheet is a very structured process. For RSUs th
 In this document we care about only a few values:
 
 1. Release Date - this date dictates the price at which the shares are received. This date will be used to determine the share price from the PriceReference data.
+   * NOTE: when entering dates into the sheet, use ISO date format, YYYY-MM-DD as it's unambiguous. Ambiguous formats such as the standard US MM/DD/YY have translated incorrectly for people and cause problems in lookup of data. I'll be updating the sheet to render dates using YYY-Month-DD with a textual month name, eg. 1970-Jan-01 so it's very apparent if there's been a date entry error.
 1. Enter share quantities - from release confirmation documents (or any of the various statements and spreadsheets that can be downloaded).
    1. `Shares Issued` - if you've sold any shares from the lot, adjust this value to be only the number of shares held over the merger. If you've sold the entire lot, don't enter it at all.
    1. `Shares Traded` - optional data simply to keep all non-derivable numbers in one place for future reference, but it has no bearing on calculations or taxes. This column is hidden by default - click on the `<>` arrows between columns to expand.
