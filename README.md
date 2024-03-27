@@ -50,7 +50,7 @@ If you don't want to give your CPA the entire sheet, you could give them the val
 
 ## 3. Enter your collected data into the spreadsheet
 
-There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use the binary from the repo, see [Install](install.md).
+There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use Excel instead of Google Sheets, or the binaries from the repo, see [Install](install.md).
 
 This entails:
 1. entering number of VMW shares and:
