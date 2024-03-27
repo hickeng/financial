@@ -46,7 +46,7 @@ If you needed to give your CPA any of the Dell distribution/recapitalization for
 
 The above information is everything necessary to completely recreate what the sheet does but, for utility, if you're a past/present VMware/Broadcom employee the non-commercial license allows for giving it to a CPA for use with your personal filing.
 
-If you don't want to give your CPA the entire sheet, you could give them the values from the three Form8949 sections (section in Summary for fraction, and sections for ESPPs and RSUs).
+If you don't want to give your CPA the entire sheet, you could give them the values from the three Form8949 sections (section in Summary for fraction, and sections for ESPPs and RSUs). Collate the Form8949 fragments from the sheet as documented [in the usage](usage.md#form-8949).
 
 ## 3. Enter your collected data into the spreadsheet
 
