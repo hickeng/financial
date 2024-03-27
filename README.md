@@ -249,7 +249,7 @@ The spreadsheet is exported from Google Sheets. It can be re-imported into Googl
 
 Prior to `v0.1.7` it was necessary to jump through hoops to insert rows in the RSU and ESPP sheets. With contribution from Eric Gray (a VLOOKUP prototype) and [market price data](https://github.com/wligithub/tax-tool/blob/93c2b2c2461f0e4b08cfec8098bd33c4c38d6228/data/vmw-historical-price.csv) from @wligithub this friction has been resolved.
 
-Upgrade between sheets should now be a matter of simple copy/paste of entered data, consisting of Dates, Share quantities, and a checkbox for a fractional lot.
+Upgrade between sheets should now be a matter of simple copy/paste of entered data, consisting of Dates, Share quantities, a checkbox for a fractional lot, and the Inputs on the Summary sheet.
 
 
 
@@ -262,23 +262,28 @@ If it's also applicable to me, I'll get to them (no latency guarantees).  If not
 
 # Form 8949 (to be filed with taxes)
 
-This is the form used to report "Sales and Other Dispositions of Captial Assets". It's split into Short Term and Long Term gain sections, with a radio button (well, checkbox but radio button is the required behaviour) to record how it intersects with the 1099-B. If you need to use multiple radio buttons, then you must submit additional instances of the form (attaching the one with code `Z` in column (f) first). I'm working through the details of this in #1.
+This is the form used to report "Sales and Other Dispositions of Captial Assets". It's split into Short Term and Long Term gain sections, with a radio button (well, checkbox but radio button is the required behaviour) to record how it intersects with the 1099-B. If you need to use multiple radio buttons, then you must submit additional instances of the form.
+
+There are more specific details on Form8949 and a walkthrough of how to use the generated values to adjust an imported 1099-B in TurboTax [in the usage doc](usage.md#form-8949).
 
 [Form 8949](documents/f8949.pdf) - ([instructions](documents/f8949%20-%20instructions.pdf))
 
 ![example image from the top of form 8949](assets/f8949-snippet.png)
 
-I used costbasis.com to get a comparison, and it gave me one that I agree with, but it didn't explain _how_ that value was reached or provide reference links. I've not been able to find absolute references but I've worked through it from first principles and have the same values. The following reasoning is promoted from [my working](https://github.com/hickeng/financial/issues/1#issuecomment-1950283122) in #1.
 
-This isn't added into the spreadsheet yet - I want to have human readable diffs for commits before that - but here for visible reference.
-I strongly suspect that the value of basis from eTrade 1099-B, which goes in column (e), will be incorrect. That means the values I calculate will need to go into column(f) along with appropriate code into column(e) which I've not yet extracted from the separate instructions.
+Many people received a 1099-B from eTrade with the individual lots broken out individually (which is what we want), the cash received in the merger as Proceeds (Box 1d), and a Cost Basis (Box 1e) of `0.00`. This is correct for lots where your cost basis in VMware shares is less than approximately `$128.60`. For lots with a higher cost basis, you can recognize less capital gain via the alternative calculation provided in Form 8937.
 
-I've derived the following from first principles with the following axioms:
+If you file with those unadjusted values from the 1099-B you're not going to be underpaying tax, but you may be paying more tax in 2023 than needed for those high basis lots. This would work itself out when you sell those lots, assuming you adjust the tax basis appropriately, but it's not ideal. The sheet aims to provide you with the specific Proceeds & Basis values to pay precisely what it owed in 2023.
 
+For many people the eTrade supplement contains incorrect basis values, in some cases even indicating a capital loss, and using those values could lead to underpayment of tax. The VMware share price was _never_ high enough for anyone to recognize an actual capital loss when receiving a mix of cash and stock in the merger.
+
+Form 8937 dictates the gain we should recognize for each lot, and therefore the value that must be entered into Form8949 column (h). To determine the other values I've worked through from first principles and validated using costbasis.com (reasoning promoted from [my working](https://github.com/hickeng/financial/issues/1#issuecomment-1950283122) in #1). This is here for people that want the details of the reasoning and calculations - you can safely skip this.
+
+Axioms:
 * realized gain and adjusted avgo basis are inflexible values dictated by f8937
-* f8949 proceeds is inflexible as an actual dollar value credited & fmv of shares received
-* must pay tax on realized gain
-* must pay tax on deferred gain
+* f8949 cash proceeds is inflexible as an actual dollar value credited & fmv of shares received
+* must pay tax on realized gain now
+* must pay tax on deferred gain on eventual sale (future basis must be adjusted for this)
 * difference between proceeds and basis reported on f8949 must equal realized gain
 
 The only flexible value we can adjust to reconcile the above is the reported f8949 basis.
@@ -318,12 +323,13 @@ if cash_received < alternate_gain_calc {
   # gain mandated by f8937
   f8937_gain = alternate_gain_calc
 
-  # that's our true gain, so we should be ok with an avgo_basis of avgo_fmv... but f8937 says the adjust avgo basis must be:
+  # that's our true full gain, so we should be ok with a future avgo_basis of avgo_fmv... but f8937 says the adjusted avgo basis must be:
   # avgo_basis = vmw_basis - cash_received + f8937_gain
   #
-  # This is still okay, as that simplifies
+  # This is still makes sense, as that simplifies
   # avgo_basis = vmw_basis - cash_received + cash_received + avgo_fmv - vmw_basis
   # avgo_basis = avgo_fmv
+
   f8949_basis = vmw_basis
 }
 
