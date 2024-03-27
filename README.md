@@ -1,6 +1,6 @@
 Welcome, fellow members of the Turtle Pond.
 
-This repo is going to hold all my spreadsheets (santized), research, and conclusions for the financials around the VMW->AVGO acquisition. Click on the burger menu on the top right of the readme pane for a table of contents.
+This repo is going to hold all my spreadsheets (santized), research, and conclusions for the financials around the VMW->AVGO acquisition. I'm not a CPA and this is a personal best effort, so do your own diligence - I'll try to provide citations and links to make that easy. Click on the burger menu on the top right of the readme pane for a table of contents.
 
 By insistent recommendation of colleagues/friends that _they_ want to be able to pay something, I haved enabled Sponsor for the repo ([:heart:](https://github.com/sponsors/hickeng)).
 Don't feel obligated - my goal is to provide support to colleagues and friends in getting through an unexpectedly complex tax season... and to get peer reviewed in turn to improve _my_ filing correctness! So, mostly standard Open Source motive.
