@@ -11,7 +11,9 @@ Use by past and present VMware and Broadcom employees for tax purposes, includin
 
 # Getting Started
 
-This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax.
+This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax, and a high level description of how to use the spreadsheet to generate numbers for filing.
+
+There's a [quick overview](https://docs.google.com/document/d/1VdKL3F3ne8Spj03KGFWqioh-sFGV7BTDGLDOfXrgY0I/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point.
 
 There is a Getting Started section in the [discussions forum](https://github.com/hickeng/financial/discussions).
 
