@@ -428,7 +428,9 @@ The taxes for this _should_ be taken care of automatically between your broker a
 
 To see if your ESPP tax obligation has been rolled into your W2, look for `Box 14 Other` and a notation such as `ESPPD`. There should be a numeric value next to it. I do not yet know what the meaning of that number is - tracking with [#91](https://github.com/hickeng/financial/issues/91).
 
-Specifics for how to report this if not included on W2 will be added when [#90](https://github.com/hickeng/financial/issues/90) is answered. For now, the best answer for Turbotax is [this help page](https://ttlc.intuit.com/community/taxes/discussion/re-how-do-i-add-espp-ordinary-income-that-was-not-included-in-my-w-2/01/1338967/highlight/true#M484377).
+Specifics for how to report this if not included on W2 will be added when [#90](https://github.com/hickeng/financial/issues/90) is answered. For now, the best answer for Turbotax is [this help page](https://ttlc.intuit.com/community/taxes/discussion/re-how-do-i-add-espp-ordinary-income-that-was-not-included-in-my-w-2/01/1338967/highlight/true#M484377), and there's a generic answer by @cosmotron based on what their CPA did:
+
+* `Schedule 1, Box 8z, "Other income"` (which boils up to `1040, Box 8`). The CPA included a statement which read, "VMWARE EMPLOYEE STOCK PURCHASE PLAN DISCOUNT".
 
 ## Merger details
 
