@@ -1,11 +1,14 @@
 Welcome, fellow members of the Turtle Pond.
 
-This repo is going to hold all my spreadsheets (santized), research, and conclusions for the financials around the VMW->AVGO acquisition. I'm not a CPA and this is a personal best effort, so do your own diligence - I'll try to provide citations and links to make that easy. Click on the burger menu on the top right of the readme pane for a table of contents.
+This repo holds spreadsheets, research, and conclusions for the financials around the VMW->AVGO acquisition. I'm not a CPA and this is a personal best effort, so do your own diligence - I'll try to provide citations and links to make that easy. Click on the burger menu on the top right of the readme pane for a table of contents and the usage doc for detailed instructions.
 
 By insistent recommendation of colleagues/friends that _they_ want to be able to pay something, I haved enabled Sponsor for the repo ([:heart:](https://github.com/sponsors/hickeng)).
 Don't feel obligated - my goal is to provide support to colleagues and friends in getting through an unexpectedly complex tax season... and to get peer reviewed in turn to improve _my_ filing correctness! So, mostly standard Open Source motive.
 
-Donations will initially go towards getting CPA validation of the calculations I'm using and answering [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa) assuming I can find one willing to engage in that style. I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
+I've not found a CPA willing to engage in a structured validation of calculations and approach prior to the April filing deadline. I have found some willing to engage after that, but at this point (end of March) I don't think it's feasible to expect formal validation prior to April filing.
+
+Personally I'll be filing an extension using the sheet numbers and engaging a CPA after their crunch season is finished and they've more time for the more complex stuff. The repo was created not just to hold the spreadsheet, but to hold reference material and as an audit trail, so it'll be around after April but updates will be less frequent and will be primarily around logging formal answers as they come.
+I'm tracking [questions needing professional expertise](https://github.com/hickeng/financial/issues?q=is%3Aopen+is%3Aissue+label%3Acpa). I'll try to keep those issues curated such that the description is sufficiently clear and coherent to be passed directly to a CPA, but it'll be best effort. If there's questions you want answered that aren't addressed in the README and in that labelled set, please open an issue with the `cpa` label.
 
 Use by past and present VMware and Broadcom employees for tax purposes, including giving it to a CPA for use with your personal holding, is acceptable under the non-commercial license. Use by other individuals for personal tax purposes without CPA involvement is also acceptable. For broader use than that, contact me for commercial licensing.
 
