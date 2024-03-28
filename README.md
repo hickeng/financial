@@ -58,9 +58,9 @@ If you don't want to give your CPA the entire sheet, you could give them the val
 There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use Excel instead of Google Sheets, or the binaries from the repo, see [Install](install.md).
 
 This entails:
-1. entering number of VMW shares and:
-   1. RSUs - many vest dates are already populated, but you may need to add `Market Value Per Share` if yours is absent
-   1. ESPP - almost everyone has the same offering periods, so only `Current Contributions` from the confirmations and your initial `Previous Carry Forward` value are needed
+1. entering number of VMW shares held through the merger for:
+   1. RSUs - enter `Release Date` and `Shares Issued` values per vest.
+   1. ESPP - enter `Grant Date`, `Purchase Date`, and `Shares Purchased` per period.
 1. details from eTrade transaction log - [instructions](usage.md#etrade-transaction-log)
    1. Shares (exchange for cash)
    1. Shares (tender payment)
@@ -72,6 +72,8 @@ For completeness you should [figure out](usage.md#factional-share) which lot you
 Optionally you can [add validation inputs](usage.md#etrade-transaction-log) used to sanity check against transcription errors, and W2/1040 information to inform a ballpark tax estimate.
 
 Optionally you can [add other sources of income](usage.md#other-income) to improve the tax estimation.
+
+Optionally you can record related information that's not used for calculation such as shares withheld for tax (RSUs), contribution amounts and carry overs (ESPP), and the numbers of AVGO shares eTrade associated with each lot.
 
 If you sold AVGO shares post-merger but in 2023, you can use the [post merger sale of AVGO](usage.md#post-merger-sale-of-avgo) tweak to set the price at which you sold and generate the necessary basis and imputed income (ESPP) for filing.
 
@@ -93,14 +95,14 @@ Informational:
 
 ## 5. Make Estimated payments if you've not reached Safe Harbor thresholds
 
-Taxes are due for the 4th quarter [on January 15th of the next year](https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2)... so 2024-01-15 was the deadline for paying any estimated taxes resulting from the merger.
+Taxes are due for the 4th quarter [on January 15th of the next year](https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2) if making estimated payments (worst case deadline for most people)... so 2024-01-15 was the deadline for paying any estimated taxes resulting from the merger.
 
-If you've _not_ met safe harbor thresholds then look at reducing penalty and interest amounts by filing using Annualized Income Installment method.
+If you've _not_ met safe harbor thresholds, and given all the income came in the last quarter of 2023, look at reducing penalty and interest amounts when filing by using the Annualized Income Installment method.
 
 
 ## 6. Adjust 1099-B in TurboTax (or similar)
 
-There's prelim step-by-step [here](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991) but screenshots are on a different computer so that's it for tonight.
+There's step-by-step instructions [here](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991).
 
 
 -----
