@@ -483,7 +483,7 @@ Gain recognized is the lesser of (per Form 8937):
 * cash received
 * cash received + FMV AVGO received - basis prior to merger
 
-That simplifies to the lesser of:
+That simplifies the tax basis calculation to the lesser of:
 
 * basis prior to merger
 * FMV AVGO received
