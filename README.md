@@ -102,7 +102,7 @@ If you've _not_ met safe harbor thresholds, and given all the income came in the
 
 ## 6. Adjust 1099-B in TurboTax (or similar)
 
-There's step-by-step instructions [here](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991).
+There's step-by-step instructions [here](usage.md#entry-into-turbotax).
 
 
 -----
