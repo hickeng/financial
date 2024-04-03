@@ -55,12 +55,19 @@ Use [the eTrade transaction log](https://us.etrade.com/e/t/accounts/txnhistory) 
 
 ![Transaction log annotated with values to enter into sheet](assets/etrade-transaction-log-annotated.png)
 
-
 These values should be entered into the worksheet Input section on the `Summary` sheet. The VMW shares exchange for XXX are used to determine the specific conversion ratio that applied to you, which is used to calculate the per-lot quantities for cash and AVGO.
 
 The other values are used for validation as, with just the ratio and the number of shares for each lot, we expect the numbers to match up. The `VMW held at close` is expected to be the sum of the shares converted to AVGO and the shares exchanged for cash. This value was retrieved [in an earlier step](#etrade-total-vmw-share-ownership).
 
 ![Colour coded Input section for worksheet](assets/sheet-summary-colour-coded-inputs.png)
+
+If you get a message similar to "You need to open a brokerage/retirement or managed account." when opening the transactino log then you should be able to find the same data in your November or December eTrade statement.
+I found the fraction in the December `Single Account Statement` in the `Activity/CASH FLOW ACTIVITY BY DATE` section, and the share quantities in `2023 Recap of Cash Management Activity/CORPORATE ACTIONS` section)
+
+![screenshot of statements download with decemeber single statement highlighted](https://github.com/hickeng/financial/assets/3923729/3e803ab0-eb37-4433-83fb-3b92baf17adf)
+
+
+
 
 
 
