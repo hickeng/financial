@@ -142,6 +142,8 @@ Major changes to entry of data into RSU and ESPP, and allows configuration of Fo
 * Adds additional documentation for [Form 8949](usage.md#form-8949) and [fractional shares](usage.md#factional-share).
 
 
+<details><summary>Previous Releases</summary><p>
+ 
 ## [v0.1.6-b](https://github.com/hickeng/financial/releases/tag/v0.1.6) - 2024-03-15
 
 In place patch to the v0.1.6 release to address two row skews resulting from transcription errors when doing the comprehensible formula work.
@@ -238,6 +240,8 @@ Initial tagged release because the foundation is there:
 * basic outputs are complete - per-lot cash amounts, gain, old adjusted vmw basis, and new avgo basis are calculated considering short/long term gain and ESPP qualified/disqualified status
 * all planned changes are enhancements
 
+</p></details>
+<p/>
 
 
 # Contents
