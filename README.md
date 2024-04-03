@@ -16,10 +16,7 @@ Use by past and present VMware and Broadcom employees for tax purposes, includin
 
 This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax, and a high level description of how to use the spreadsheet to generate numbers for filing. The repo focuses on the US tax impact of the merger - if that's not relevant to you then this will be of only academic interest.
 
-There's a [quick overview](https://docs.google.com/document/d/1VdKL3F3ne8Spj03KGFWqioh-sFGV7BTDGLDOfXrgY0I/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point.
-
 Expand the following sections for more detailed info. There is a Getting Started section in the [discussions forum](https://github.com/hickeng/financial/discussions) for questions.
-
 
 <details><summary>1. Collect necessary inputs</summary><p>
 
@@ -120,6 +117,34 @@ There's step-by-step instructions [here](usage.md#entry-into-turbotax).
 
 </p></details>
 <p/>
+
+----
+If you need some fast context for what's being done, a very quick summary is as follows (assuming you opted for 100% stock):
+* you received, per share of VMW, approximately $196.86 true economic compensation:
+   * $68.2575 cash
+   * 0.131292 shares of AVGO (value of $128.60 at time of merger)
+* you now need to know
+   * how much tax to pay on the cash
+   * what the tax basis is of the AVGO for when you sell it
+
+<details><summary>Example with numbers</summary><p>
+
+
+Assume you have `100` shares of VMW going into the merger at a cost of `$90` each. This results in:
+* `$19,686.00 compensation with a basis of `$9,000`
+   * `$6825.72` in cash
+   * `13.1292` AVGO shares
+
+You paid `$9000` to get `$19686`, so you've got `$10,686.00` of gain to pay tax on. How much of that gain you need to pay tax on as an immediate consequence of the merger is dictated by IRS Form 8937.
+
+For many shares the mandated gain calculation in Form8937 will requires you consider _all_ of the cash as gain (one of two possible paths), meaning:
+1. you owe tax on `$6825.72`, reported by providing a cost basis of `$0.00` for the cash
+4. the `$3859.80` of gain in AVGO shares is deferred to the future.
+
+</p></details>
+<p/>
+
+There's a [more in-depth but still quick overview](https://docs.google.com/document/d/1VdKL3F3ne8Spj03KGFWqioh-sFGV7BTDGLDOfXrgY0I/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point. 
 
 
 -----
