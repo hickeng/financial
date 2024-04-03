@@ -144,7 +144,7 @@ For many shares the mandated gain calculation in Form8937 will requires you cons
 </p></details>
 <p/>
 
-There's a [more in-depth but still quick overview](https://docs.google.com/document/d/1VdKL3F3ne8Spj03KGFWqioh-sFGV7BTDGLDOfXrgY0I/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point. 
+There's a [more in-depth but still quick overview](https://docs.google.com/document/d/1cN5gP5Qb-A0NbvOI2dj6gwk1ebpQbRzgnbmJ_N6waZs/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point. 
 
 
 -----
