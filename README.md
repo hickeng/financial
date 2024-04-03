@@ -14,13 +14,14 @@ Use by past and present VMware and Broadcom employees for tax purposes, includin
 
 # Getting Started
 
-This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax, and a high level description of how to use the spreadsheet to generate numbers for filing.
+This section is a quick reference for gathering critical data and what a CPA needs to be able to calculate basis information and gain/loss/tax, and a high level description of how to use the spreadsheet to generate numbers for filing. The repo focuses on the US tax impact of the merger - if that's not relevant to you then this will be of only academic interest.
 
 There's a [quick overview](https://docs.google.com/document/d/1VdKL3F3ne8Spj03KGFWqioh-sFGV7BTDGLDOfXrgY0I/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point.
 
-There is a Getting Started section in the [discussions forum](https://github.com/hickeng/financial/discussions).
+Expand the following sections for more detailed info. There is a Getting Started section in the [discussions forum](https://github.com/hickeng/financial/discussions) for questions.
 
-## 1. Collect necessary inputs
+
+<details><summary>1. Collect necessary inputs</summary><p>
 
 All of this information _should_ be in eTrade (see Known Problems if any is unavailable). Log into your eTrade account and follow the steps [here](usage.md). The instruction links below jump to specific steps. If you're logged into eTrade, the links provided deeplink into the appropriate eTrade pages where possible.
 
@@ -33,9 +34,11 @@ By the end of it you should have:
 * eTrade 1099-B (PDF) - [instructions](usage.md#etrade-1099-b--supplement)
 * eTrade Supplement (PDF) - [instructions](usage.md#etrade-1099-b--supplement) (same as above)
 
+</p></details>
+<p/>
 
-## 2. Create a bundle for a CPA
-
+<details><summary>2. Create a bundle for a CPA</summary><p>
+ 
 Your CPA needs all of the information collected in the prior section, along with all the following if the conditions apply:
 
 * If you held VMware shares over the Broadcom merger
@@ -53,7 +56,10 @@ The above information is everything necessary to completely recreate what the sh
 
 If you don't want to give your CPA the entire sheet, you could give them the values from the three Form8949 sections (section in Summary for fraction, and sections for ESPPs and RSUs). Collate the Form8949 fragments from the sheet as documented [in the usage](usage.md#form-8949).
 
-## 3. Enter your collected data into the spreadsheet
+</p></details>
+<p/>
+
+<details><summary>3. Enter your collected data into the spreadsheet</summary><p>
 
 There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use Excel instead of Google Sheets, or the binaries from the repo, see [Install](install.md).
 
@@ -81,7 +87,10 @@ Very, very optionally there is [a tweaks section](usage.md#tweaks-and-custom-fun
 
 The sheet is still being actively refined and, while it's slowed, people are still finding issues to be fixed. The [timeline](https://github.com/users/hickeng/projects/2/views/2) has a stable version that's as vetted as viable towards the end of March. I'll be tagging a v1.0.0 that I will use for filing my extension in April.
 
-## 4. Look at the outputs from the sheet
+</p></details>
+<p/>
+
+<details><summary>4. Look at the outputs from the sheet</summary><p>
 
 The primary outputs from the sheet are:
 
@@ -93,26 +102,33 @@ Informational:
 1. Long and short term capital gains for 2023 and potential future values
 1. Ballpark tax liability estimate for Federal and California for making estimated payments
 
-## 5. Make Estimated payments if you've not reached Safe Harbor thresholds
+</p></details>
+<p/>
+
+<details><summary>5. Make Estimated payments if you've not reached Safe Harbor thresholds</summary><p>
 
 Taxes are due for the 4th quarter [on January 15th of the next year](https://www.irs.gov/faqs/estimated-tax/individuals/individuals-2) if making estimated payments (worst case deadline for most people)... so 2024-01-15 was the deadline for paying any estimated taxes resulting from the merger.
 
 If you've _not_ met safe harbor thresholds, and given all the income came in the last quarter of 2023, look at reducing penalty and interest amounts when filing by using the Annualized Income Installment method.
 
+</p></details>
+<p/>
 
-## 6. Adjust 1099-B in TurboTax (or similar)
+<details><summary>6. Adjust 1099-B in TurboTax (or similar)</summary><p>
 
 There's step-by-step instructions [here](usage.md#entry-into-turbotax).
 
+</p></details>
+<p/>
+
 
 -----
------
------
 
+## Known Tax Problems After Merger
 
-# Known Tax Problems After Merger
+<details><summary>Details</summary><p>
 
-The problems we as VMW holders know of are collected [here](problems.md), along with groups impacted, and impact assment. All are works in progress:
+The problems we as VMW holders know of are collected [here](problems.md), along with groups impacted, and impact assment. All are works in progress. This primarily focuses on issues impacting US persons:
 * $0 cost basis and incorrect adjustment in eTrade Supplement
    * the cascade consequences of this single issue account for the bulk of this repo
 * incorrect code ‘N’ in Form 8949 generated by TurboTax
@@ -125,7 +141,10 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 * some ESPP lots are showing up on 1099 as Noncovered Securities
 * ... if you know of others, please open an issue or pull request
 
+</p></details>
+<p/>
 
+-----
 
 
 # Release Status
@@ -140,6 +159,7 @@ Major changes to entry of data into RSU and ESPP, and allows configuration of Fo
 * no need to insert rows for RSU or ESPP datasheets - all ranges reference the entire column below the headings.
 * Form8949 Proceeds, Basis, and Adjustment can be switched between the two styles (`cash & stock` vs `cash only`) using a Tweak. See [the doc](usage.md#display-of-form-8949).
 * Adds additional documentation for [Form 8949](usage.md#form-8949) and [fractional shares](usage.md#factional-share).
+
 
 
 <details><summary>Previous Releases</summary><p>
@@ -246,9 +266,14 @@ Initial tagged release because the foundation is there:
 
 # Contents
 
-The spreadsheet is exported from Google Sheets. It can be re-imported into Google Sheets but some minor fix up is required, see [here](install.md). It cannot be imported into Excel without issues - since v0.1.6 there is an Excel version of the sheet attached to the releases that can be used, along with an Office365 shared version.
+The primary functional content of the repo is a spreadsheet, [shared in Google Sheets](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), for calculating:
+* taxes due as a consequence of the merger
+* tax basis for AVGO shares received from the merger
 
-* [spreadsheet](https://github.com/hickeng/financial/raw/main/VMW_to_AVGO_ESPP_and_RSU.xlsx) - for calculating ESPP & RSU basis and realized gains
+The [spreadsheet in the repo](https://github.com/hickeng/financial/raw/main/VMW_to_AVGO_ESPP_and_RSU.xlsx) is exported from Google Sheets. It can be re-imported into Google Sheets but some minor fix up is required, see [here](install.md). It cannot be imported into Excel without issues - since v0.1.6 there is an Excel version of the sheet attached to the releases that can be used, along with an Office365 shared version.
+
+Additionally there are various documents for reference. These are material that was used to construct the sheet or are directly related to its use. These are included for easy reference and to help in understanding what the sheet does, but are not prerequisites for _using_ the sheet:
+
 * [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf) - this is what we need to file with taxes. See [here](usage.md#form-8949) for documentation about generating the values to enter into this form. Additionally, the IRS form [instructions](documents/f8949%20-%20instructions.pdf).
 * various Form 8937 - these forms exist for the Dell distributions in 2018 and 2021, and for the merger. They detail the tax implications for shares held over those dates.
 * [Broadcom/VMware merger agreement](documents/VMware%20Broadcom%20Merger%20Agreement.html)
@@ -271,7 +296,9 @@ I'm opening issues to track questions and feature requests. Feel free to do the 
 If it's also applicable to me, I'll get to them (no latency guarantees).  If not it'll be best effort.
 
 
-# Form 8949 (to be filed with taxes)
+# References
+
+<details><summary>Form 8949 (to be filed with taxes) and basis calculcation pseudocode</summary><p>
 
 This is the form used to report "Sales and Other Dispositions of Captial Assets". It's split into Short Term and Long Term gain sections, with a radio button (well, checkbox but radio button is the required behaviour) to record how it intersects with the 1099-B. If you need to use multiple radio buttons, then you must submit additional instances of the form.
 
@@ -353,11 +380,10 @@ Links into the IRS webiste:
 * [IRS instructions for Form 8949](https://www.irs.gov/instructions/i8949)
 * [IRS Form 8949](https://www.irs.gov/pub/irs-pdf/f8949.pdf)
 
+</p></details>
+<p/>
 
-
-# References
-
-## ESPP
+<details><summary>ESPP specific complexity</summary><p>
 
 The ESPP discount is considered ordinary income and _should_ be reported on your W2 when you sell the shares. In the past it has shown up on VMW W2's in `Box 14 Other`, labelled as ESPP. However, the proportion of the discount treated as ordinary income vs long term capital gain depends on whether the ESPP shares are qualified or disqualified and that's termed the Bargain Element.
 
@@ -376,8 +402,11 @@ There's discussion in [#15](https://github.com/hickeng/financial/issues/15) rega
   * [Qualified bargain element](https://fairmark.com/compensation-stock-options/employee-stock-purchase-plans/qualifying-disposition-reporting/) - `grant date price - purchase price`, which equates to 15% of grant date price for the VMware ESPP plan. If you made less than the bargain element in gain from Disposition, then it's the gain amount instead.
   * [Disqualified bargain element](https://fairmark.com/compensation-stock-options/employee-stock-purchase-plans/disqualifying-disposition-reporting/) - `purchase date price - actual amount paid`
 
+</p></details>
+<p/>
 
-## Form 8937
+<details><summary>Forms 8937 - IRS form detailing impact on tax basis from Organizational Actions </summary><p>
+
 These forms detail tax handling for an event. This includes qualified/unqualified amounts from dividends, how to adjust cost-basis, how to calculate gain that must be realized, etc. These are pulled from the [Broadcom Invester Relations](https://investors.broadcom.com/financial-information/tax-information) site.
 
 The acquisition form mostly uses non-imperative language, which leaves a lot of optionality for other treatments. My personal plan is to use the "generally ..." guidence absent a strong endorsement from a CPA for a different treatment being valid.
@@ -401,7 +430,7 @@ Of note, there was a draft version of the 2021 Form 8937 with an estimated retur
 
 Per my reading, this explicitly states that we have the option to chose _not_ to use a pro-rata approach to calculating the cash/stock split. I've an [issue](https://github.com/hickeng/financial/issues/13) to collect data on _when_ we're allowed to make this choice.
 
-The first quote is referencing the FMV of a VMW share at the time of acquisition. This should be fixed at $192.48 (?) based on knowledge at time of execution. I've an [issue](https://github.com/hickeng/financial/issues/14) to follow up on this.
+The first quote is referencing the FMV of a VMW share at the time of acquisition. Unclear to me if this is the composite value of VMW considering the stock/cash conversion, or just the VMW trading value. I've an [issue](https://github.com/hickeng/financial/issues/14) to follow up on this.
 
 ### Realized gain calculation
 
@@ -464,3 +493,6 @@ If the fraction was attributed against an ESPP share this implies recognizing th
 > The amount paid for a fractional share of Broadcom Common Stock _was based on_ the closing price of Broadcom Common Stock as reported on the NASDAQ on November 21, 2023, which was $981.20.
 
 eTrade did not use the value explicitly specified in f8937 for the fraction. I do not know what consequence "based on" has in this sentence. I've an [issue](https://github.com/hickeng/financial/issues/12) to determine handling for this.
+
+</p></details>
+<p/>
