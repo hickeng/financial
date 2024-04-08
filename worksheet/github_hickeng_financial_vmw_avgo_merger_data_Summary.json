@@ -47,7 +47,7 @@
 {"sheet":0,"id":"B59","data":"=Reference!B60","type":"formula","format":"financial","dataclass":"out_now","note":"Does NOT currently factor deductions as they're different values from federal."},
 {"sheet":0,"id":"B60","data":"=B56+B59","type":"formula","format":"financial","dataclass":"out_now"},
 {"sheet":0,"id":"C1","data":"Instructions"},
-{"sheet":0,"id":"C3","data":"Github Release: v0.1.7"},
+{"sheet":0,"id":"C3","data":"Github Release: v0.1.8"},
 {"sheet":0,"id":"C5","data":"This sheet is read only. Use File->Make a Copy to get a copy for your personal use."},
 {"sheet":0,"id":"C6","data":"There are in-sheet notes for many things - look for the little black triangles in the top right of cells and hover over the cell to view"},
 {"sheet":0,"id":"C7","data":"Look for horizontal paired arrows on column labels in RSU & ESPP sheets. These expand hidden columns for intermediate detail."},
