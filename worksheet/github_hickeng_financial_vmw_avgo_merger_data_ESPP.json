@@ -103,7 +103,7 @@
 {"sheet":1,"id":"AC7","data":"=LET(purchaseDate,C7, dateOfRecord,Reference!$B$27, returnOfCapital,Reference!$C$27, IF(purchaseDate < dateOfRecord, returnOfCapital,0))","type":"formula","format":"financial","propagate":{"end":"AC35"},"dataclass":"info"},
 {"sheet":1,"id":"AD3","data":"Cost basis entering merger"},
 {"sheet":1,"id":"AD4","data":"VMW tax-basis per share","note":"The cost basis is the actual price paid per share times the number of shares, plus the ordinary income on sale.\n\nWorking on the assumption that the merger does not count as a sale for non-cash lots, the basis shouldn't be adjusted here. HOWEVER.... we do want to consider the basis adjustment from the perspective of lot selection."},
-{"sheet":1,"id":"AD7","data":"=LET(actualPrice,L7, firstReturnOfCapital,AB7, secondReturnOfCapital,AC7, actualPrice - firstReturnOfCapital - secondReturnOfCapital)","type":"formula","format":"financial","propagate":{"end":"AD35"},"dataclass":"info"},
+{"sheet":1,"id":"AD7","data":"=LET(actualPrice,L7, firstReturnOfCapital,AB7, secondReturnOfCapital,AC7, IFERROR(actualPrice - firstReturnOfCapital - secondReturnOfCapital,0))","type":"formula","format":"financial","propagate":{"end":"AD35"},"dataclass":"info"},
 {"sheet":1,"id":"AE4","data":"VMW tax-basis per lot"},
 {"sheet":1,"id":"AE5","data":"=SUM(AE7:AE)","type":"formula","format":"financial"},
 {"sheet":1,"id":"AE7","data":"=AD7*D7","type":"formula","format":"financial","propagate":{"end":"AE35"},"dataclass":"info"},
