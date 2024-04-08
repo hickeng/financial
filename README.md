@@ -35,7 +35,7 @@ By the end of it you should have:
 <p/>
 
 <details><summary>2. Create a bundle for a CPA</summary><p>
- 
+
 Your CPA needs all of the information collected in the prior section, along with all the following if the conditions apply:
 
 * If you held VMware shares over the Broadcom merger
@@ -58,7 +58,7 @@ If you don't want to give your CPA the entire sheet, you could give them the val
 
 <details><summary>3. Enter your collected data into the spreadsheet</summary><p>
 
-There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use Excel instead of Google Sheets, or the binaries from the repo, see [Install](install.md).
+There is a shared version of the spreadsheet on Google Sheets. Go [here](https://docs.google.com/spreadsheets/d/1aQmg_Bdh5f00mJ0ag-GNZVXL9UIJjujOwpsP2h58ZFE/edit?usp=sharing), select `File->Make a copy`, then you can start entering data. If you want to use Excel instead of Google Sheets, or the binaries from the repo, see [Install](install.md).
 
 This entails:
 1. entering number of VMW shares held through the merger for:
@@ -144,7 +144,7 @@ For many shares the mandated gain calculation in Form8937 will requires you cons
 </p></details>
 <p/>
 
-There's a [more in-depth but still quick overview](https://docs.google.com/document/d/1cN5gP5Qb-A0NbvOI2dj6gwk1ebpQbRzgnbmJ_N6waZs/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point. 
+There's a [more in-depth but still quick overview](https://docs.google.com/document/d/1cN5gP5Qb-A0NbvOI2dj6gwk1ebpQbRzgnbmJ_N6waZs/edit?usp=sharing) of how VMW shares convert to AVGO+cash, provided by Dan Kan. You don't need to know this, but if you want to understand the basics behind the numbers the sheet generates, this is a good starting point.
 
 
 -----
@@ -176,6 +176,20 @@ The problems we as VMW holders know of are collected [here](problems.md), along 
 
 Using github project for planning - see [Timeline](https://github.com/users/hickeng/projects/2/views/2)
 
+## [v0.1.8](https://github.com/hickeng/financial/releases/tag/v0.1.8) - 2024-04-07
+
+Minor updates and polish
+
+* Dates now render in the style of `2021-Jan-31` to be utterly unambiguous under review - can still be entered in ISO format
+* Default Form8949 display to be Cash Only instead of the prior combined cash and shares value
+* Added a per-lot post-merger tax basis column in addition to the per-share basis, in support of reporting 2023 post-merger sales
+* Support scenario where an ESPP lot is assigned to 100% cash - now includes the imputed income into the merger basis calculation
+* Add summary cell for post-merger average tax basis - this is needed for some non-US tax reporting
+* Added additional in-sheet doc notes for columns
+* Calculation and error handling changes - for neatness and unreachable edge case correctness, no impact on user values
+
+<details><summary>Previous Releases</summary><p>
+
 ## [v0.1.7](https://github.com/hickeng/financial/releases/tag/v0.1.7) - 2024-03-21
 
 Major changes to entry of data into RSU and ESPP, and allows configuration of Form 8949 value style:
@@ -185,10 +199,6 @@ Major changes to entry of data into RSU and ESPP, and allows configuration of Fo
 * Form8949 Proceeds, Basis, and Adjustment can be switched between the two styles (`cash & stock` vs `cash only`) using a Tweak. See [the doc](usage.md#display-of-form-8949).
 * Adds additional documentation for [Form 8949](usage.md#form-8949) and [fractional shares](usage.md#factional-share).
 
-
-
-<details><summary>Previous Releases</summary><p>
- 
 ## [v0.1.6-b](https://github.com/hickeng/financial/releases/tag/v0.1.6) - 2024-03-15
 
 In place patch to the v0.1.6 release to address two row skews resulting from transcription errors when doing the comprehensible formula work.
@@ -291,7 +301,7 @@ Initial tagged release because the foundation is there:
 
 # Contents
 
-The primary functional content of the repo is a spreadsheet, [shared in Google Sheets](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), for calculating:
+The primary functional content of the repo is a spreadsheet, [shared in Google Sheets](https://docs.google.com/spreadsheets/d/1aQmg_Bdh5f00mJ0ag-GNZVXL9UIJjujOwpsP2h58ZFE/edit?usp=sharing), for calculating:
 * taxes due as a consequence of the merger
 * tax basis for AVGO shares received from the merger
 
