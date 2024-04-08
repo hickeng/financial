@@ -165,7 +165,7 @@
 {"sheet":0,"id":"K30","format":"financial","propagate":{"end":"K32"},"dataclass":"in_opt"},
 {"sheet":0,"id":"K33","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["Single","Joint","Head of household"],"enforced":true,"help":""},"dataclass":"in_opt"},
 {"sheet":0,"id":"K34","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["By status","Custom"],"enforced":true,"help":""},"dataclass":"in_opt"},
-{"sheet":0,"id":"K36","data":"Cash & AVGO FMV","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["Cash & AVGO FMV","Cash only"],"enforced":true,"help":""},"dataclass":"in_prepop"},
+{"sheet":0,"id":"K36","data":"Cash only","type":"dropdown","validation":{"type":"VALUE_IN_LIST","values":["Cash & AVGO FMV","Cash only"],"enforced":true,"help":""},"dataclass":"in_prepop"},
 {"sheet":0,"id":"K40","data":"Shows up as a \"Broadcom Inc\" sale in 1099-B"},
 {"sheet":0,"id":"K42","data":"Form 8949"},
 {"sheet":0,"id":"K43","data":"Proceeds (d)"},
