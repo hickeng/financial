@@ -2,16 +2,16 @@
 
 To just use the sheet directly from Google, go:
 
-* [here for G-Suite](https://docs.google.com/spreadsheets/d/1Q59L2TCA5f_4S5E2yOpQ3u6ZyxNyVbXjcsEArirWzYs/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
-* [here for Office365](https://1drv.ms/x/s!AkHZkTkvLX2LmpFBkTTLx0I8SgHEGA?e=e9nnah) (does not have the logic for applying strategies, but the sheet works and the lot selections for strategies can be copied over easily)
+* [here for G-Suite](https://docs.google.com/spreadsheets/d/1aQmg_Bdh5f00mJ0ag-GNZVXL9UIJjujOwpsP2h58ZFE/edit?usp=sharing), `File->Make a copy` then you can start entering data. If you want to use the binary from the repo, instructions are below.
+* Office365 - the online version of office doesn't support iterative calculation, so use [the Excel file attached to the release](https://github.com/hickeng/financial/releases/download/v0.1.8/VMW_to_AVGO_ESPP_and_RSU-v0.1.8-github-excel.xlsx)
 
 User documentation is [here](usage.md).
 
 Install is more "import", but there's some fixup required because of a Sheets bug I haven't got a workaround for as yet.
 
-There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.7/VMW_to_AVGO_ESPP_and_RSU-v0.1.7-github.xlsx) attached to the releases, suitable for import into Google Sheets, and a version [suitable for Excel](https://github.com/hickeng/financial/releases/download/v0.1.7/VMW_to_AVGO_ESPP_and_RSU-v0.1.7-github-excel.xlsx).
+There's [a binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.8/VMW_to_AVGO_ESPP_and_RSU-v0.1.8-github.xlsx) attached to the releases, suitable for import into Google Sheets, and a version [suitable for Excel](https://github.com/hickeng/financial/releases/download/v0.1.8/VMW_to_AVGO_ESPP_and_RSU-v0.1.8-github-excel.xlsx).
 
-1. Download [the latest binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.7/VMW_to_AVGO_ESPP_and_RSU-v0.1.7-github.xlsx)
+1. Download [the latest binary sheet](https://github.com/hickeng/financial/releases/download/v0.1.8/VMW_to_AVGO_ESPP_and_RSU-v0.1.8-github.xlsx)
 2. Create a new Google Sheet - [open this in new window](https://docs.google.com/spreadsheets/u/0/create?usp=sheets_home&ths=true)
 3. Go to File->Import->Upload->Browse - this will open a system file selection box. Select the downloaded sheet.
 4. Choose `Replace Spreadsheet`, and select `Import data`
