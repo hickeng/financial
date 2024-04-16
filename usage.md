@@ -389,11 +389,11 @@ Clicking `Edit` on the 1099-B section takes you to a list of each sale entry fro
 
 For efficiency, we want to set the Sales Section for RSU and ESPP as a `Bulk Edit`. Repeat the following for each page of results:
 
-Select all entries with `Sales Section` showing `Box D` (these are ESPP lots) and Select `Bulk Edit`:
+Select all entries with `Sales Section` showing `Box D` (these are covered securities - ESPP or Options) and Select `Bulk Edit`:
 
 ![turbotax screenshot of bulk edit selection for box entries](assets/turbotax-1099-b-item-review-bulk-edit-selection-box-d.png)
 
-Set the `Investment Type` as `ESPP`, leave everything else alone, and click `Save Changes`:
+Set the `Investment Type` as `ESPP` (or whatever makes sense if you're one of the more rare people with shares from options) , leave everything else alone, and click `Save Changes`:
 
 ![turbotax screenshot of bulk edit dialogue](assets/turbotax-1099-b-bulk-edit-investment-type-dropdown-espp-highlighted.png)
 
