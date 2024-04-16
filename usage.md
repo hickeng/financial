@@ -417,7 +417,7 @@ Edit an entry (repeat until you've updated all entries and no more are flagged f
 
 6. Select I found my adjusted cost basis
    * NOTE:* There is a case where Turbotax went down a different set of screens for the basis adjustment, noted in [this issue](https://github.com/hickeng/financial/issues/53#issuecomment-1975475991) with notes on workarounds discovered.
-7. This is different for ESPP vs RSU because the values are sourced from different columns in the sheet. Neither type should have a `0.00` value here:
+7. This is different for ESPP vs RSU because the values are sourced from different columns in the sheet. Neither type should have a `0.00` value here if using the combined `Cash & AVGO` value for Form8949 display - they may well have `0.00` if using `Cash Only` (the default as of v0.1.8):
    1. For ESPP - enter `Adjustment (g)` value from sheet as is - TurboTax strips the negative brackets (the correct behaviour).
    2. For RSU - enter `1099-B basis (e)` value from the sheet as is.
 8. Continue
