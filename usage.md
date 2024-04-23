@@ -135,6 +135,15 @@ For these lots I expect all of the dollar value fields to be `$0.00` except for 
 Eventually you'll need to enter (or I'll add import capabilities) the various values for each lot into the sheet so that we can double check the 1099-B vs the sheet contents. However for now the sheet presents Form8949 numbers based off the calculated values. As such the 1099-B is only for reference right now (as of v0.1.4).
 
 
+### supplement
+![supplement](assets/etrade-supplement.png)
+
+
+### 2023 11 30 account statement
+![get account statement](assets/etrade-get-statement.png)
+![transaction info](assets/etrade-20231130-statement.png)
+
+
 
 ## Summary Sheet Inputs
 
